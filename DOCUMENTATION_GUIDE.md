@@ -14,12 +14,16 @@ Deliverables are **PDF-first**. Author in Markdown under `source/`; run `npm run
 
 ## Two apps, one library
 
-Document **two closely related Domo apps** under:
+Document these Domo apps under:
 
-- `source/apps/app-a/` — rename to the real app name when known
-- `source/apps/app-b/` — rename to the real app name when known
+| App | Folder | URL |
+| --- | --- | --- |
+| **REGIS APP** | `source/apps/regis-app/` | https://regiscorp.domo.com/app-studio/183500481/pages/925282956 |
+| **REGIS FRANCHISEE APP** | `source/apps/regis-franchisee-app/` | https://regiscorp.domo.com/app-studio/2028360971/pages/1195391822 |
 
-Use `source/shared/` for documentation that applies to both apps (platform access, shared datasets, governance, glossary, etc.).
+REGIS FRANCHISEE APP is a **subset** of REGIS APP with **Personalized Data Permissions (PDP)** that limits each franchisee user to their own stores. Document this relationship in `source/shared/regis-app-relationship.md` and reference it from both app doc sets.
+
+Use `source/shared/` for cross-app documentation (PDP behavior, shared datasets, governance, glossary, etc.).
 
 ## Required document categories
 
@@ -82,7 +86,8 @@ Before handoff, confirm the library includes at least:
 ### Shared / cross-app
 
 - [ ] Domo instance access and SSO notes
-- [ ] Shared datasets between the two apps
+- [ ] Shared datasets between REGIS APP and REGIS FRANCHISEE APP
+- [ ] PDP rules, testing, and franchisee access troubleshooting
 - [ ] Naming conventions and environment notes (prod vs sandbox)
 - [ ] Escalation contacts and support boundaries
 - [ ] Glossary of business terms and calculated fields
@@ -104,10 +109,10 @@ Review output under `dist/` before client delivery. Fix formatting issues in the
 
 ## Suggested workflow for the exploration agent
 
-1. Inventory both Domo apps (pages, cards, datasets, dataflows, schedules, roles)
-2. Rename `app-a` / `app-b` folders to real app names
+1. Inventory both apps on regiscorp.domo.com (pages, cards, datasets, dataflows, schedules, roles, PDP rules)
+2. Map which REGIS APP pages/cards appear in REGIS FRANCHISEE APP
 3. Create overview docs first, then daily-use, then maintenance, then data-sources
-4. Fill shared cross-app docs
+4. Expand `source/shared/regis-app-relationship.md` with PDP and shared-dataset detail
 5. Update `library-catalog.md` and `00-handoff-overview.md`
 6. Run `npm run pdf:build:clean` and QA every PDF in `dist/`
 

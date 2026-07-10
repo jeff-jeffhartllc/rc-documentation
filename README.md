@@ -1,6 +1,6 @@
 # RC Documentation Library
 
-Client handoff documentation for two closely related Domo applications built for self-maintenance.
+Client handoff documentation for **REGIS APP** and **REGIS FRANCHISEE APP** on regiscorp.domo.com, built for self-maintenance.
 
 This repository is the **authoring workspace** and **PDF library** for that handoff. Markdown lives under `source/`; generated PDFs are written to `dist/` for delivery to the client.
 
@@ -22,11 +22,11 @@ source/
   library-catalog.md              # Master index of all documents
   shared/                         # Cross-app documentation
   apps/
-    app-a/                        # Rename when the Domo app name is known
+    regis-app/                    # REGIS APP (corporate)
       daily-use/
       maintenance/
       data-sources/
-    app-b/
+    regis-franchisee-app/         # REGIS FRANCHISEE APP (PDP-limited subset)
       daily-use/
       maintenance/
       data-sources/
@@ -67,6 +67,11 @@ See [DOCUMENTATION_GUIDE.md](./DOCUMENTATION_GUIDE.md) for:
 
 When the library is complete, deliver the contents of `dist/` (or a packaged zip of that folder) to the client. `library-catalog.pdf` is the recommended entry point.
 
-## App folder names
+## Apps documented
 
-Folders `app-a` and `app-b` are placeholders. Rename them to match the actual Domo app names once they are confirmed, then update `library-catalog.md` and rebuild PDFs.
+| App | Folder | URL |
+| --- | --- | --- |
+| REGIS APP | `source/apps/regis-app/` | https://regiscorp.domo.com/app-studio/183500481/pages/925282956 |
+| REGIS FRANCHISEE APP | `source/apps/regis-franchisee-app/` | https://regiscorp.domo.com/app-studio/2028360971/pages/1195391822 |
+
+REGIS FRANCHISEE APP is a subset of REGIS APP with Personalized Data Permissions (PDP) applied so franchisee users see only their own stores. See `source/shared/regis-app-relationship.md`.

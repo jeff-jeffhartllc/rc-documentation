@@ -4,6 +4,7 @@
 
 **Document type:** Master index  
 **Audience:** All client users  
+**Domo instance:** https://regiscorp.domo.com  
 **Status:** Draft — update as documents are added  
 **Last updated:** 2026-07-10
 
@@ -22,51 +23,53 @@ Use this catalog as the entry point to the full PDF library. Paths below refer t
 
 | Document | PDF path | Status |
 | --- | --- | --- |
-| _No shared documents yet_ | `shared/` | Pending |
+| REGIS APP and REGIS FRANCHISEE APP — relationship guide | `shared/regis-app-relationship.pdf` | Draft |
 
-## App A (placeholder name)
+## REGIS APP
 
-Rename folder `apps/app-a` when the Domo app name is confirmed.
-
-### Daily use
-
-| Document | PDF path | Status |
-| --- | --- | --- |
-| App overview | `apps/app-a/daily-use/app-overview.pdf` | Draft |
-
-### Maintenance
-
-| Document | PDF path | Status |
-| --- | --- | --- |
-| _No maintenance documents yet_ | `apps/app-a/maintenance/` | Pending |
-
-### Data sources
-
-| Document | PDF path | Status |
-| --- | --- | --- |
-| _No data source documents yet_ | `apps/app-a/data-sources/` | Pending |
-
-## App B (placeholder name)
-
-Rename folder `apps/app-b` when the Domo app name is confirmed.
+**Corporate application** — full organizational view  
+**URL:** https://regiscorp.domo.com/app-studio/183500481/pages/925282956
 
 ### Daily use
 
 | Document | PDF path | Status |
 | --- | --- | --- |
-| App overview | `apps/app-b/daily-use/app-overview.pdf` | Draft |
+| App overview | `apps/regis-app/daily-use/app-overview.pdf` | Draft |
 
 ### Maintenance
 
 | Document | PDF path | Status |
 | --- | --- | --- |
-| _No maintenance documents yet_ | `apps/app-b/maintenance/` | Pending |
+| _No maintenance documents yet_ | `apps/regis-app/maintenance/` | Pending |
 
 ### Data sources
 
 | Document | PDF path | Status |
 | --- | --- | --- |
-| _No data source documents yet_ | `apps/app-b/data-sources/` | Pending |
+| _No data source documents yet_ | `apps/regis-app/data-sources/` | Pending |
+
+## REGIS FRANCHISEE APP
+
+**Franchisee application** — subset of REGIS APP with PDP limiting view to a franchisee's stores  
+**URL:** https://regiscorp.domo.com/app-studio/2028360971/pages/1195391822
+
+### Daily use
+
+| Document | PDF path | Status |
+| --- | --- | --- |
+| App overview | `apps/regis-franchisee-app/daily-use/app-overview.pdf` | Draft |
+
+### Maintenance
+
+| Document | PDF path | Status |
+| --- | --- | --- |
+| _No maintenance documents yet_ | `apps/regis-franchisee-app/maintenance/` | Pending |
+
+### Data sources
+
+| Document | PDF path | Status |
+| --- | --- | --- |
+| _No data source documents yet_ | `apps/regis-franchisee-app/data-sources/` | Pending |
 
 ## Adding new documents
 
