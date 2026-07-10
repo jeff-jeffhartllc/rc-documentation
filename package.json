@@ -1,0 +1,15 @@
+{
+  "name": "rc-documentation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pdf:build": "node scripts/build-pdfs.mjs",
+    "pdf:build:clean": "node scripts/build-pdfs.mjs --clean",
+    "pdf:watch": "node scripts/build-pdfs.mjs --watch"
+  },
+  "devDependencies": {
+    "chokidar": "^4.0.3",
+    "md-to-pdf": "^5.2.5"
+  }
+}
