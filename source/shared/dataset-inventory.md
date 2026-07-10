@@ -1,0 +1,83 @@
+# Shared Dataset Inventory
+
+<div class="cover-meta">
+
+**Apps:** REGIS APP, REGIS FRANCHISEE APP  
+**Document type:** Shared data reference  
+**Audience:** Data owners, analysts, app owners  
+**Domo instance:** https://regiscorp.domo.com  
+**Last updated:** 2026-07-10  
+**Author / owner:** _TBD — data owner_
+
+</div>
+
+## Purpose
+
+This document lists datasets shared between REGIS APP and REGIS FRANCHISEE APP, their upstream dataflows, and which app pages depend on them.
+
+## Primary datasets (both apps)
+
+| Dataset | Dataflow output | Primary app usage | Refresh dependency |
+| --- | --- | --- | --- |
+| **Daily Sales Master 2** | Daily Sales ETL 2 | All performance pages — primary card and filter source | Daily Sales ETL 2; upstream FactDailySales |
+| **Daily Sales Indexed by Store 2** | Daily Sales Master Indexing 2 | Performance cards, indexed lookups | Daily Sales Master 2 |
+| **Store Scorecard Data** | Store Scorecard ETL | Store Performance Report Card, Store Performance Scorecard | Daily Sales Master 2; domo_regis.MonthlyMetrics |
+| **Store Scorecard Data_Brand Peers** | Store Scorecard by Brand ETL | Store Performance Scorecard (brand peer views) | Daily Sales Master 2; domo_regis.MonthlyMetrics |
+| **DimSalon** | Upstream connector / warehouse | Brand, Salon, Territory, DMA, Country filters | Upstream salon master sync |
+
+## Legacy / secondary datasets
+
+| Dataset | Dataflow output | Notes |
+| --- | --- | --- |
+| Daily Sales Master | Daily Sales ETL | Prior version; Daily Sales Master 2 is current primary |
+| Daily Sales Indexed by Store | Daily Sales Master Indexing | Prior version of indexed dataset |
+| Daily Sales Unpivoted Services 2 | Daily Sales ETL 2 | Service-type breakdowns |
+| DSM2 - Daily Sales By Traffic | Daily Sales ETL 2 | Traffic-based sales splits |
+| Corp Employee Daily Sales Master | Corp Employees Daily Sales ETL | Corporate employee daily sales |
+| Sales by Store by Day | Sales by Store by Day ETL | Daily store-level sales |
+| Employee Retention | Sales by Store by Day ETL | Loyalty / retention metrics |
+| New Guests | Sales by Store by Day ETL | New guest counts |
+| Days Between Visits | Sales by Store by Day ETL | Visit frequency metrics |
+
+## Upstream warehouse / connector datasets
+
+These feed the Magic ETL dataflows and are not directly bound to app cards:
+
+| Dataset | Used by dataflow |
+| --- | --- |
+| domo_regis.FactDailySales | Daily Sales ETL 2 |
+| FactDailySales | Daily Sales ETL (legacy) |
+| AllineDailyLabor | Daily Sales ETL, Daily Sales ETL 2 |
+| Alline Total Sales Forecast | Daily Sales ETL, Daily Sales ETL 2 |
+| DimDate | Daily Sales ETL, Daily Sales ETL 2 |
+| domo_regis.MonthlyMetrics | Store Scorecard ETL, Store Scorecard by Brand ETL |
+| domo.CorpEmployeeDailySales | Corp Employees Daily Sales ETL |
+| Alline Salon Master | Sales by Store by Day ETL |
+| Daily Labor, Daily Sales | Sales by Store by Day ETL |
+| Corporate Salons, Salons | Sales by Store by Day ETL |
+
+## Dataset → page mapping
+
+| Dataset | REGIS APP pages | REGIS FRANCHISEE APP pages |
+| --- | --- | --- |
+| Daily Sales Master 2 | Corporate Overview, Franchisee Performance, Reference | Franchisee Performance, Reference |
+| Store Scorecard Data | Store Performance Report Card, Store Performance Scorecard | Store Performance Report Card, Store Performance Scorecard |
+| Store Scorecard Data_Brand Peers | Store Performance Scorecard | Store Performance Scorecard |
+| Daily Sales Indexed by Store 2 | Performance pages (indexed cards) | Performance pages (indexed cards) |
+
+## PDP-governed datasets
+
+Franchisee PDP most likely filters these datasets (confirm with Admin):
+
+- Daily Sales Master 2
+- Store Scorecard Data
+- Store Scorecard Data_Brand Peers
+- Daily Sales Indexed by Store 2
+- DimSalon
+
+## Related documents
+
+- [Daily Sales Master 2 data source guide](../apps/regis-app/data-sources/daily-sales-master-2.md)
+- [Dataflow inventory](../apps/regis-app/data-sources/dataflow-inventory.md)
+- [PDP overview and testing](./pdp-overview-and-testing.md)
+- [REGIS app relationship guide](./regis-app-relationship.md)
