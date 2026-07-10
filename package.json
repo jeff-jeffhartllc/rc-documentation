@@ -4,11 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "pdf:build": "node scripts/build-pdfs.mjs",
+    "pdf:build:clean": "node scripts/build-pdfs.mjs --clean",
+    "pdf:watch": "node scripts/build-pdfs.mjs --watch"
   },
   "devDependencies": {
-    "vitepress": "^1.6.3"
+    "chokidar": "^4.0.3",
+    "md-to-pdf": "^5.2.5"
   }
 }

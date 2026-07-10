@@ -1,20 +1,72 @@
-# RC Documentation
+# RC Documentation Library
 
-Documentation site for the RC project, powered by [VitePress](https://vitepress.dev/).
+Client handoff documentation for two closely related Domo applications built for self-maintenance.
+
+This repository is the **authoring workspace** and **PDF library** for that handoff. Markdown lives under `source/`; generated PDFs are written to `dist/` for delivery to the client.
+
+## Purpose
+
+Provide a complete, ready-to-use document library covering:
+
+- **Daily use** — how client teams operate the apps day to day
+- **Maintenance** — how to update, troubleshoot, and extend the apps
+- **Data sources** — lineage, refresh behavior, ownership, and change procedures
+
+Documents are authored in Markdown and exported primarily as **PDFs**.
+
+## Repository layout
+
+```
+source/
+  00-handoff-overview.md          # Start here — handoff package overview
+  library-catalog.md              # Master index of all documents
+  shared/                         # Cross-app documentation
+  apps/
+    app-a/                        # Rename when the Domo app name is known
+      daily-use/
+      maintenance/
+      data-sources/
+    app-b/
+      daily-use/
+      maintenance/
+      data-sources/
+  _templates/                     # Copy these when creating new docs (not built to PDF)
+
+dist/                             # Generated PDF library (mirrors source/ structure)
+assets/                           # Images, logos, PDF styling
+scripts/build-pdfs.mjs            # Batch PDF builder
+```
 
 ## Development setup
 
 ```bash
 npm install
-npm run docs:dev
+npm run pdf:build
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Generated PDFs appear under `dist/` with the same folder structure as `source/`.
 
-## Scripts
+### Commands
 
 | Command | Description |
 | --- | --- |
-| `npm run docs:dev` | Start the VitePress development server |
-| `npm run docs:build` | Build static documentation |
-| `npm run docs:preview` | Preview the production build locally |
+| `npm run pdf:build` | Build all PDFs from `source/` into `dist/` |
+| `npm run pdf:build:clean` | Delete `dist/` and rebuild all PDFs |
+| `npm run pdf:watch` | Rebuild PDFs when markdown files change |
+
+## For documentation authors
+
+See [DOCUMENTATION_GUIDE.md](./DOCUMENTATION_GUIDE.md) for:
+
+- Required document types and coverage checklist
+- Naming conventions and folder rules
+- Template usage
+- PDF build workflow
+
+## Client delivery
+
+When the library is complete, deliver the contents of `dist/` (or a packaged zip of that folder) to the client. `library-catalog.pdf` is the recommended entry point.
+
+## App folder names
+
+Folders `app-a` and `app-b` are placeholders. Rename them to match the actual Domo app names once they are confirmed, then update `library-catalog.md` and rebuild PDFs.
