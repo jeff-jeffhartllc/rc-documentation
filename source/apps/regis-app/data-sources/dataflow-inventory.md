@@ -1,0 +1,132 @@
+# Data Source Guide — Dataflow Inventory
+
+<div class="cover-meta">
+
+**App(s):** REGIS APP, REGIS FRANCHISEE APP  
+**Document type:** Data source guide  
+**Audience:** Data owners, analysts  
+**Domo instance:** https://regiscorp.domo.com  
+**Last updated:** 2026-07-10  
+**Author / owner:** _TBD — data owner_
+
+</div>
+
+## Summary
+
+This document inventories all Magic ETL dataflows observed in regiscorp.domo.com that feed datasets used by REGIS APP and REGIS FRANCHISEE APP. All flows were **ENABLED** with last execution **SUCCESS** at time of documentation.
+
+> **Client action required:** Confirm exact refresh schedules in Domo Dataflows → each flow → Schedule tab.
+
+## Dataflow inventory
+
+### Daily Sales ETL 2
+
+| Item | Value |
+| --- | --- |
+| **Status** | ENABLED — last run SUCCESS |
+| **Inputs** | AllineDailyLabor, DimSalon, domo_regis.FactDailySales, DimDate, Alline Total Sales Forecast |
+| **Outputs** | Daily Sales Master 2, DSM2 - Daily Sales By Traffic, Daily Sales Unpivoted Services 2 |
+| **App impact** | **Critical** — primary dataset for both apps |
+
+### Daily Sales ETL (legacy)
+
+| Item | Value |
+| --- | --- |
+| **Status** | ENABLED — last run SUCCESS |
+| **Inputs** | AllineDailyLabor, DimSalon, DimDate, FactDailySales, Alline Total Sales Forecast |
+| **Outputs** | Daily Sales Master, Daily Sales Unpivoted Services |
+| **App impact** | Legacy; Daily Sales Master 2 is current primary |
+
+### Daily Sales Master Indexing 2
+
+| Item | Value |
+| --- | --- |
+| **Status** | ENABLED — last run SUCCESS |
+| **Inputs** | Daily Sales Master 2 |
+| **Outputs** | Daily Sales Indexed by Store 2 |
+| **App impact** | Indexed performance cards |
+
+### Daily Sales Master Indexing (legacy)
+
+| Item | Value |
+| --- | --- |
+| **Status** | ENABLED — last run SUCCESS |
+| **Inputs** | Daily Sales Master |
+| **Outputs** | Daily Sales Indexed by Store |
+
+### Store Scorecard ETL
+
+| Item | Value |
+| --- | --- |
+| **Status** | ENABLED — last run SUCCESS |
+| **Inputs** | Daily Sales Master 2, domo_regis.MonthlyMetrics |
+| **Outputs** | Store Scorecard Data |
+| **App impact** | Store Performance Report Card and Scorecard pages |
+
+### Store Scorecard by Brand ETL
+
+| Item | Value |
+| --- | --- |
+| **Status** | ENABLED — last run SUCCESS |
+| **Inputs** | Daily Sales Master 2, domo_regis.MonthlyMetrics |
+| **Outputs** | Store Scorecard Data_Brand Peers |
+| **App impact** | Brand peer comparisons on Scorecard page |
+
+### Corp Employees Daily Sales ETL
+
+| Item | Value |
+| --- | --- |
+| **Status** | ENABLED — last run SUCCESS |
+| **Inputs** | Daily Sales Master, domo.CorpEmployeeDailySales |
+| **Outputs** | Corp Employee Daily Sales Master |
+| **App impact** | Corporate employee daily sales (if used on pages) |
+
+### Sales by Store by Day ETL
+
+| Item | Value |
+| --- | --- |
+| **Status** | ENABLED — last run SUCCESS |
+| **Inputs** | Monthly Employee Retention, Monthly New Guests, DimDateOld, Daily Labor, Daily Sales, Monthly Days Between Visits, Alline Salon Master, Alline Total Sales Forecast, Corporate Salons, Salons |
+| **Outputs** | Employee Retention, Alline Stores Month Targets, Days Between Visits, Sales by Store by Day, New Guests |
+| **App impact** | Retention and guest metrics feeding master datasets |
+
+### Regis Stock History Builder
+
+| Item | Value |
+| --- | --- |
+| **Status** | ENABLED — last run SUCCESS |
+| **Inputs** | Regis Stock Data Current, Regis Stock Data History |
+| **Outputs** | Regis Stock Data History |
+| **App impact** | Stock data (not directly on main app pages) |
+
+## Dependency chain
+
+```
+Upstream connectors / warehouse
+    │
+    ├── Sales by Store by Day ETL ──► (retention, guest datasets)
+    │
+    ├── Daily Sales ETL 2 ──► Daily Sales Master 2
+    │       │
+    │       ├── Daily Sales Master Indexing 2 ──► Daily Sales Indexed by Store 2
+    │       ├── Store Scorecard ETL ──► Store Scorecard Data
+    │       └── Store Scorecard by Brand ETL ──► Store Scorecard Data_Brand Peers
+    │
+    └── Corp Employees Daily Sales ETL ──► Corp Employee Daily Sales Master
+```
+
+## Manual re-run order
+
+When recovering from a failure, re-run in this order:
+
+1. Daily Sales ETL 2
+2. Daily Sales Master Indexing 2
+3. Store Scorecard ETL
+4. Store Scorecard by Brand ETL
+5. Corp Employees Daily Sales ETL (if needed)
+
+## Related documents
+
+- [Runbook — refresh failures](../maintenance/runbook-refresh-failures.md)
+- [Daily Sales Master 2](./daily-sales-master-2.md)
+- [Shared dataset inventory (shared)](../../shared/dataset-inventory.md)
