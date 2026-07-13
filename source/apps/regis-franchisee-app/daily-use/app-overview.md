@@ -4,17 +4,17 @@
 
 **App:** REGIS FRANCHISEE APP  
 **Document type:** Daily use — app overview  
-**Audience:** Franchisee users and their support contacts  
+**Audience:** Franchisee operators  
 **Domo URL:** https://regiscorp.domo.com/app-studio/2028360971/pages/1195391822  
 **App Studio ID:** 2028360971  
-**Last updated:** 2026-07-10  
+**Last updated:** 2026-07-13  
 **Author / owner:** _TBD — primary app owner_
 
 </div>
 
 ## Business purpose
 
-REGIS FRANCHISEE APP gives franchisee operators a focused view of their own salon performance. It is a **4-page subset** of REGIS APP with **Personalized Data Permissions (PDP)** applied so each franchisee user sees only their assigned stores.
+REGIS FRANCHISEE APP helps you review performance for **your** salons — sales, traffic, productivity, report cards, and scorecards — in one place.
 
 Primary use cases:
 
@@ -28,48 +28,31 @@ Primary use cases:
 | --- | --- |
 | App name | REGIS FRANCHISEE APP |
 | App Studio ID | `2028360971` |
-| Default landing page | Franchisee Performance (`1195391822`) |
-| Pages | 4 |
-| Primary dataset | Daily Sales Master 2 (PDP-scoped) |
+| Default landing page | Franchisee Performance |
 | Audience | Franchisee operators |
 
 ![REGIS FRANCHISEE APP landing page](../../assets/regis-franchisee-app-landing.png)
 
-## Navigation
+## Pages in this app
 
-| # | Page | Page ID | Corporate equivalent |
-| --- | --- | --- | --- |
-| 1 | **Franchisee Performance** | `1195391822` | Franchisee Performance (`1429176950`) |
-| 2 | **Store Performance Report Card** | `1731862460` | Store Performance Report Card (`686205723`) |
-| 3 | **Store Performance Scorecard** | `1073407012` | Store Performance Scorecard (`1910351785`) |
-| 4 | **Reference** | `507890851` | Reference (`52287357`) |
+| Page | What it is for |
+| --- | --- |
+| **Franchisee Performance** | Daily KPIs for your salons (landing page) |
+| **Store Performance Report Card** | Monthly store coaching scores |
+| **Store Performance Scorecard** | SPH, service mix, and sales trends |
+| **Reference** | Filter definitions, letter grades, and usage tips |
 
-### Pages NOT in this app
+## What you see
 
-These REGIS APP pages are corporate-only:
-
-- Corporate Overview
-- Daily Sales Email Report
-- Daily Laddering Report
-
-## How PDP affects your view
-
-- You see **only your franchisee's salons** — no other franchisee's data.
-- The **Entity Type** filter is not present — PDP handles your scope automatically.
-- The location map shows **Active Franchise Locations** (not "Active Regis Locations").
-- Page filters (Brand, Salon, DMA, etc.) work within your assigned stores.
-
-Full PDP configuration and testing steps are in **PDP overview and testing** in Regis-Admin-Guide.docx.
+- Cards and filters reflect **your assigned salons**.
+- The Salon filter lists only salons available to your account.
+- The location map shows **Active Franchise Locations**.
 
 ## Who should read this
 
-- **Franchisee daily users** — start here, then open page-specific guides
-- **Franchisee support / app owners** — also use Admin Guide maintenance topics
-- **Data owners** — also use Admin Guide data platform topics
+Start with this overview, then use the page topics and **Navigation and filters** for day-to-day work.
 
 ## Related topics
 
-- [Franchisee Performance guide](./franchisee-performance.md)
+- [Franchisee Performance](./franchisee-performance.md)
 - [Navigation and filters](./navigation-and-filters.md)
-- [REGIS app relationship (shared)](../../shared/regis-app-relationship.md)
-- [PDP overview (shared)](../../shared/pdp-overview-and-testing.md)

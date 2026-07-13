@@ -4,16 +4,16 @@
 
 **App:** REGIS FRANCHISEE APP  
 **Document type:** Daily use guide  
-**Audience:** Franchisee operators, field managers  
+**Audience:** Franchisee operators  
 **Domo page:** Store Performance Scorecard (`1073407012`)  
-**Last updated:** 2026-07-10  
+**Last updated:** 2026-07-13  
 **Author / owner:** _TBD — primary app owner_
 
 </div>
 
 ## Purpose
 
-Store-level SPH analysis, service mix, and monthly/quarterly sales trends for your assigned salons.
+Store-level SPH analysis, service mix, and monthly/quarterly sales trends for your salons.
 
 ## Opening the page
 
@@ -30,9 +30,7 @@ https://regiscorp.domo.com/app-studio/2028360971/pages/1073407012
 | Distribution of Services by Total Sales | Service mix |
 | Monthly / Quarterly Total Sales Trend | Sales trends |
 
-For full detail, see [Store Performance Scorecard (REGIS APP)](../../regis-app/daily-use/store-performance-scorecard.md).
-
 ## Related topics
 
 - [Store Performance Report Card](./store-performance-report-card.md)
-- [Store Scorecard Data_Brand Peers source](../../regis-app/data-sources/store-scorecard-data.md)
+- [Glossary](./glossary.md)

@@ -85,6 +85,7 @@ When maintaining REGIS APP, consider downstream impact on the franchisee app. Se
 
 ## Related topics
 
-- [REGIS app relationship (shared)](../../shared/regis-app-relationship.md)
-- [REGIS FRANCHISEE APP overview](../../regis-franchisee-app/daily-use/app-overview.md)
-- Use **Contents** in this guide (and Regis-Admin-Guide.docx) to find related topics
+- [Navigation and filters guide](./navigation-and-filters.md)
+- [Export and sharing procedures](./exports-and-sharing.md)
+- Franchisee operator documentation is in **Regis-Franchisee-Guide.docx** (do not give franchisees this corporate User Guide)
+- Platform / PDP detail is in Regis-Admin-Guide.docx

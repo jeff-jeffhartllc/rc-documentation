@@ -1,0 +1,73 @@
+{
+  "id": "franchisee-guide",
+  "title": "REGIS Domo Franchisee Guide",
+  "subtitle": "Daily use — REGIS FRANCHISEE APP",
+  "docxFilename": "Regis-Franchisee-Guide.docx",
+  "sections": [
+    {
+      "title": "Getting started",
+      "topics": [
+        {
+          "slug": "introduction",
+          "title": "About this guide",
+          "file": "source/delivery/franchisee-guide-introduction.md"
+        }
+      ]
+    },
+    {
+      "title": "Using the app",
+      "topics": [
+        {
+          "slug": "franchisee-app-overview",
+          "title": "App overview",
+          "file": "source/apps/regis-franchisee-app/daily-use/app-overview.md"
+        },
+        {
+          "slug": "franchisee-app-navigation",
+          "title": "Navigation and filters",
+          "file": "source/apps/regis-franchisee-app/daily-use/navigation-and-filters.md"
+        },
+        {
+          "slug": "franchisee-app-performance",
+          "title": "Franchisee Performance",
+          "file": "source/apps/regis-franchisee-app/daily-use/franchisee-performance.md"
+        },
+        {
+          "slug": "franchisee-app-store-report-card",
+          "title": "Store Performance Report Card",
+          "file": "source/apps/regis-franchisee-app/daily-use/store-performance-report-card.md"
+        },
+        {
+          "slug": "franchisee-app-store-scorecard",
+          "title": "Store Performance Scorecard",
+          "file": "source/apps/regis-franchisee-app/daily-use/store-performance-scorecard.md"
+        },
+        {
+          "slug": "franchisee-app-reference",
+          "title": "Reference page",
+          "file": "source/apps/regis-franchisee-app/daily-use/reference-page.md"
+        },
+        {
+          "slug": "franchisee-app-exports",
+          "title": "Exports and sharing",
+          "file": "source/apps/regis-franchisee-app/daily-use/exports-and-sharing.md"
+        }
+      ]
+    },
+    {
+      "title": "Reference",
+      "topics": [
+        {
+          "slug": "glossary",
+          "title": "Glossary",
+          "file": "source/apps/regis-franchisee-app/daily-use/glossary.md"
+        },
+        {
+          "slug": "getting-help",
+          "title": "Getting help",
+          "file": "source/delivery/franchisee-getting-help.md"
+        }
+      ]
+    }
+  ]
+}

@@ -1,12 +1,13 @@
 # Documentation Authoring Guide (vendor)
 
-This repository builds **two Word files** for the customer. Customers do not use this repo.
+This repository builds **three Word files** for the customer. Customers do not use this repo.
 
 ## Deliverable
 
 | File | Audience |
 | --- | --- |
-| `Regis-User-Guide.docx` | Operators |
+| `Regis-User-Guide.docx` | Corporate REGIS APP operators |
+| `Regis-Franchisee-Guide.docx` | Franchisee REGIS FRANCHISEE APP operators |
 | `Regis-Admin-Guide.docx` | Admins / data owners |
 
 Build:
@@ -16,16 +17,16 @@ npm install
 npm run build:all
 ```
 
-Zip `dist/delivery/` for handoff.
+Zip `dist/delivery/` for handoff. Franchisee operators receive **only** the Franchisee Guide.
 
 ## After handoff
 
-Customer ownership is the two `.docx` files. They edit in Microsoft Word. No Markdown, HTML, or git is involved on the customer side.
+Customer ownership is the three `.docx` files. They edit in Microsoft Word. No Markdown, HTML, or git is involved on the customer side.
 
 ## Vendor authoring (optional, until handoff)
 
 1. Edit Markdown under `source/`
-2. Adjust topic order in `books/user-guide.json` / `books/admin-guide.json`
+2. Adjust topic order in `books/user-guide.json`, `books/franchisee-guide.json`, and/or `books/admin-guide.json`
 3. `npm run build:all`
 4. Verify Contents links and Navigation pane headings in Word
 
@@ -39,16 +40,22 @@ Intro pages live in `source/delivery/`.
 
 ## Coverage
 
-### User Guide
+### User Guide (corporate)
 
-- REGIS APP and franchisee daily-use topics
+- REGIS APP daily-use topics
 - Glossary and getting help
+
+### Franchisee Guide
+
+- REGIS FRANCHISEE APP daily-use topics only
+- Franchisee-safe glossary and getting help
+- Do **not** list corporate-only pages or describe what franchisees cannot see
 
 ### Admin Guide
 
 - Handoff, access, PDP, datasets, dataflows
 - Maintenance and runbooks
-- Pointer to User Guide (no duplicate daily-use content)
+- Pointer to both operator guides (no duplicate daily-use content)
 
 ## Cross-references
 
