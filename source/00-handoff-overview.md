@@ -5,7 +5,7 @@
 **Document type:** Handoff package overview  
 **Audience:** Client stakeholders and app owners  
 **Domo instance:** https://regiscorp.domo.com  
-**Status:** Complete — pending client ownership contacts; scorecard/dimension PDP verification  
+**Status:** Complete — pending client ownership contacts  
 **Last updated:** 2026-07-13
 
 </div>
@@ -78,12 +78,11 @@ Use the **data-sources** guides and the shared dataset inventory for dataflow, r
 
 The following items could not be fully verified during documentation and require client completion:
 
-1. **Scorecard / dimension PDP** — Most app-related datasets are documented (see `shared/pdp-policy-inventory.md`). **Store Scorecard Data** and **DimSalon** still need PDP tab verification.
-2. **Ownership contacts** — All owner/escalation fields marked _TBD_.
-3. **Refresh schedules** — Dataflows are documented with lineage; exact cron schedules need confirmation in Domo Dataflows.
-4. **Full field dictionary** — Key fields documented; complete schema export from Data Center recommended.
-5. **SSO provider details** — Authentication configuration to be documented by IT.
-6. **Scheduled report recipients** — Distribute schedules to be documented by app owner.
+1. **Ownership contacts** — All owner/escalation fields marked _TBD_.
+2. **Refresh schedules** — Dataflows are documented with lineage; exact cron schedules need confirmation in Domo Dataflows.
+3. **Full field dictionary** — Key fields documented; complete schema export from Data Center recommended.
+4. **SSO provider details** — Authentication configuration to be documented by IT.
+5. **Scheduled report recipients** — Distribute schedules to be documented by app owner.
 
 ## Document conventions
 

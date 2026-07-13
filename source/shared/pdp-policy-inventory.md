@@ -15,6 +15,8 @@
 
 This document records **live Personalized Data Permission (PDP) row policies** captured from regiscorp.domo.com on 2026-07-13 while signed in as Jeff Hart (Admin). It supplements `pdp-overview-and-testing.md` with exact policy names, groups, filter columns, and dataset IDs.
 
+For **how PDP ties together** — Domo groups, custom attributes (**Ownership**, **Territory**), and dynamic row filters — see the architecture section in [PDP overview and testing](./pdp-overview-and-testing.md#pdp-architecture-groups-custom-attributes-and-row-policies).
+
 ## How to open PDP in Domo
 
 | Step | Action |
@@ -241,16 +243,25 @@ Indexed store performance dataset output from **Daily Sales Master Indexing 2**.
 | **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
-## Other datasets (PDP status TBD)
+## Store Scorecard Data (scorecard ETL output)
 
-Scorecard and dimension datasets below are used by app cards and filters. Their PDP settings were **not fully captured** in this session. An Admin should open each dataset's **PDP** tab and confirm whether row policies mirror Daily Sales Master 2 or are inherited through card filter linkage.
+Primary scorecard dataset for **Store Performance Report Card** and **Store Performance Scorecard**. PDP was confirmed to match **Store Scorecard Data_Brand Peers** (same **All Rows** + **Franchisee** policies, same groups and **Ownership** dynamic filter). A separate PDP tab capture was not required.
 
-| Dataset | Used by | PDP status |
-| --- | --- | --- |
-| Store Scorecard Data | Store Performance Report Card, Store Performance Scorecard | _TBD — verify in Data Center_ |
-| DimSalon | Filter dimensions (Brand, Salon, Territory, DMA) | _TBD — verify in Data Center_ |
+| Item | Value |
+| --- | --- |
+| **Domo dataset name** | Store Scorecard Data |
+| **PDP status** | **Enabled** — same policy pattern as Brand Peers |
+| **Franchisee filter** | `FranchiseeNumber` **EQUALS** `Ownership` → **RestrictedDataAccess** |
 
-If franchisee users see scorecard data outside their salon scope, add or align PDP row policies on those datasets to match the **Franchisee** policy pattern above.
+## Datasets without PDP
+
+| Dataset | Domo / logical name | PDP | Notes |
+| --- | --- | --- | --- |
+| Salon dimension | **DimSalon** / **domo_regis.MonthlySalonCounts** | **No** | ETL input only; franchisee scoping on downstream datasets |
+
+## Dataset-level capture complete
+
+All PDP-enabled datasets used by REGIS APP and REGIS FRANCHISEE APP have been documented. Policies follow the standard **All Rows** + **Franchisee** pattern unless noted (legacy Daily Sales Master adds **TerritoryDataAccess**).
 
 ## API reference (for automation)
 

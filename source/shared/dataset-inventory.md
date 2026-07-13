@@ -23,7 +23,7 @@ This document lists datasets shared between REGIS APP and REGIS FRANCHISEE APP, 
 | **Daily Sales Indexed by Store 2** | Daily Sales Master Indexing 2 | Performance cards, indexed lookups | Daily Sales Master 2 |
 | **Store Scorecard Data** | Store Scorecard ETL | Store Performance Report Card, Store Performance Scorecard | Daily Sales Master 2; domo_regis.MonthlyMetrics |
 | **Store Scorecard Data_Brand Peers** | Store Scorecard by Brand ETL | Store Performance Scorecard (brand peer views) | Daily Sales Master 2; domo_regis.MonthlyMetrics |
-| **DimSalon** | Upstream connector / warehouse | Brand, Salon, Territory, DMA, Country filters | Upstream salon master sync |
+| **DimSalon** | Upstream connector / warehouse | Brand, Salon, Territory, DMA, Country filters | Upstream salon master sync; **no PDP** (Domo: domo_regis.MonthlySalonCounts) |
 
 ## Legacy / secondary datasets
 
@@ -80,8 +80,8 @@ Captured from live Domo on 2026-07-13. See [PDP policy inventory](./pdp-policy-i
 | **DSM2 - Daily Sales By Traffic** | `b5bac1e5-bd22-47b9-b8de-a19bc0237de0` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | **Store Scorecard Data_Brand Peers** | `41cb7308-2860-431e-92ca-7b63049b8ce9` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | **Daily Sales Indexed by Store 2** | `0239c170-55d5-43e1-9a92-a3498ba68548` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
-| Store Scorecard Data | _TBD_ | Not captured — verify | _TBD_ |
-| DimSalon | _TBD_ | Not captured — verify | _TBD_ |
+| **Store Scorecard Data** | — | **Yes** — same as Brand Peers | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
+| DimSalon / domo_regis.MonthlySalonCounts | — | **No** | Scoping via downstream PDP datasets |
 
 **Domo groups (Daily Sales Master 2):**
 

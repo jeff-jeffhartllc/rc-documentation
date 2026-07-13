@@ -47,7 +47,7 @@ domo_regis.MonthlyMetrics ┘          (PDP enabled on inputs and ETL output —
 
 ## PDP note
 
-**domo_regis.MonthlyMetrics** (upstream input) and **Store Scorecard Data_Brand Peers** (ETL output, ID `41cb7308-2860-431e-92ca-7b63049b8ce9`) both have PDP row filtering with the **Franchisee** policy (`FranchiseeNumber` = **Ownership** → RestrictedDataAccess). PDP on **Store Scorecard Data** (primary scorecard dataset) was not captured in this pass — verify in Data Center if franchisee report card scope looks incorrect.
+**domo_regis.MonthlyMetrics** (upstream input), **Store Scorecard Data**, and **Store Scorecard Data_Brand Peers** (ETL outputs) all have PDP row filtering with the **Franchisee** policy (`FranchiseeNumber` = **Ownership** → RestrictedDataAccess). **Store Scorecard Data** uses the same policy pattern as Brand Peers (confirmed during PDP documentation). See [PDP policy inventory](../../shared/pdp-policy-inventory.md).
 
 ## Failure handling
 

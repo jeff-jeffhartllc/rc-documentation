@@ -17,6 +17,82 @@ This guide explains how Personalized Data Permissions (PDP) limit franchisee use
 
 For the **live policy inventory** (policy names, groups, filter columns, dataset IDs), see [PDP policy inventory](./pdp-policy-inventory.md).
 
+## PDP architecture: groups, custom attributes, and row policies
+
+Regis franchisee scoping uses Domo **Personalized Data Permissions (PDP)** with **Dynamic PDP** — row filters whose values come from **custom user attributes**, applied to users via **Domo group membership**. This is a two-step model:
+
+```
+┌─────────────────────┐     ┌──────────────────────────┐     ┌─────────────────────────┐
+│  Domo group         │     │  PDP row policy on       │     │  Rows returned at       │
+│  membership         │ ──► │  each governed dataset   │ ──► │  query time             │
+└─────────────────────┘     └──────────────────────────┘     └─────────────────────────┘
+         │                              │
+         │                              └── Dynamic filter: dataset column EQUALS user attribute
+         │
+         └── Determines WHICH policy applies (All Rows vs Franchisee vs Territory)
+```
+
+**Group membership** decides which row policy applies to a user. **Custom attributes** on the user profile supply the filter value for dynamic policies. Both must be correct for franchisee access to work.
+
+### Custom attributes (Governance → Attributes)
+
+| Attribute | Used by | PDP filter pattern | Audience |
+| --- | --- | --- | --- |
+| **Ownership** | **Franchisee** row policy on all franchisee-scoped datasets | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | Franchisee users in **RestrictedDataAccess** |
+| **Territory** | **TerritoryDataAccess** row policy on legacy Daily Sales Master only | `Alline_territory` **EQUALS** `Territory` (dynamic) | Territory leaders in **TerritoryDataAccess** |
+
+**Ownership** is the primary franchisee key. Each franchisee user's **Ownership** value must match the `FranchiseeNumber` column in governed datasets (for example Daily Sales Master 2). Values are typically set during user provisioning (manual entry in **Admin → Governance → People**, SSO attribute mapping, or automation — confirm with IT).
+
+**Territory** applies only to the legacy **Daily Sales Master** dataset, not to Daily Sales Master 2 or REGIS FRANCHISEE APP.
+
+### Domo groups tied to PDP policies
+
+| Group | Group ID | Members (2026-07-13) | PDP policy | Effect |
+| --- | --- | --- | --- | --- |
+| **AllDataAccess** | `2014419418` | 49 | **All Rows** (open) | Sees all rows on governed datasets |
+| **RestrictedDataAccess** | `950576281` | 15 | **Franchisee** (dynamic) | Sees rows where `FranchiseeNumber` = user's **Ownership** |
+| **TerritoryDataAccess** | `1547677730` | _not counted_ | **TerritoryDataAccess** on legacy DSM | Sees rows where `Alline_territory` = user's **Territory** |
+| **3c090c15-223e-4377-bf0f-60e2eec980b4** | `1197243980` | 3 | **All Rows** (open) | Internal / test full access (group name is a UUID) |
+
+All Admins and DataSet Owners also receive **All Rows** access via Domo's built-in open-policy rule.
+
+> **Note on dynamic groups:** Domo supports **dynamic groups** (membership rules based on attributes). This documentation captures **group names, IDs, and PDP bindings** from the live instance. Whether **RestrictedDataAccess** or **AllDataAccess** membership is maintained manually or by dynamic group rules should be confirmed in **Admin → Governance → Groups** → select group → membership rules.
+
+### Standard row policies (replicated across datasets)
+
+Nearly every PDP-enabled dataset uses the same two franchisee policies:
+
+| Policy name | Type | Groups | Filter |
+| --- | --- | --- | --- |
+| **All Rows** | Open (all data) | AllDataAccess, admins, UUID test group | None |
+| **Franchisee** | User (filtered) | RestrictedDataAccess | `FranchiseeNumber` = **Ownership** |
+
+Legacy **Daily Sales Master** adds **TerritoryDataAccess** (`Alline_territory` = **Territory**) for territory leaders.
+
+PDP is configured **per dataset** (Data → dataset → **PDP** → Row Policies → enable **Row Filtering**). The same group and attribute bindings are repeated on each governed dataset listed in [PDP policy inventory](./pdp-policy-inventory.md).
+
+### Datasets without PDP
+
+| Dataset | Domo name | PDP | Notes |
+| --- | --- | --- | --- |
+| Salon dimension | **DimSalon** / **domo_regis.MonthlySalonCounts** | **No** | Master dimension input to ETL; franchisee scoping happens on downstream datasets (DSM2, scorecard outputs, etc.) |
+
+Franchisee users do not need PDP on the salon master because app cards and filters read from PDP-governed datasets where `FranchiseeNumber` is already present.
+
+### Provisioning a new franchisee user
+
+1. **Admin → Governance → People** — create or locate the user.
+2. Set custom attribute **Ownership** to the franchisee identifier (must match `FranchiseeNumber` in Daily Sales Master 2).
+3. **Admin → Governance → Groups** — add user to **RestrictedDataAccess**; confirm they are **not** in **AllDataAccess**.
+4. Grant access to **REGIS FRANCHISEE APP** (not REGIS APP unless intentional).
+5. Test per [Testing PDP](#testing-pdp) below.
+
+### Changing franchisee scope
+
+1. Update **Ownership** on the user (or group membership if moving between corporate and franchisee).
+2. Confirm upstream salon master and ETL have refreshed so `FranchiseeNumber` values are current.
+3. Re-test in REGIS FRANCHISEE APP. No PDP policy edit is required unless the filter column or attribute name changes.
+
 ## How PDP works in REGIS FRANCHISEE APP
 
 1. A franchisee user logs in to **regiscorp.domo.com** and opens **REGIS FRANCHISEE APP**.
@@ -48,8 +124,8 @@ Corporate users in **REGIS APP** are governed by standard Domo roles (Admin, Pri
 | **DSM2 - Daily Sales By Traffic** | `b5bac1e5-bd22-47b9-b8de-a19bc0237de0` | **Yes** | Same as DSM2 (ETL derivative; not primary app source) |
 | **Store Scorecard Data_Brand Peers** | `41cb7308-2860-431e-92ca-7b63049b8ce9` | **Yes** | **All Rows** · **Franchisee** (`FranchiseeNumber` = Ownership) |
 | **Daily Sales Indexed by Store 2** | `0239c170-55d5-43e1-9a92-a3498ba68548` | **Yes** | **All Rows** · **Franchisee** (`FranchiseeNumber` = Ownership) |
-| Store Scorecard Data | _TBD_ | Not captured | Verify in Data Center → PDP tab |
-| DimSalon | _TBD_ | Not captured | Verify in Data Center → PDP tab |
+| **Store Scorecard Data** | _same pattern as Brand Peers_ | **Yes** | **All Rows** · **Franchisee** (confirmed; identical to Brand Peers capture) |
+| DimSalon / domo_regis.MonthlySalonCounts | Salon dimension (ETL input) | **No** | Scoping via downstream PDP datasets |
 
 ## Where PDP is configured in Domo
 
@@ -66,7 +142,7 @@ During library authoring, legacy deep links such as `/admin/personalizeddata` re
 1. **Group membership** — franchisee users belong to **RestrictedDataAccess** (15 members as of 2026-07-13).
 2. **Ownership attribute** — each user's **Ownership** value must match `FranchiseeNumber` in Daily Sales Master 2.
 3. **PDP policy** — the **Franchisee** row policy applies the dynamic filter `FranchiseeNumber EQUALS Ownership`.
-4. **Upstream master data** — salon-to-franchisee relationships in DimSalon and warehouse tables must stay current so `FranchiseeNumber` is accurate after ETL runs.
+4. **Upstream master data** — salon-to-franchisee relationships must stay current in DimSalon / **domo_regis.MonthlySalonCounts** so `FranchiseeNumber` in DSM2 is accurate after ETL runs (DimSalon itself has no PDP).
 
 When a salon changes franchisee ownership or a new salon opens, update upstream master data **and** verify the franchisee user's **Ownership** attribute and PDP scope.
 
