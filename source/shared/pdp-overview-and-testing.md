@@ -149,7 +149,7 @@ You need **Admin** or appropriate governance grants.
 
 ### Test as an admin (impersonation)
 
-1. Use test accounts **Jeff Franchisee** or a known franchisee user in **RestrictedDataAccess**.
+1. Use a known franchisee test account in **RestrictedDataAccess**.
 2. In Domo Admin, use **View as User** (or equivalent impersonation) to open REGIS FRANCHISEE APP as that franchisee.
 3. On **Franchisee Performance**, verify:
    - Only the franchisee's salons appear in the Salon filter.
