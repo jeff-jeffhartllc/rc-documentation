@@ -15,14 +15,12 @@ Point operators to that file. This Admin Guide does not duplicate daily-use cont
 
 ## Maintaining this documentation
 
-After handoff, **this Word file and Regis-User-Guide.docx are the documentation**. Edit them directly in Microsoft Word:
+After handoff, **this Word file and Regis-User-Guide.docx are the documentation**. Edit them directly in Microsoft Word. No repository or rebuild tools are required.
 
-1. Keep **Heading 1** for major sections and **Heading 2** for topics so Contents and the Navigation pane stay useful.
-2. After changing headings, right-click **Contents** → **Update Field** → **Update entire table** (when available).
-3. Save dated backups before large rewrites.
-4. Optionally keep org-specific contacts and notes in a separate addendum document.
-
-No repository, HTML site, or rebuild tools are required for ongoing maintenance.
+1. Preserve **Heading 1** (sections) and **Heading 2** (topics) styles so Contents and Navigation remain useful.
+2. After heading changes, right-click **Contents** → **Update Field** → **Update entire table** (when available).
+3. Keep dated backups before large rewrites.
+4. Optional: store org-specific notes in a separate addendum document.
 
 ## Recommended reading order
 
