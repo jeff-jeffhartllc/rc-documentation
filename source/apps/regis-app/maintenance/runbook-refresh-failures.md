@@ -38,7 +38,7 @@ Restore current data to REGIS APP and REGIS FRANCHISEE APP by identifying and re
 | 5 | If upstream source is stale: contact upstream owner or wait for connector refresh | Upstream refreshes |
 | 6 | If upstream is current: click **Run** on Daily Sales ETL 2 | Execution completes with SUCCESS |
 | 7 | Verify Daily Sales Master 2 Last Updated timestamp is current | Dataset refreshed |
-| 8 | Check dependent dataflows: Daily Sales Master Indexing 2, Store Scorecard ETL | Re-run if triggered by input update |
+| 8 | Check dependent dataflows: Daily Sales Master Indexing 2, Store Scorecard by Brand ETL | Re-run if triggered by input update |
 | 9 | Open REGIS APP → Corporate Overview → verify cards show current data | Cards populated |
 | 10 | Open REGIS FRANCHISEE APP → Franchisee Performance → spot-check | Franchisee app also current |
 
@@ -48,7 +48,7 @@ When manually re-running, follow this order:
 
 1. **Daily Sales ETL 2** → produces Daily Sales Master 2
 2. **Daily Sales Master Indexing 2** → produces Daily Sales Indexed by Store 2
-3. **Store Scorecard ETL** / **Store Scorecard by Brand ETL** → produces scorecard datasets
+3. **Store Scorecard by Brand ETL** → produces Store Scorecard Data_Brand Peers
 4. **Corp Employees Daily Sales ETL** → if corp employee cards affected
 
 ## Verification
@@ -66,7 +66,7 @@ When manually re-running, follow this order:
 | Data correct in dataset but cards wrong | Escalate to app owner (card config issue) | _TBD — app owner_ |
 | Platform outage | Check status.domo.com; contact Domo Support | Domo account team |
 
-## Related documents
+## Related topics
 
 - [Dataflow inventory](../data-sources/dataflow-inventory.md)
 - [Daily Sales Master 2 data source](../data-sources/daily-sales-master-2.md)

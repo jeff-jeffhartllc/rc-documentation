@@ -49,7 +49,7 @@ Franchisee users must be in **RestrictedDataAccess** and must **not** be in **Al
 | User leaves organization | Disable user in Domo Admin |
 | Franchisee acquires new salons | Update upstream master; verify PDP after refresh |
 
-## Related documents
+## Related topics
 
 - [PDP overview and testing (shared)](../../shared/pdp-overview-and-testing.md)
 - [PDP troubleshooting](./pdp-troubleshooting.md)

@@ -69,7 +69,7 @@ Restore correct PDP-scoped access for a franchisee user.
 | DimSalon master data wrong | _TBD — data owner_ |
 | Suspected data privacy breach | _TBD — escalation contact_ (immediate) |
 
-## Related documents
+## Related topics
 
 - [PDP troubleshooting](./pdp-troubleshooting.md)
 - [PDP overview (shared)](../../shared/pdp-overview-and-testing.md)

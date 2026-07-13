@@ -15,7 +15,7 @@
 
 **DimSalon** is the salon dimension table containing brand, franchisee, salon, geographic, and status attributes. It is an input to Daily Sales ETL 2. In Domo Data Center the underlying warehouse dataset is **domo_regis.MonthlySalonCounts**.
 
-**PDP is not enabled** on this dataset. Franchisee row scoping is applied on downstream datasets (Daily Sales Master 2, Store Scorecard Data, etc.) via the **Ownership** attribute and **RestrictedDataAccess** group. See [PDP overview](../../shared/pdp-overview-and-testing.md).
+**PDP is not enabled** on this dataset. Franchisee row scoping is applied on downstream datasets (Daily Sales Master 2, Store Scorecard Data_Brand Peers, etc.) via the **Ownership** attribute and **RestrictedDataAccess** group. See [PDP overview](../../shared/pdp-overview-and-testing.md).
 
 ## Lineage
 
@@ -53,7 +53,7 @@ When salon ownership changes, update upstream master data so ETL refreshes `Fran
 | Franchisee sees wrong stores | Validate franchisee key in DSM2; check user's **Ownership** attribute (not DimSalon PDP) |
 | Geographic filters stale | Re-run upstream connector and ETL |
 
-## Related documents
+## Related topics
 
 - [PDP overview (shared)](../../shared/pdp-overview-and-testing.md)
 - [PDP policy inventory (shared)](../../shared/pdp-policy-inventory.md)

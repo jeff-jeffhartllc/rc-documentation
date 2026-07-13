@@ -63,7 +63,7 @@ Notable difference from franchisee app equivalent:
 2. Use **Brand Distribution by Total Sales** and **Financial Performance Heat Map** for comparison.
 3. **Expected result:** Side-by-side or aggregated view of selected franchisees.
 
-## Related documents
+## Related topics
 
 - [Corporate Overview](./corporate-overview.md)
 - [Franchisee app — Franchisee Performance](../../regis-franchisee-app/daily-use/franchisee-performance.md)

@@ -23,11 +23,8 @@ Schedules below were captured from Domo **Dataflows** → each flow → **Schedu
 | --- | --- | --- | --- |
 | **Daily Sales ETL 2** | Dataset update | Runs when **domo_regis.FactDailySales** updates | America/Chicago |
 | **Daily Sales Master Indexing 2** | Dataset update | Runs when **Daily Sales Master 2** updates | UTC |
-| **Store Scorecard ETL** | Manual | No automatic trigger configured — run after **Daily Sales Master 2** and **domo_regis.MonthlyMetrics** are current | — |
 | **Store Scorecard by Brand ETL** | Dataset update + condition | Runs when **domo_regis.MonthlyMetrics** updates, after **Daily Sales Master 2** and **domo_regis.MonthlyMetrics** have both completed successfully since the last run | UTC |
-| **Daily Sales ETL** (legacy) | Cron | Daily at **6:40 AM** | America/Chicago |
-| **Daily Sales Master Indexing** (legacy) | Dataset update | Runs when **Daily Sales Master** updates | UTC |
-| **Corp Employees Daily Sales ETL** | Dataset update | Runs when **domo.CorpEmployeeDailySales** or **Daily Sales Master** updates | UTC |
+| **Corp Employees Daily Sales ETL** | Dataset update | Runs when **domo.CorpEmployeeDailySales** updates | UTC |
 | **Sales by Store by Day ETL** | Dataset update | Runs when **Daily Sales** or **Daily Labor** updates | America/Chicago |
 | **Regis Stock History Builder** | Dataset update | Runs when **Regis Stock Data Current** updates | UTC |
 
@@ -45,16 +42,6 @@ Schedules below were captured from Domo **Dataflows** → each flow → **Schedu
 | **Outputs** | Daily Sales Master 2, DSM2 - Daily Sales By Traffic, Daily Sales Unpivoted Services 2 |
 | **App impact** | **Critical** — primary dataset for both apps |
 
-### Daily Sales ETL (legacy)
-
-| Item | Value |
-| --- | --- |
-| **Status** | ENABLED — last run SUCCESS |
-| **Refresh trigger** | Daily cron **6:40 AM** (America/Chicago) |
-| **Inputs** | AllineDailyLabor, DimSalon, DimDate, FactDailySales, Alline Total Sales Forecast |
-| **Outputs** | Daily Sales Master, Daily Sales Unpivoted Services |
-| **App impact** | Legacy; Daily Sales Master 2 is current primary |
-
 ### Daily Sales Master Indexing 2
 
 | Item | Value |
@@ -65,25 +52,6 @@ Schedules below were captured from Domo **Dataflows** → each flow → **Schedu
 | **Outputs** | Daily Sales Indexed by Store 2 |
 | **App impact** | Indexed performance cards |
 
-### Daily Sales Master Indexing (legacy)
-
-| Item | Value |
-| --- | --- |
-| **Status** | ENABLED — last run SUCCESS |
-| **Refresh trigger** | When **Daily Sales Master** updates (UTC) |
-| **Inputs** | Daily Sales Master |
-| **Outputs** | Daily Sales Indexed by Store |
-
-### Store Scorecard ETL
-
-| Item | Value |
-| --- | --- |
-| **Status** | ENABLED — last run SUCCESS |
-| **Refresh trigger** | Manual (no automatic trigger) — run after inputs are current |
-| **Inputs** | Daily Sales Master 2, domo_regis.MonthlyMetrics |
-| **Outputs** | Store Scorecard Data |
-| **App impact** | Store Performance Report Card and Scorecard pages |
-
 ### Store Scorecard by Brand ETL
 
 | Item | Value |
@@ -92,15 +60,15 @@ Schedules below were captured from Domo **Dataflows** → each flow → **Schedu
 | **Refresh trigger** | When **domo_regis.MonthlyMetrics** updates, after **Daily Sales Master 2** and **domo_regis.MonthlyMetrics** last successful runs (UTC) |
 | **Inputs** | Daily Sales Master 2, domo_regis.MonthlyMetrics |
 | **Outputs** | Store Scorecard Data_Brand Peers |
-| **App impact** | Brand peer comparisons on Scorecard page |
+| **App impact** | Store Performance Report Card and Scorecard pages (both apps) |
 
 ### Corp Employees Daily Sales ETL
 
 | Item | Value |
 | --- | --- |
 | **Status** | ENABLED — last run SUCCESS |
-| **Refresh trigger** | When **domo.CorpEmployeeDailySales** or **Daily Sales Master** updates (UTC) |
-| **Inputs** | Daily Sales Master, domo.CorpEmployeeDailySales |
+| **Refresh trigger** | When **domo.CorpEmployeeDailySales** updates (UTC) |
+| **Inputs** | domo.CorpEmployeeDailySales |
 | **Outputs** | Corp Employee Daily Sales Master |
 | **App impact** | Corporate employee daily sales (if used on pages) |
 
@@ -134,7 +102,6 @@ Upstream connectors / warehouse
     ├── Daily Sales ETL 2 ──► Daily Sales Master 2
     │       │
     │       ├── Daily Sales Master Indexing 2 ──► Daily Sales Indexed by Store 2
-    │       ├── Store Scorecard ETL ──► Store Scorecard Data
     │       └── Store Scorecard by Brand ETL ──► Store Scorecard Data_Brand Peers
     │
     └── Corp Employees Daily Sales ETL ──► Corp Employee Daily Sales Master
@@ -146,11 +113,10 @@ When recovering from a failure, re-run in this order:
 
 1. Daily Sales ETL 2
 2. Daily Sales Master Indexing 2
-3. Store Scorecard ETL
-4. Store Scorecard by Brand ETL
-5. Corp Employees Daily Sales ETL (if needed)
+3. Store Scorecard by Brand ETL
+4. Corp Employees Daily Sales ETL (if needed)
 
-## Related documents
+## Related topics
 
 - [Runbook — refresh failures](../maintenance/runbook-refresh-failures.md)
 - [Daily Sales Master 2](./daily-sales-master-2.md)

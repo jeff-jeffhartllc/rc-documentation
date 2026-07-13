@@ -13,9 +13,9 @@
 
 ## Purpose
 
-This document records **live Personalized Data Permission (PDP) row policies** captured from regiscorp.domo.com on 2026-07-13 while signed in as Jeff Hart (Admin). It supplements `pdp-overview-and-testing.md` with exact policy names, groups, filter columns, and dataset IDs.
+This document records **live Personalized Data Permission (PDP) row policies** captured from regiscorp.domo.com on 2026-07-13 while signed in as Jeff Hart (Admin). It supplements **PDP overview and testing** with exact policy names, groups, filter columns, and dataset IDs.
 
-For **how PDP ties together** — Domo groups, custom attributes (**Ownership**, **Territory**), and dynamic row filters — see the architecture section in [PDP overview and testing](./pdp-overview-and-testing.md#pdp-architecture-groups-custom-attributes-and-row-policies).
+For **how PDP ties together** — Domo groups, the **Ownership** custom attribute, and dynamic row filters — see the architecture section in [PDP overview and testing](./pdp-overview-and-testing.md#pdp-architecture-groups-custom-attributes-and-row-policies).
 
 ## How to open PDP in Domo
 
@@ -77,33 +77,11 @@ Domo resolves each user's **Ownership** attribute at login and filters rows wher
 | **RestrictedDataAccess** | `950576281` | 15 | Franchisee-scoped access via **Franchisee** policy (**dynamic group membership**) |
 | **3c090c15-223e-4377-bf0f-60e2eec980b4** | `1197243980` | 3 | Full row access via **All Rows** policy (internal / test group name is a UUID) |
 
-Test accounts visible in dataset sharing include **Jeff Franchisee** and **Jeff Territory** — useful for PDP validation.
-
-## Daily Sales Master (legacy dataset — not the app primary)
-
-The older **Daily Sales Master** dataset (without "2") is a separate DataFlow output. REGIS APP and REGIS FRANCHISEE APP cards reference **Daily Sales Master 2**, not this dataset. PDP on this legacy dataset is documented for completeness.
-
-| Item | Value |
-| --- | --- |
-| **Domo dataset name** | Daily Sales Master |
-| **Dataset ID** | `19ae8295-9dab-4277-963a-f9c7aab23f78` |
-| **Owner** | Keela Davis |
-| **Scale** | 180 columns · 1,430,571 rows |
-| **Tags** | PROD, PDP |
-| **PDP URL** | https://regiscorp.domo.com/datasources/19ae8295-9dab-4277-963a-f9c7aab23f78/details/rls |
-
-### Row policies (Daily Sales Master)
-
-| Policy name | Type | Data access / filter | Groups & people |
-| --- | --- | --- | --- |
-| **All Rows** | Open | All Data | **AllDataAccess** (`2014419418`) |
-| **TerritoryDataAccess** | User (filtered) | `Alline_territory` **EQUALS** `Territory` (dynamic) | **TerritoryDataAccess** (`1547677730`) |
-
-This territory-scoped policy supports corporate territory leaders, not franchisee app users.
+Test accounts visible in dataset sharing include **Jeff Franchisee** — useful for PDP validation.
 
 ## domo_regis.MonthlyMetrics (scorecard upstream input)
 
-Warehouse-fed monthly metrics dataset used as an input to **Store Scorecard ETL** and **Store Scorecard by Brand ETL**. PDP on this dataset uses the **same franchisee pattern** as Daily Sales Master 2.
+Warehouse-fed monthly metrics dataset used as an input to **Store Scorecard by Brand ETL**. PDP on this dataset uses the **same franchisee pattern** as Daily Sales Master 2.
 
 | Item | Value |
 | --- | --- |
@@ -124,11 +102,11 @@ Warehouse-fed monthly metrics dataset used as an input to **Store Scorecard ETL*
 | **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
-Scorecard app pages consume **Store Scorecard Data** (ETL output), not this dataset directly — but franchisee PDP on scorecard pages may depend on aligned policies across the scorecard lineage (MonthlyMetrics → ETL → Store Scorecard Data).
+Scorecard app pages consume **Store Scorecard Data_Brand Peers** (ETL output), not this dataset directly — but franchisee PDP on scorecard pages depends on aligned policies across the scorecard lineage (MonthlyMetrics → ETL → Store Scorecard Data_Brand Peers).
 
 ## domo_regis.FactDailySales (warehouse sales fact)
 
-Upstream warehouse fact table feeding **Daily Sales ETL 2** (and legacy Daily Sales ETL). PDP uses the same franchisee pattern as Daily Sales Master 2.
+Upstream warehouse fact table feeding **Daily Sales ETL 2**. PDP uses the same franchisee pattern as Daily Sales Master 2.
 
 | Item | Value |
 | --- | --- |
@@ -199,7 +177,7 @@ Traffic-based sales split dataset output from **Daily Sales ETL 2**. Not a prima
 
 ## Store Scorecard Data_Brand Peers (scorecard ETL output)
 
-Brand peer comparison dataset output from **Store Scorecard by Brand ETL**. Powers brand peer views on **Store Performance Scorecard** in both apps.
+Scorecard dataset output from **Store Scorecard by Brand ETL**. Powers **Store Performance Report Card** and **Store Performance Scorecard** in both apps (there is no separate “Store Scorecard Data” dataset).
 
 | Item | Value |
 | --- | --- |
@@ -243,16 +221,6 @@ Indexed store performance dataset output from **Daily Sales Master Indexing 2**.
 | **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
-## Store Scorecard Data (scorecard ETL output)
-
-Primary scorecard dataset for **Store Performance Report Card** and **Store Performance Scorecard**. PDP was confirmed to match **Store Scorecard Data_Brand Peers** (same **All Rows** + **Franchisee** policies, same groups and **Ownership** dynamic filter). A separate PDP tab capture was not required.
-
-| Item | Value |
-| --- | --- |
-| **Domo dataset name** | Store Scorecard Data |
-| **PDP status** | **Enabled** — same policy pattern as Brand Peers |
-| **Franchisee filter** | `FranchiseeNumber` **EQUALS** `Ownership` → **RestrictedDataAccess** |
-
 ## Datasets without PDP
 
 | Dataset | Domo / logical name | PDP | Notes |
@@ -261,7 +229,7 @@ Primary scorecard dataset for **Store Performance Report Card** and **Store Perf
 
 ## Dataset-level capture complete
 
-All PDP-enabled datasets used by REGIS APP and REGIS FRANCHISEE APP have been documented. Policies follow the standard **All Rows** + **Franchisee** pattern unless noted (legacy Daily Sales Master adds **TerritoryDataAccess**).
+All PDP-enabled datasets used by REGIS APP and REGIS FRANCHISEE APP have been documented. Policies follow the standard **All Rows** + **Franchisee** pattern.
 
 ## API reference (for automation)
 
@@ -283,7 +251,7 @@ When adding a franchisee user:
 
 1. Set the user's **Ownership** attribute to the correct franchisee identifier (must match `FranchiseeNumber` values in Daily Sales Master 2).
 2. Confirm **RestrictedDataAccess** dynamic group rules include the user (and they are not in **AllDataAccess**).
-3. Test in REGIS FRANCHISEE APP per `pdp-overview-and-testing.md`.
+3. Test in REGIS FRANCHISEE APP per **PDP overview and testing**.
 
 When a salon changes franchisee ownership:
 
@@ -292,7 +260,7 @@ When a salon changes franchisee ownership:
 3. Confirm `FranchiseeNumber` values in Daily Sales Master 2 reflect the change.
 4. Re-test affected franchisee users.
 
-## Related documents
+## Related topics
 
 - [PDP overview and testing](./pdp-overview-and-testing.md)
 - [Daily Sales Master 2 data source guide](../apps/regis-app/data-sources/daily-sales-master-2.md)

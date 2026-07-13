@@ -19,8 +19,7 @@ REGIS FRANCHISEE APP uses the **same datasets** as REGIS APP. PDP filters rows a
 | Dataset | Franchisee app usage | PDP governed? |
 | --- | --- | --- |
 | Daily Sales Master 2 | All performance pages | **Yes** |
-| Store Scorecard Data | Report Card page | **Yes** (same pattern as Brand Peers) |
-| Store Scorecard Data_Brand Peers | Scorecard page | **Yes** |
+| Store Scorecard Data_Brand Peers | Report Card and Scorecard pages | **Yes** |
 | Daily Sales Indexed by Store 2 | Indexed cards | **Yes** |
 | DimSalon / domo_regis.MonthlySalonCounts | ETL input (filter dims via DSM2) | **No** |
 
@@ -45,7 +44,7 @@ See:
 | One franchisee sees wrong stores | Incorrect **Ownership** value or stale `FranchiseeNumber` in DSM2 |
 | Cards error for all users | Dataset schema change |
 
-## Related documents
+## Related topics
 
 - [PDP troubleshooting](../maintenance/pdp-troubleshooting.md)
 - [PDP overview (shared)](../../shared/pdp-overview-and-testing.md)

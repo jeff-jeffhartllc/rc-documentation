@@ -51,7 +51,7 @@ This guide explains how to safely edit Beast Mode calculated fields on REGIS APP
 2. Use Beast Mode version history (if available) or restore the previous formula from your pre-change screenshot/notes.
 3. Save and publish.
 
-## Related documents
+## Related topics
 
 - [Change management checklist](./change-management-checklist.md)
 - [Daily Sales Master 2 — key fields](../data-sources/daily-sales-master-2.md)

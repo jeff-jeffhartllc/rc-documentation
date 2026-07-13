@@ -49,7 +49,7 @@ The **Daily Sales Email Report** page provides a daily sales summary suitable fo
 
 See [Exports and sharing](./exports-and-sharing.md) for detailed distribution steps.
 
-## Related documents
+## Related topics
 
 - [Exports and sharing](./exports-and-sharing.md)
 - [Daily Sales Master 2 data source](../data-sources/daily-sales-master-2.md)

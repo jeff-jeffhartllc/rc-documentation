@@ -32,7 +32,6 @@ These groups control row-level data access on PDP-enabled datasets. Group names 
 | --- | --- | --- | --- |
 | **AllDataAccess** | `2014419418` | 49 | Corporate users who see all salon rows via the **All Rows** PDP policy |
 | **RestrictedDataAccess** | `950576281` | 15 | Franchisee users scoped by **Ownership** attribute |
-| **TerritoryDataAccess** | `1547677730` | — | Territory leaders on legacy **Daily Sales Master** only |
 | **3c090c15-223e-4377-bf0f-60e2eec980b4** | `1197243980` | 3 | Internal / test full-access group (UUID name) |
 
 **AllDataAccess** and **RestrictedDataAccess** membership is governed by **dynamic group rules** (**Admin → Governance → Groups**). For routine provisioning, set the user attributes those rules evaluate; do not manually add or remove people. Franchisee users should end up in **RestrictedDataAccess**, not **AllDataAccess**.
@@ -51,7 +50,6 @@ These groups control row-level data access on PDP-enabled datasets. Group names 
 | --- | --- | --- | --- |
 | Corporate user | REGIS APP | **AllDataAccess** (typical) | Standard role-based access plus **All Rows** PDP |
 | Franchisee user | REGIS FRANCHISEE APP | **RestrictedDataAccess** | Separate app; **Ownership** attribute limits store scope |
-| Territory leader | REGIS APP | **TerritoryDataAccess** | Legacy **Daily Sales Master** territory filter only |
 | Corporate user with franchisee oversight | Both apps | Case by case | May need both app shares |
 
 Do **not** place franchisee users in **AllDataAccess** or grant them REGIS APP unless there is a specific business reason — franchisee scoping is enforced on REGIS FRANCHISEE APP via **RestrictedDataAccess** (dynamic group membership) and **Ownership**.
@@ -64,7 +62,7 @@ Do **not** place franchisee users in **AllDataAccess** or grant them REGIS APP u
 - [ ] Franchisee users are routed to REGIS FRANCHISEE APP, not REGIS APP
 - [ ] Franchisee users are in **RestrictedDataAccess** (via dynamic rules) with **Ownership** set — not in **AllDataAccess**
 
-## Related documents
+## Related topics
 
 - [Domo instance access (shared)](../../shared/domo-access.md)
 - [PDP overview (franchisee app)](../../shared/pdp-overview-and-testing.md)

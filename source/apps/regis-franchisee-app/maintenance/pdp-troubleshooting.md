@@ -84,7 +84,7 @@ Look up the symptom. Follow checks in order. PDP issues are **high priority** be
 3. Spot-check Store Performance Report Card for a known salon.
 4. If cards error: identify changed dataset field and update PDP mapping.
 
-## Related documents
+## Related topics
 
 - [PDP overview and testing (shared)](../../shared/pdp-overview-and-testing.md)
 - [PDP policy inventory (shared)](../../shared/pdp-policy-inventory.md)
