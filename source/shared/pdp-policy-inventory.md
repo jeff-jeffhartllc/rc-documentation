@@ -31,8 +31,6 @@ Direct URL pattern:
 https://regiscorp.domo.com/datasources/{dataset-id}/details/rls
 ```
 
-> **Note:** Older documentation paths such as `/admin/personalizeddata` and `/page/datacenter/pdp/{id}` do not work on this Domo instance. Use the dataset **PDP** tab or `/details/rls` instead.
-
 ## Daily Sales Master 2 (primary franchisee dataset)
 
 This is the dataset referenced by app filter labels ("Source: Daily Sales Master 2") and the main PDP scope for REGIS FRANCHISEE APP.
