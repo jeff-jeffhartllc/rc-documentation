@@ -149,6 +149,29 @@ Upstream warehouse fact table feeding **Daily Sales ETL 2** (and legacy Daily Sa
 
 This is the root sales fact in the Daily Sales lineage. If franchisee users can query this dataset directly (outside app cards), the same **Franchisee** policy applies.
 
+## Daily Sales Unpivoted Services 2 (ETL derivative)
+
+Service-type breakdown dataset output from **Daily Sales ETL 2**. Not a primary REGIS app card source, but PDP is enabled with the standard franchisee pattern.
+
+| Item | Value |
+| --- | --- |
+| **Domo dataset name** | Daily Sales Unpivoted Services 2 |
+| **Dataset ID** | `e8d85e2e-6464-40d2-b4e4-a2f138de815d` |
+| **Owner** | Jeff Hart |
+| **Scale** | 35 columns · 12,108,048 rows |
+| **Tags** | PDP |
+| **PDP status** | **Enabled** — Row Filtering ON |
+| **PDP URL** | https://regiscorp.domo.com/datasources/e8d85e2e-6464-40d2-b4e4-a2f138de815d/details/rls |
+
+![Daily Sales Unpivoted Services 2 PDP row policies](../../assets/daily-sales-unpivoted-services-2-pdp-policies.png)
+
+### Row policies (Daily Sales Unpivoted Services 2)
+
+| Policy name | Type | Data access / filter | Groups & people | Notes |
+| --- | --- | --- | --- | --- |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
+
 ## Other datasets (PDP status TBD)
 
 Scorecard and dimension datasets below are used by app cards and filters. Their PDP settings were **not fully captured** in this session. An Admin should open each dataset's **PDP** tab and confirm whether row policies mirror Daily Sales Master 2 or are inherited through card filter linkage.

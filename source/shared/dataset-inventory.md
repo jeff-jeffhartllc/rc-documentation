@@ -31,7 +31,7 @@ This document lists datasets shared between REGIS APP and REGIS FRANCHISEE APP, 
 | --- | --- | --- |
 | Daily Sales Master | Daily Sales ETL | Prior version; Daily Sales Master 2 is current primary |
 | Daily Sales Indexed by Store | Daily Sales Master Indexing | Prior version of indexed dataset |
-| Daily Sales Unpivoted Services 2 | Daily Sales ETL 2 | Service-type breakdowns |
+| Daily Sales Unpivoted Services 2 | Daily Sales ETL 2 | Service-type breakdowns; **PDP enabled** |
 | DSM2 - Daily Sales By Traffic | Daily Sales ETL 2 | Traffic-based sales splits |
 | Corp Employee Daily Sales Master | Corp Employees Daily Sales ETL | Corporate employee daily sales |
 | Sales by Store by Day | Sales by Store by Day ETL | Daily store-level sales |
@@ -43,19 +43,18 @@ This document lists datasets shared between REGIS APP and REGIS FRANCHISEE APP, 
 
 These feed the Magic ETL dataflows and are not directly bound to app cards:
 
-| Dataset | Used by dataflow |
-| --- | --- |
-| domo_regis.FactDailySales | Daily Sales ETL 2 |
-| FactDailySales | Daily Sales ETL (legacy) |
-| AllineDailyLabor | Daily Sales ETL, Daily Sales ETL 2 |
-| Alline Total Sales Forecast | Daily Sales ETL, Daily Sales ETL 2 |
-| DimDate | Daily Sales ETL, Daily Sales ETL 2 |
-| domo_regis.FactDailySales | Daily Sales ETL 2 | **PDP enabled** — see [PDP policy inventory](./pdp-policy-inventory.md) |
-| domo_regis.MonthlyMetrics | Store Scorecard ETL, Store Scorecard by Brand ETL | **PDP enabled** — see [PDP policy inventory](./pdp-policy-inventory.md) |
-| domo.CorpEmployeeDailySales | Corp Employees Daily Sales ETL |
-| Alline Salon Master | Sales by Store by Day ETL |
-| Daily Labor, Daily Sales | Sales by Store by Day ETL |
-| Corporate Salons, Salons | Sales by Store by Day ETL |
+| Dataset | Used by dataflow | PDP |
+| --- | --- | --- |
+| domo_regis.FactDailySales | Daily Sales ETL 2 | **Enabled** — see [PDP policy inventory](./pdp-policy-inventory.md) |
+| domo_regis.MonthlyMetrics | Store Scorecard ETL, Store Scorecard by Brand ETL | **Enabled** — see [PDP policy inventory](./pdp-policy-inventory.md) |
+| FactDailySales | Daily Sales ETL (legacy) | _TBD_ |
+| AllineDailyLabor | Daily Sales ETL, Daily Sales ETL 2 | _TBD_ |
+| Alline Total Sales Forecast | Daily Sales ETL, Daily Sales ETL 2 | _TBD_ |
+| DimDate | Daily Sales ETL, Daily Sales ETL 2 | _TBD_ |
+| domo.CorpEmployeeDailySales | Corp Employees Daily Sales ETL | _TBD_ |
+| Alline Salon Master | Sales by Store by Day ETL | _TBD_ |
+| Daily Labor, Daily Sales | Sales by Store by Day ETL | _TBD_ |
+| Corporate Salons, Salons | Sales by Store by Day ETL | _TBD_ |
 
 ## Dataset → page mapping
 
@@ -76,6 +75,7 @@ Captured from live Domo on 2026-07-13. See [PDP policy inventory](./pdp-policy-i
 | Daily Sales Master (legacy) | `19ae8295-9dab-4277-963a-f9c7aab23f78` | Yes | Territory: `Alline_territory` = **Territory** (TerritoryDataAccess) |
 | **domo_regis.MonthlyMetrics** | `f303a86a-67b5-49fa-8874-195eab30506c` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | **domo_regis.FactDailySales** | `5bdaf9aa-0950-432e-a9ce-eaa7cffb2796` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
+| **Daily Sales Unpivoted Services 2** | `e8d85e2e-6464-40d2-b4e4-a2f138de815d` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | Store Scorecard Data | _TBD_ | Not captured — verify | _TBD_ |
 | Store Scorecard Data_Brand Peers | _TBD_ | Not captured — verify | _TBD_ |
 | Daily Sales Indexed by Store 2 | _TBD_ | Not captured — verify | _TBD_ |
