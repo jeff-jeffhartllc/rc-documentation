@@ -77,33 +77,7 @@ Domo resolves each user's **Ownership** attribute at login and filters rows wher
 | **RestrictedDataAccess** | `950576281` | 15 | Franchisee-scoped access via **Franchisee** policy |
 | **3c090c15-223e-4377-bf0f-60e2eec980b4** | `1197243980` | 3 | Full row access via **All Rows** policy (internal / test group name is a UUID) |
 
-<<<<<<< HEAD
 Use dedicated franchisee test accounts in dataset sharing / group membership for PDP validation.
-
-## Daily Sales Master (legacy dataset — not the app primary)
-
-The older **Daily Sales Master** dataset (without "2") is a separate DataFlow output. REGIS APP and REGIS FRANCHISEE APP cards reference **Daily Sales Master 2**, not this dataset. PDP on this legacy dataset is documented for completeness.
-
-| Item | Value |
-| --- | --- |
-| **Domo dataset name** | Daily Sales Master |
-| **Dataset ID** | `19ae8295-9dab-4277-963a-f9c7aab23f78` |
-| **Owner** | Keela Davis |
-| **Scale** | 180 columns · 1,430,571 rows |
-| **Tags** | PROD, PDP |
-| **PDP URL** | https://regiscorp.domo.com/datasources/19ae8295-9dab-4277-963a-f9c7aab23f78/details/rls |
-
-### Row policies (Daily Sales Master)
-
-| Policy name | Type | Data access / filter | Groups & people |
-| --- | --- | --- | --- |
-| **All Rows** | Open | All Data | **AllDataAccess** (`2014419418`) |
-| **TerritoryDataAccess** | User (filtered) | `Alline_territory` **EQUALS** `Territory` (dynamic) | **TerritoryDataAccess** (`1547677730`) |
-
-This territory-scoped policy supports corporate territory leaders, not franchisee app users.
-=======
-Test accounts visible in dataset sharing include **Jeff Franchisee** — useful for PDP validation.
->>>>>>> origin/main
 
 ## domo_regis.MonthlyMetrics (scorecard upstream input)
 
