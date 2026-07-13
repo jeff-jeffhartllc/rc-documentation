@@ -28,7 +28,7 @@ Explain what maintenance activity this guide covers and when it is needed.
 
 ## Before you change anything
 
-1. Confirm you are in the correct Domo instance (prod vs sandbox)
+1. Confirm you are in the production Domo instance (https://regiscorp.domo.com)
 2. Identify affected pages, cards, and downstream datasets
 3. Notify stakeholders if the change impacts published views or schedules
 4. Capture screenshots or export configs if rollback may be needed
