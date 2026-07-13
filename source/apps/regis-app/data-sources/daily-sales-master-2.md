@@ -8,7 +8,7 @@
 **Domo dataset:** Daily Sales Master 2  
 **Dataset ID:** `8d851507-f995-4918-abc8-90032b2eff65`  
 **Last updated:** 2026-07-13  
-**Author / owner:** Jeff Hart (dataset owner); _TBD — data owner contact_
+**Author / owner:** _TBD — data owner_
 
 </div>
 
@@ -24,7 +24,7 @@
 | --- | --- |
 | Upstream system | Regis data warehouse (domo_regis schema) + Alline feeds |
 | Connection type | Magic ETL (Daily Sales ETL 2) |
-| Owner | Jeff Hart |
+| Owner | _TBD — data owner_ |
 | Dataset ID | `8d851507-f995-4918-abc8-90032b2eff65` |
 | Scale (2026-07-13) | 204 columns · 1,513,506 rows |
 | Refresh schedule | Triggered when **domo_regis.FactDailySales** updates → **Daily Sales ETL 2** runs (America/Chicago). See [Dataflow inventory](./dataflow-inventory.md). |
