@@ -150,7 +150,7 @@ When recovering from a failure, re-run in this order:
 4. Store Scorecard by Brand ETL
 5. Corp Employees Daily Sales ETL (if needed)
 
-## Related documents
+## Related topics
 
 - [Runbook — refresh failures](../maintenance/runbook-refresh-failures.md)
 - [Daily Sales Master 2](./daily-sales-master-2.md)

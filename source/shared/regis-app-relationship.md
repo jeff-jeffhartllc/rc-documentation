@@ -89,7 +89,7 @@ Both apps draw from the same underlying datasets. The primary dataset powering p
 | DimSalon | Salon dimension filters (Brand, Salon, Territory, DMA, …) | Upstream dimension table |
 | domo_regis.MonthlyMetrics | Scorecard monthly metrics | Warehouse-fed input to scorecard ETL |
 
-See `shared/dataset-inventory.md` for the full dataset and dataflow reference.
+See **Shared dataset inventory** in this guide for the full dataset and dataflow reference.
 
 ## PDP in practice
 
@@ -101,7 +101,7 @@ Personalized Data Permissions (PDP) restrict which rows each franchisee user can
 
 Corporate users opening REGIS APP are **not** subject to franchisee PDP rules; they use standard role permissions and page filters instead.
 
-See `shared/pdp-overview-and-testing.md` for configuration, testing, and troubleshooting detail.
+See **PDP overview and testing** in this guide for configuration, testing, and troubleshooting detail.
 
 ## Change management — impact on franchisee app
 
@@ -130,7 +130,7 @@ When changing REGIS APP, ask:
 | Dataflow logic change | Both apps reflect new data | Monitor refresh; validate metrics |
 | PDP rule change | Direct franchisee impact | Test all franchisee accounts |
 
-## Related documents
+## Related topics
 
 - [PDP overview and testing](./pdp-overview-and-testing.md)
 - [Shared dataset inventory](./dataset-inventory.md)

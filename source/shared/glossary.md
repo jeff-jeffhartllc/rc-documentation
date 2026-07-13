@@ -62,7 +62,7 @@
 | DimSalon | Salon dimension table |
 | FactDailySales | Fact table for daily sales transactions |
 
-## Related documents
+## Related topics
 
 - [Reference page guide (REGIS APP)](../apps/regis-app/daily-use/reference-page.md)
 - [Shared dataset inventory](./dataset-inventory.md)

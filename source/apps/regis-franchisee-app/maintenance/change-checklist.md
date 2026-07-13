@@ -44,7 +44,7 @@ If the corporate team changes REGIS APP, the franchisee app owner should:
 - [ ] No new filters expose cross-franchisee data
 - [ ] Reference page updated if definitions changed
 
-## Related documents
+## Related topics
 
 - [Change management (REGIS APP)](../../regis-app/maintenance/change-management-checklist.md)
 - [REGIS app relationship (shared)](../../shared/regis-app-relationship.md)

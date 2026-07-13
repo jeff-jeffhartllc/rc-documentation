@@ -70,7 +70,7 @@ App-specific access is further controlled by group membership and page sharing s
 | Cannot see REGIS APP | Missing group or page share | Verify group membership |
 | Franchisee sees wrong app | Opened REGIS APP instead of franchisee app | Use REGIS FRANCHISEE APP URL |
 
-## Related documents
+## Related topics
 
 - [Escalation and support](./escalation-and-support.md)
 - [PDP overview and testing](./pdp-overview-and-testing.md)

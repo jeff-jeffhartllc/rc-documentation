@@ -45,7 +45,7 @@ The **Store Performance Scorecard** page focuses on service sales per hour (SPH)
 - **Store Scorecard Data** — primary scorecard metrics
 - **Store Scorecard Data_Brand Peers** — brand peer comparison data
 
-## Related documents
+## Related topics
 
 - [Store Performance Report Card](./store-performance-report-card.md)
 - [Store Scorecard Data source](../data-sources/store-scorecard-data.md)

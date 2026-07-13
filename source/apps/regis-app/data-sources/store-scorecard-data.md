@@ -57,7 +57,7 @@ domo_regis.MonthlyMetrics ┘          (PDP enabled on inputs and ETL output —
 | Scorecard cards blank | Check both Store Scorecard ETL and by Brand ETL status |
 | Peer comparison missing | Verify Store Scorecard by Brand ETL output |
 
-## Related documents
+## Related topics
 
 - [Store Performance Report Card (daily use)](../daily-use/store-performance-report-card.md)
 - [Dataflow inventory](./dataflow-inventory.md)
