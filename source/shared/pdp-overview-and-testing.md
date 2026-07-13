@@ -126,8 +126,6 @@ Corporate users in **REGIS APP** are governed by standard Domo roles (Admin, Pri
 | Direct URL | `https://regiscorp.domo.com/datasources/{dataset-id}/details/rls` | Same PDP editor |
 | **Admin → Governance** | **More** → **Admin** → **Governance** | Users, groups, roles, **Ownership** and other attributes used by Dynamic PDP |
 
-During library authoring, legacy deep links such as `/admin/personalizeddata` returned 404 on this instance. Use the dataset **PDP** tab instead.
-
 ## How franchisee store assignments are determined
 
 1. **Dynamic group membership** — franchisee users are in **RestrictedDataAccess** via that group's dynamic membership rules (15 members as of 2026-07-13).
