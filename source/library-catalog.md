@@ -83,7 +83,7 @@ All content is authored under `source/`. The tables below list source files used
 | Document | Source file |
 | --- | --- |
 | Daily Sales Master 2 | `apps/regis-app/data-sources/daily-sales-master-2.md` |
-| Store Scorecard Data | `apps/regis-app/data-sources/store-scorecard-data.md` |
+| Store Scorecard Data_Brand Peers | `apps/regis-app/data-sources/store-scorecard-data.md` |
 | DimSalon | `apps/regis-app/data-sources/dimsalon-dataset.md` |
 | Dataflow inventory | `apps/regis-app/data-sources/dataflow-inventory.md` |
 
