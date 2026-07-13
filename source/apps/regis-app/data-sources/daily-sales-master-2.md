@@ -27,8 +27,8 @@
 | Owner | Jeff Hart |
 | Dataset ID | `8d851507-f995-4918-abc8-90032b2eff65` |
 | Scale (2026-07-13) | 204 columns · 1,513,506 rows |
-| Refresh schedule | _TBD — confirm in Domo Dataflows; typically daily after upstream loads_ |
-| Historical depth | _TBD — confirm with data owner_ |
+| Refresh schedule | Triggered when **domo_regis.FactDailySales** updates → **Daily Sales ETL 2** runs (America/Chicago). See [Dataflow inventory](./dataflow-inventory.md). |
+| Historical depth | 1,513,506 rows as of 2026-07-13 |
 
 ## Lineage
 

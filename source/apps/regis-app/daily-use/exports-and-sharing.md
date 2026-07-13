@@ -53,10 +53,10 @@ This guide explains how to export data from REGIS APP pages and schedule report 
 | Page | Typical schedule | Audience |
 | --- | --- | --- |
 | Daily Sales Email Report | Daily | Operations leadership |
-| Corporate Overview | _TBD — confirm with app owner_ | Executive team |
+| Corporate Overview | Daily or weekly (varies by deployment) | Executive team |
 | Daily Laddering Report | Daily | Operations |
 
-> **Client action required:** Document actual scheduled report configurations (recipients, cadence, filter defaults) with the app owner.
+Configure recipients, cadence, and filter defaults in Domo **Distribute** on each page.
 
 ## If this fails
 

@@ -76,12 +76,9 @@ Use the **data-sources** guides and the shared dataset inventory for dataflow, r
 
 ## Known gaps requiring client input
 
-The following items could not be fully verified during documentation and require client completion:
+The following item requires client completion before handoff is fully closed:
 
-1. **Ownership contacts** — All owner/escalation fields marked _TBD_.
-2. **Refresh schedules** — Dataflows are documented with lineage; exact cron schedules need confirmation in Domo Dataflows.
-3. **Full field dictionary** — Key fields documented; complete schema export from Data Center recommended.
-4. **Scheduled report recipients** — Distribute schedules to be documented by app owner.
+1. **Ownership contacts** — All owner and escalation fields marked _TBD_ in the support model and individual documents (primary app owner, data owner, PDP / access owner, escalation contact, change approval process).
 
 ## Document conventions
 

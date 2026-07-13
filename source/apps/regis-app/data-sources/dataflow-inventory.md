@@ -6,7 +6,7 @@
 **Document type:** Data source guide  
 **Audience:** Data owners, analysts  
 **Domo instance:** https://regiscorp.domo.com  
-**Last updated:** 2026-07-10  
+**Last updated:** 2026-07-13  
 **Author / owner:** _TBD — data owner_
 
 </div>
@@ -15,7 +15,23 @@
 
 This document inventories all Magic ETL dataflows observed in regiscorp.domo.com that feed datasets used by REGIS APP and REGIS FRANCHISEE APP. All flows were **ENABLED** with last execution **SUCCESS** at time of documentation.
 
-> **Client action required:** Confirm exact refresh schedules in Domo Dataflows → each flow → Schedule tab.
+Schedules below were captured from Domo **Dataflows** → each flow → **Schedule** (API: `triggerSettings` on `/api/dataprocessing/v1/dataflows/{id}`) on **2026-07-13**.
+
+## Refresh schedule summary
+
+| Dataflow | Trigger type | Schedule / dependency | Time zone |
+| --- | --- | --- | --- |
+| **Daily Sales ETL 2** | Dataset update | Runs when **domo_regis.FactDailySales** updates | America/Chicago |
+| **Daily Sales Master Indexing 2** | Dataset update | Runs when **Daily Sales Master 2** updates | UTC |
+| **Store Scorecard ETL** | Manual | No automatic trigger configured — run after **Daily Sales Master 2** and **domo_regis.MonthlyMetrics** are current | — |
+| **Store Scorecard by Brand ETL** | Dataset update + condition | Runs when **domo_regis.MonthlyMetrics** updates, after **Daily Sales Master 2** and **domo_regis.MonthlyMetrics** have both completed successfully since the last run | UTC |
+| **Daily Sales ETL** (legacy) | Cron | Daily at **6:40 AM** | America/Chicago |
+| **Daily Sales Master Indexing** (legacy) | Dataset update | Runs when **Daily Sales Master** updates | UTC |
+| **Corp Employees Daily Sales ETL** | Dataset update | Runs when **domo.CorpEmployeeDailySales** or **Daily Sales Master** updates | UTC |
+| **Sales by Store by Day ETL** | Dataset update | Runs when **Daily Sales** or **Daily Labor** updates | America/Chicago |
+| **Regis Stock History Builder** | Dataset update | Runs when **Regis Stock Data Current** updates | UTC |
+
+**Critical path for app data:** upstream warehouse loads refresh **domo_regis.FactDailySales** → **Daily Sales ETL 2** → **Daily Sales Master 2** → dependent flows (indexing, scorecard). If cards look stale, check **Daily Sales ETL 2** and **Daily Sales Master 2** last-run timestamps first.
 
 ## Dataflow inventory
 
@@ -24,6 +40,7 @@ This document inventories all Magic ETL dataflows observed in regiscorp.domo.com
 | Item | Value |
 | --- | --- |
 | **Status** | ENABLED — last run SUCCESS |
+| **Refresh trigger** | When **domo_regis.FactDailySales** updates (America/Chicago) |
 | **Inputs** | AllineDailyLabor, DimSalon, domo_regis.FactDailySales, DimDate, Alline Total Sales Forecast |
 | **Outputs** | Daily Sales Master 2, DSM2 - Daily Sales By Traffic, Daily Sales Unpivoted Services 2 |
 | **App impact** | **Critical** — primary dataset for both apps |
@@ -33,6 +50,7 @@ This document inventories all Magic ETL dataflows observed in regiscorp.domo.com
 | Item | Value |
 | --- | --- |
 | **Status** | ENABLED — last run SUCCESS |
+| **Refresh trigger** | Daily cron **6:40 AM** (America/Chicago) |
 | **Inputs** | AllineDailyLabor, DimSalon, DimDate, FactDailySales, Alline Total Sales Forecast |
 | **Outputs** | Daily Sales Master, Daily Sales Unpivoted Services |
 | **App impact** | Legacy; Daily Sales Master 2 is current primary |
@@ -42,6 +60,7 @@ This document inventories all Magic ETL dataflows observed in regiscorp.domo.com
 | Item | Value |
 | --- | --- |
 | **Status** | ENABLED — last run SUCCESS |
+| **Refresh trigger** | When **Daily Sales Master 2** updates (UTC) |
 | **Inputs** | Daily Sales Master 2 |
 | **Outputs** | Daily Sales Indexed by Store 2 |
 | **App impact** | Indexed performance cards |
@@ -51,6 +70,7 @@ This document inventories all Magic ETL dataflows observed in regiscorp.domo.com
 | Item | Value |
 | --- | --- |
 | **Status** | ENABLED — last run SUCCESS |
+| **Refresh trigger** | When **Daily Sales Master** updates (UTC) |
 | **Inputs** | Daily Sales Master |
 | **Outputs** | Daily Sales Indexed by Store |
 
@@ -59,6 +79,7 @@ This document inventories all Magic ETL dataflows observed in regiscorp.domo.com
 | Item | Value |
 | --- | --- |
 | **Status** | ENABLED — last run SUCCESS |
+| **Refresh trigger** | Manual (no automatic trigger) — run after inputs are current |
 | **Inputs** | Daily Sales Master 2, domo_regis.MonthlyMetrics |
 | **Outputs** | Store Scorecard Data |
 | **App impact** | Store Performance Report Card and Scorecard pages |
@@ -68,6 +89,7 @@ This document inventories all Magic ETL dataflows observed in regiscorp.domo.com
 | Item | Value |
 | --- | --- |
 | **Status** | ENABLED — last run SUCCESS |
+| **Refresh trigger** | When **domo_regis.MonthlyMetrics** updates, after **Daily Sales Master 2** and **domo_regis.MonthlyMetrics** last successful runs (UTC) |
 | **Inputs** | Daily Sales Master 2, domo_regis.MonthlyMetrics |
 | **Outputs** | Store Scorecard Data_Brand Peers |
 | **App impact** | Brand peer comparisons on Scorecard page |
@@ -77,6 +99,7 @@ This document inventories all Magic ETL dataflows observed in regiscorp.domo.com
 | Item | Value |
 | --- | --- |
 | **Status** | ENABLED — last run SUCCESS |
+| **Refresh trigger** | When **domo.CorpEmployeeDailySales** or **Daily Sales Master** updates (UTC) |
 | **Inputs** | Daily Sales Master, domo.CorpEmployeeDailySales |
 | **Outputs** | Corp Employee Daily Sales Master |
 | **App impact** | Corporate employee daily sales (if used on pages) |
@@ -86,6 +109,7 @@ This document inventories all Magic ETL dataflows observed in regiscorp.domo.com
 | Item | Value |
 | --- | --- |
 | **Status** | ENABLED — last run SUCCESS |
+| **Refresh trigger** | When **Daily Sales** or **Daily Labor** updates (America/Chicago) |
 | **Inputs** | Monthly Employee Retention, Monthly New Guests, DimDateOld, Daily Labor, Daily Sales, Monthly Days Between Visits, Alline Salon Master, Alline Total Sales Forecast, Corporate Salons, Salons |
 | **Outputs** | Employee Retention, Alline Stores Month Targets, Days Between Visits, Sales by Store by Day, New Guests |
 | **App impact** | Retention and guest metrics feeding master datasets |
@@ -95,6 +119,7 @@ This document inventories all Magic ETL dataflows observed in regiscorp.domo.com
 | Item | Value |
 | --- | --- |
 | **Status** | ENABLED — last run SUCCESS |
+| **Refresh trigger** | When **Regis Stock Data Current** updates (UTC) |
 | **Inputs** | Regis Stock Data Current, Regis Stock Data History |
 | **Outputs** | Regis Stock Data History |
 | **App impact** | Stock data (not directly on main app pages) |
