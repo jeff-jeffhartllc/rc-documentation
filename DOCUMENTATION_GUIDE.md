@@ -20,10 +20,7 @@ Output: `dist/delivery/` — zip this folder for the client.
 
 | Command | Output |
 | --- | --- |
-| `npm run build:all` | Full package (HTML books + Word books + README.txt) |
-| `npm run delivery:build:clean` | Same as `build:all` |
-| `npm run html:build:clean` | HTML only |
-| `npm run docx:build:clean` | Legacy per-topic DOCX under `dist/` (optional) |
+| `npm run build:all` | Full client package in `dist/delivery/` |
 
 ## Two apps, one library
 

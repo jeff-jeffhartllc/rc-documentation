@@ -2,79 +2,73 @@
 
 Client handoff documentation for **REGIS APP** and **REGIS FRANCHISEE APP** on regiscorp.domo.com.
 
-This repository is the **vendor authoring workspace**. The customer receives a **self-contained zip** — not this repo. Markdown lives under `source/`; the client package is built to `dist/delivery/`.
-
-## Client deliverable
-
-Each build produces:
-
-```
-dist/delivery/
-  README.txt
-  Regis-User-Guide.docx       ← editable Word book (operators)
-  Regis-Admin-Guide.docx      ← editable Word book (admins)
-  user-guide/
-    index.html                ← linked HTML user guide
-    topics/
-    assets/
-  admin-guide/
-    index.html                ← linked HTML admin guide
-    topics/
-    assets/
-```
-
-Zip `dist/delivery/` and send to the client. They open HTML in a browser for navigation, or edit the two Word books locally.
-
-## Build
-
-```bash
-npm install
-npm run build:all
-```
-
-On Windows (PowerShell execution policy): use `npm.cmd run build:all` if `npm` is blocked.
-
-| Command | Description |
-| --- | --- |
-| `npm run build:all` | Full client package (HTML + Word books + README) |
-| `npm run delivery:build:clean` | Same as `build:all` |
-| `npm run html:build:clean` | HTML books only |
-| `npm run docx:build:clean` | Legacy per-topic DOCX under `dist/` (internal use) |
+You edit Markdown here; the customer receives a **zip of `dist/delivery/`** — not this repo.
 
 ## Repository layout
 
 ```
-source/
-  00-handoff-overview.md          # Handoff package overview
-  library-catalog.md              # Master index of source topics
-  shared/                         # Cross-app documentation
-  apps/
-    regis-app/                    # REGIS APP (corporate)
-    regis-franchisee-app/         # REGIS FRANCHISEE APP (PDP-limited)
-  delivery/                       # Book intros and pointer pages
-  _templates/                     # Copy when creating new docs (not built)
-
-books/                            # User vs admin guide manifests
-templates/html/                   # HTML stylesheet
-scripts/                          # Build scripts
-assets/                           # Screenshots
-dist/delivery/                    # Client package (generated, gitignored)
+rc-documentation/
+├── README.md                 ← you are here
+├── DOCUMENTATION_GUIDE.md    ← how to author and build
+├── package.json              ← one build command
+│
+├── source/                   ← EDIT CONTENT HERE
+│   ├── 00-handoff-overview.md
+│   ├── library-catalog.md
+│   ├── delivery/             ← book intro pages
+│   ├── shared/               ← cross-app docs (PDP, datasets, …)
+│   └── apps/
+│       ├── regis-app/
+│       └── regis-franchisee-app/
+│
+├── books/                    ← topic order for User Guide & Admin Guide
+│   ├── user-guide.json
+│   └── admin-guide.json
+│
+├── assets/                   ← screenshots used in the docs
+├── templates/html/           ← HTML styling
+├── scripts/                  ← build scripts (don't edit unless changing build)
+│
+├── archive/                  ← old exploration scripts & extras (ignore)
+└── dist/delivery/            ← CLIENT PACKAGE (generated — do not edit)
 ```
+
+## Build and deliver
+
+```powershell
+npm.cmd install
+npm.cmd run build:all
+```
+
+Zip **`dist\delivery\`** and send to the client. It contains:
+
+| Item | Purpose |
+| --- | --- |
+| `user-guide\index.html` | Linked HTML for daily users |
+| `admin-guide\index.html` | Linked HTML for admins |
+| `Regis-User-Guide.docx` | Editable Word book (operators) |
+| `Regis-Admin-Guide.docx` | Editable Word book (admins) |
+| `README.txt` | Instructions for the customer |
 
 ## Two guides
 
-| Guide | Audience | Contents |
-| --- | --- | --- |
-| **User Guide** | Operators, analysts | Daily use for both apps, glossary, getting help |
-| **Admin Guide** | Admins, data owners | Handoff, PDP, datasets, dataflows, maintenance, runbooks; links to User Guide for daily use |
+| Guide | Audience |
+| --- | --- |
+| **User Guide** | Daily use — navigation, pages, exports |
+| **Admin Guide** | Handoff, PDP, dataflows, maintenance, runbooks |
 
-Book structure is defined in `books/user-guide.json` and `books/admin-guide.json`.
+Topic lists: `books/user-guide.json` and `books/admin-guide.json`.
 
-## For documentation authors
+## Typical workflow
 
-See [DOCUMENTATION_GUIDE.md](./DOCUMENTATION_GUIDE.md).
+1. Edit files under `source/`
+2. Add new topics to the appropriate book JSON if needed
+3. `npm.cmd run build:all`
+4. Zip `dist\delivery\` for the client
 
-## Apps documented
+See [DOCUMENTATION_GUIDE.md](./DOCUMENTATION_GUIDE.md) for full detail.
+
+## Apps
 
 | App | URL |
 | --- | --- |
