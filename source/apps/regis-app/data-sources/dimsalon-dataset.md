@@ -53,7 +53,7 @@ When salon ownership changes, update upstream master data so ETL refreshes `Fran
 | Franchisee sees wrong stores | Validate franchisee key in DSM2; check user's **Ownership** attribute (not DimSalon PDP) |
 | Geographic filters stale | Re-run upstream connector and ETL |
 
-## Related documents
+## Related topics
 
 - [PDP overview (shared)](../../shared/pdp-overview-and-testing.md)
 - [PDP policy inventory (shared)](../../shared/pdp-policy-inventory.md)

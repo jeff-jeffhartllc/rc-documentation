@@ -36,7 +36,7 @@ https://regiscorp.domo.com/app-studio/2028360971/pages/1731862460
 
 For full metric definitions, see the corporate guide: [Store Performance Report Card (REGIS APP)](../../regis-app/daily-use/store-performance-report-card.md).
 
-## Related documents
+## Related topics
 
 - [Store Performance Scorecard](./store-performance-scorecard.md)
 - [Store Scorecard Data_Brand Peers source](../../regis-app/data-sources/store-scorecard-data.md)

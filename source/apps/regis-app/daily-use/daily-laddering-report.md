@@ -48,7 +48,7 @@ The **Daily Laddering Report** tracks day-over-day operational metrics including
 3. Compare day-over-day progression.
 4. **Expected result:** Current day metrics with prior-day comparison columns.
 
-## Related documents
+## Related topics
 
 - [Glossary — Laddering](../../shared/glossary.md)
 - [Daily Sales Master 2 data source](../data-sources/daily-sales-master-2.md)

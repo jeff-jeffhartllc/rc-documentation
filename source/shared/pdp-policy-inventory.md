@@ -13,7 +13,7 @@
 
 ## Purpose
 
-This document records **live Personalized Data Permission (PDP) row policies** captured from regiscorp.domo.com on 2026-07-13 while signed in as Jeff Hart (Admin). It supplements `pdp-overview-and-testing.md` with exact policy names, groups, filter columns, and dataset IDs.
+This document records **live Personalized Data Permission (PDP) row policies** captured from regiscorp.domo.com on 2026-07-13 while signed in as Jeff Hart (Admin). It supplements **PDP overview and testing** with exact policy names, groups, filter columns, and dataset IDs.
 
 For **how PDP ties together** — Domo groups, custom attributes (**Ownership**, **Territory**), and dynamic row filters — see the architecture section in [PDP overview and testing](./pdp-overview-and-testing.md#pdp-architecture-groups-custom-attributes-and-row-policies).
 
@@ -273,7 +273,7 @@ When adding a franchisee user:
 
 1. Add the user to **RestrictedDataAccess** (or a franchisee-specific group covered by the **Franchisee** policy).
 2. Set the user's **Ownership** attribute to the correct franchisee identifier (must match `FranchiseeNumber` values in Daily Sales Master 2).
-3. Test in REGIS FRANCHISEE APP per `pdp-overview-and-testing.md`.
+3. Test in REGIS FRANCHISEE APP per **PDP overview and testing**.
 
 When a salon changes franchisee ownership:
 
@@ -282,7 +282,7 @@ When a salon changes franchisee ownership:
 3. Confirm `FranchiseeNumber` values in Daily Sales Master 2 reflect the change.
 4. Re-test affected franchisee users.
 
-## Related documents
+## Related topics
 
 - [PDP overview and testing](./pdp-overview-and-testing.md)
 - [Daily Sales Master 2 data source guide](../apps/regis-app/data-sources/daily-sales-master-2.md)

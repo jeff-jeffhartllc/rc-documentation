@@ -56,7 +56,7 @@ domo_regis.MonthlyMetrics ┘          (PDP enabled — ID 41cb7308-2860-431e-92
 | Scorecard cards blank | Check Store Scorecard by Brand ETL status and last run |
 | Peer comparison missing | Verify Store Scorecard Data_Brand Peers last updated timestamp |
 
-## Related documents
+## Related topics
 
 - [Store Performance Report Card (daily use)](../daily-use/store-performance-report-card.md)
 - [Dataflow inventory](./dataflow-inventory.md)

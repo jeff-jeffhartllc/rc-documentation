@@ -66,7 +66,7 @@ When manually re-running, follow this order:
 | Data correct in dataset but cards wrong | Escalate to app owner (card config issue) | _TBD — app owner_ |
 | Platform outage | Check status.domo.com; contact Domo Support | Domo account team |
 
-## Related documents
+## Related topics
 
 - [Dataflow inventory](../data-sources/dataflow-inventory.md)
 - [Daily Sales Master 2 data source](../data-sources/daily-sales-master-2.md)

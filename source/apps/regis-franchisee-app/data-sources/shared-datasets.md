@@ -44,7 +44,7 @@ See:
 | One franchisee sees wrong stores | Incorrect **Ownership** value or stale `FranchiseeNumber` in DSM2 |
 | Cards error for all users | Dataset schema change |
 
-## Related documents
+## Related topics
 
 - [PDP troubleshooting](../maintenance/pdp-troubleshooting.md)
 - [PDP overview (shared)](../../shared/pdp-overview-and-testing.md)

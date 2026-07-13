@@ -69,7 +69,7 @@ For platform-level issues (Domo outage, product bug):
 2. Contact your Domo account representative or open a ticket through Domo Support.
 3. Include the **TOE** (trace ID) from any error message when reporting to Domo.
 
-## Related documents
+## Related topics
 
 - [Domo instance access](./domo-access.md)
 - [Refresh failure runbook](../apps/regis-app/maintenance/runbook-refresh-failures.md)

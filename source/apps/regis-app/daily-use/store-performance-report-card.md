@@ -56,7 +56,7 @@ The **Store Performance Report Card** page provides monthly store-level performa
 
 Primary dataset: **Store Scorecard Data_Brand Peers** (built by Store Scorecard by Brand ETL from Daily Sales Master 2 and domo_regis.MonthlyMetrics).
 
-## Related documents
+## Related topics
 
 - [Store Performance Scorecard](./store-performance-scorecard.md)
 - [Store Scorecard Data_Brand Peers source](../data-sources/store-scorecard-data.md)

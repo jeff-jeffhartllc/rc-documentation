@@ -104,7 +104,7 @@ Look up the symptom you see in Domo. Follow the recommended checks in order.
 - Re-save the Distribute schedule with current filter defaults.
 - See [Exports and sharing](../daily-use/exports-and-sharing.md).
 
-## Related documents
+## Related topics
 
 - [Runbook — refresh failures](./runbook-refresh-failures.md)
 - [Daily Sales Master 2 data source](../data-sources/daily-sales-master-2.md)

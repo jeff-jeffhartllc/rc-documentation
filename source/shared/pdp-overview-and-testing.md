@@ -187,7 +187,7 @@ You need **Admin** or appropriate governance grants.
 
 ## Troubleshooting PDP issues
 
-See `apps/regis-franchisee-app/maintenance/pdp-troubleshooting.md` for symptom → cause → fix detail.
+See **PDP troubleshooting** in this guide for symptom → cause → fix detail.
 
 | Symptom | Likely cause | First action |
 | --- | --- | --- |
@@ -196,7 +196,7 @@ See `apps/regis-franchisee-app/maintenance/pdp-troubleshooting.md` for symptom �
 | Franchisee sees **all stores** | User in AllDataAccess; using REGIS APP; Admin role | Confirm RestrictedDataAccess only; confirm REGIS FRANCHISEE APP URL |
 | Cards error after dataset change | PDP field renamed/removed | Update **Franchisee** policy if `FranchiseeNumber` changes |
 
-## Related documents
+## Related topics
 
 - [PDP policy inventory](./pdp-policy-inventory.md)
 - [REGIS app relationship guide](./regis-app-relationship.md)

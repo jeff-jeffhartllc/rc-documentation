@@ -64,7 +64,7 @@ Do **not** grant franchisee users **AllDataAccess** or access to REGIS APP unles
 - [ ] Franchisee users are routed to REGIS FRANCHISEE APP, not REGIS APP
 - [ ] Franchisee users are in **RestrictedDataAccess** with **Ownership** set — not in **AllDataAccess**
 
-## Related documents
+## Related topics
 
 - [Domo instance access (shared)](../../shared/domo-access.md)
 - [PDP overview (franchisee app)](../../shared/pdp-overview-and-testing.md)

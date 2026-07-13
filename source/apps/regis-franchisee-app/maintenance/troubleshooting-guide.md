@@ -36,7 +36,7 @@ See the dedicated guide: [PDP troubleshooting](./pdp-troubleshooting.md).
 2. Confirm Participant role.
 3. Contact administrator to verify group and PDP assignment.
 
-## Related documents
+## Related topics
 
 - [PDP troubleshooting](./pdp-troubleshooting.md)
 - [Troubleshooting (REGIS APP)](../../regis-app/maintenance/troubleshooting-guide.md)

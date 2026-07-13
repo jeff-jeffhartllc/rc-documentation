@@ -143,7 +143,7 @@ The **Corporate Overview** page is the default landing page for REGIS APP. It pr
 | Stale date on cards | Dataflow not run today | Re-run Daily Sales ETL 2 or wait for schedule |
 | Unexpected totals | Filter combination | Reset filters; verify Entity Type and PY Comp settings |
 
-## Related documents
+## Related topics
 
 - [Navigation and filters](./navigation-and-filters.md)
 - [Franchisee Performance page](./franchisee-performance.md)

@@ -88,7 +88,7 @@ Captured from live Domo on 2026-07-13. See [PDP policy inventory](./pdp-policy-i
 | RestrictedDataAccess | `950576281` | Franchisee-scoped access |
 | TerritoryDataAccess | `1547677730` | Territory scope (legacy DSM) |
 
-## Related documents
+## Related topics
 
 - [Daily Sales Master 2 data source guide](../apps/regis-app/data-sources/daily-sales-master-2.md)
 - [PDP policy inventory](./pdp-policy-inventory.md)

@@ -66,7 +66,7 @@ This guide defines the safe change process for editing pages, cards, and Beast M
 | New corporate-only page | No franchisee impact | None |
 | Filter default change on shared page | Both apps if same card | Test both apps |
 
-See `shared/regis-app-relationship.docx` for the shared page mapping.
+See **REGIS APP and franchisee app relationship** in this guide for the shared page mapping.
 
 ## Rollback
 
@@ -74,7 +74,7 @@ See `shared/regis-app-relationship.docx` for the shared page mapping.
 2. If the change was a page layout edit: restore from pre-change screenshot and rebuild, or use Domo page history if available.
 3. If a dataset change caused the issue: revert the dataflow change first, then re-run the dataflow.
 
-## Related documents
+## Related topics
 
 - [Beast Mode edits](./beast-mode-edits.md)
 - [REGIS app relationship (shared)](../../shared/regis-app-relationship.md)

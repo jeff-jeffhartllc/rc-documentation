@@ -98,7 +98,7 @@ See [PDP policy inventory](../../shared/pdp-policy-inventory.md) for full detail
 | Upstream FactDailySales late | Dataset refreshes with yesterday's data | Wait for upstream; re-run ETL |
 | Field removed | Card errors; PDP may break | Restore field or update cards and PDP |
 
-## Related documents
+## Related topics
 
 - [Dataflow inventory](./dataflow-inventory.md)
 - [DimSalon dataset](./dimsalon-dataset.md)

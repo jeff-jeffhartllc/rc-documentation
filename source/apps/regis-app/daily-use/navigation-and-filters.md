@@ -92,7 +92,7 @@ See [Exports and sharing](./exports-and-sharing.md) for distribution procedures.
 | Cards show "Filtering…" indefinitely | Refresh browser; if persists, escalate to app owner |
 | Unexpected totals | Verify filter selections; check Reference page for metric definitions |
 
-## Related documents
+## Related topics
 
 - [Corporate Overview guide](./corporate-overview.md)
 - [Exports and sharing](./exports-and-sharing.md)

@@ -66,7 +66,7 @@ Configure recipients, cadence, and filter defaults in Domo **Distribute** on eac
 | Scheduled report not received | Verify Distribute schedule is active; check recipient email |
 | Export data doesn't match screen | Confirm filter state at time of export |
 
-## Related documents
+## Related topics
 
 - [Daily Sales Email Report](./daily-sales-email-report.md)
 - [User roles and access](../maintenance/user-roles-and-access.md)
