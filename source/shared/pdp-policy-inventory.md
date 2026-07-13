@@ -124,6 +124,31 @@ Warehouse-fed monthly metrics dataset used as an input to **Store Scorecard ETL*
 
 Scorecard app pages consume **Store Scorecard Data** (ETL output), not this dataset directly — but franchisee PDP on scorecard pages may depend on aligned policies across the scorecard lineage (MonthlyMetrics → ETL → Store Scorecard Data).
 
+## domo_regis.FactDailySales (warehouse sales fact)
+
+Upstream warehouse fact table feeding **Daily Sales ETL 2** (and legacy Daily Sales ETL). PDP uses the same franchisee pattern as Daily Sales Master 2.
+
+| Item | Value |
+| --- | --- |
+| **Domo dataset name** | domo_regis.FactDailySales |
+| **Dataset ID** | `5bdaf9aa-0950-432e-a9ce-eaa7cffb2796` |
+| **Owner** | Keela Davis |
+| **Scale** | 145 columns · 1,513,506 rows |
+| **Tags** | PROD, PDP |
+| **PDP status** | **Enabled** — Row Filtering ON |
+| **PDP URL** | https://regiscorp.domo.com/datasources/5bdaf9aa-0950-432e-a9ce-eaa7cffb2796/details/rls |
+
+![domo_regis.FactDailySales PDP row policies](../../assets/domo-regis-factdailysales-pdp-policies.png)
+
+### Row policies (domo_regis.FactDailySales)
+
+| Policy name | Type | Data access / filter | Groups & people | Notes |
+| --- | --- | --- | --- | --- |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
+
+This is the root sales fact in the Daily Sales lineage. If franchisee users can query this dataset directly (outside app cards), the same **Franchisee** policy applies.
+
 ## Other datasets (PDP status TBD)
 
 Scorecard and dimension datasets below are used by app cards and filters. Their PDP settings were **not fully captured** in this session. An Admin should open each dataset's **PDP** tab and confirm whether row policies mirror Daily Sales Master 2 or are inherited through card filter linkage.
