@@ -47,8 +47,8 @@ Corporate users in **REGIS APP** are governed by standard Domo roles (Admin, Pri
 | **Daily Sales Unpivoted Services 2** | `e8d85e2e-6464-40d2-b4e4-a2f138de815d` | **Yes** | Same as DSM2 (ETL derivative; not primary app source) |
 | **DSM2 - Daily Sales By Traffic** | `b5bac1e5-bd22-47b9-b8de-a19bc0237de0` | **Yes** | Same as DSM2 (ETL derivative; not primary app source) |
 | **Store Scorecard Data_Brand Peers** | `41cb7308-2860-431e-92ca-7b63049b8ce9` | **Yes** | **All Rows** · **Franchisee** (`FranchiseeNumber` = Ownership) |
+| **Daily Sales Indexed by Store 2** | `0239c170-55d5-43e1-9a92-a3498ba68548` | **Yes** | **All Rows** · **Franchisee** (`FranchiseeNumber` = Ownership) |
 | Store Scorecard Data | _TBD_ | Not captured | Verify in Data Center → PDP tab |
-| Daily Sales Indexed by Store 2 | _TBD_ | Not captured | Verify in Data Center → PDP tab |
 | DimSalon | _TBD_ | Not captured | Verify in Data Center → PDP tab |
 
 ## Where PDP is configured in Domo

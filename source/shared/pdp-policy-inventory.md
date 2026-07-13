@@ -218,6 +218,29 @@ Brand peer comparison dataset output from **Store Scorecard by Brand ETL**. Powe
 | **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
+## Daily Sales Indexed by Store 2 (indexing ETL output)
+
+Indexed store performance dataset output from **Daily Sales Master Indexing 2**. Used by indexed performance cards on both apps.
+
+| Item | Value |
+| --- | --- |
+| **Domo dataset name** | Daily Sales Indexed by Store 2 |
+| **Dataset ID** | `0239c170-55d5-43e1-9a92-a3498ba68548` |
+| **Owner** | Jeff Hart |
+| **Scale** | 164 columns · 3,590 rows |
+| **Tags** | PROD, PDP |
+| **PDP status** | **Enabled** — Row Filtering ON |
+| **PDP URL** | https://regiscorp.domo.com/datasources/0239c170-55d5-43e1-9a92-a3498ba68548/details/rls |
+
+![Daily Sales Indexed by Store 2 PDP row policies](../../assets/daily-sales-indexed-by-store-2-pdp-policies.png)
+
+### Row policies (Daily Sales Indexed by Store 2)
+
+| Policy name | Type | Data access / filter | Groups & people | Notes |
+| --- | --- | --- | --- | --- |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
+
 ## Other datasets (PDP status TBD)
 
 Scorecard and dimension datasets below are used by app cards and filters. Their PDP settings were **not fully captured** in this session. An Admin should open each dataset's **PDP** tab and confirm whether row policies mirror Daily Sales Master 2 or are inherited through card filter linkage.
@@ -225,7 +248,6 @@ Scorecard and dimension datasets below are used by app cards and filters. Their 
 | Dataset | Used by | PDP status |
 | --- | --- | --- |
 | Store Scorecard Data | Store Performance Report Card, Store Performance Scorecard | _TBD — verify in Data Center_ |
-| Daily Sales Indexed by Store 2 | Indexed performance cards | _TBD — verify in Data Center_ |
 | DimSalon | Filter dimensions (Brand, Salon, Territory, DMA) | _TBD — verify in Data Center_ |
 
 If franchisee users see scorecard data outside their salon scope, add or align PDP row policies on those datasets to match the **Franchisee** policy pattern above.

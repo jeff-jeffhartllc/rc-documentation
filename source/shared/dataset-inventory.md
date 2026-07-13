@@ -31,6 +31,7 @@ This document lists datasets shared between REGIS APP and REGIS FRANCHISEE APP, 
 | --- | --- | --- |
 | Daily Sales Master | Daily Sales ETL | Prior version; Daily Sales Master 2 is current primary |
 | Daily Sales Indexed by Store | Daily Sales Master Indexing | Prior version of indexed dataset |
+| Daily Sales Indexed by Store 2 | Daily Sales Master Indexing 2 | Also listed in primary datasets; **PDP enabled** (ID `0239c170-55d5-43e1-9a92-a3498ba68548`) |
 | Daily Sales Unpivoted Services 2 | Daily Sales ETL 2 | Service-type breakdowns; **PDP enabled** |
 | DSM2 - Daily Sales By Traffic | Daily Sales ETL 2 | Traffic-based sales splits; **PDP enabled** |
 | Corp Employee Daily Sales Master | Corp Employees Daily Sales ETL | Corporate employee daily sales |
@@ -78,8 +79,8 @@ Captured from live Domo on 2026-07-13. See [PDP policy inventory](./pdp-policy-i
 | **Daily Sales Unpivoted Services 2** | `e8d85e2e-6464-40d2-b4e4-a2f138de815d` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | **DSM2 - Daily Sales By Traffic** | `b5bac1e5-bd22-47b9-b8de-a19bc0237de0` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | **Store Scorecard Data_Brand Peers** | `41cb7308-2860-431e-92ca-7b63049b8ce9` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
+| **Daily Sales Indexed by Store 2** | `0239c170-55d5-43e1-9a92-a3498ba68548` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | Store Scorecard Data | _TBD_ | Not captured — verify | _TBD_ |
-| Daily Sales Indexed by Store 2 | _TBD_ | Not captured — verify | _TBD_ |
 | DimSalon | _TBD_ | Not captured — verify | _TBD_ |
 
 **Domo groups (Daily Sales Master 2):**
