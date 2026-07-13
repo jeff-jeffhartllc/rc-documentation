@@ -78,7 +78,7 @@ Use the **data-sources** guides and the shared dataset inventory for dataflow, r
 
 The following items could not be fully verified during documentation and require client completion:
 
-1. **PDP policy details** — Admin access to PDP configuration was not available during exploration. Confirm policy names, attribute mappings, and governed datasets with a Domo Admin.
+1. **PDP policy details** — PDP policy names, attribute mappings, and field-level rules were not captured during automated exploration (see `shared/pdp-overview-and-testing.md`). An Admin user should complete this section from Domo Admin / dataset PDP settings.
 2. **Ownership contacts** — All owner/escalation fields marked _TBD_.
 3. **Refresh schedules** — Dataflows are documented with lineage; exact cron schedules need confirmation in Domo Dataflows.
 4. **Full field dictionary** — Key fields documented; complete schema export from Data Center recommended.

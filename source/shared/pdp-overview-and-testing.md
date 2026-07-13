@@ -45,7 +45,28 @@ Based on app filter sources and dataflow lineage, PDP rules most likely apply to
 | **Daily Sales Indexed by Store 2** | Indexed store performance |
 | **DimSalon** | Salon dimension used in filters (Brand, Salon, Territory, DMA) |
 
-> **Client action required:** Confirm exact PDP policy names, attribute mappings, and governed dataset list with a Domo **Admin** or **Privileged** user. The exploration account used to build this library did not have PDP admin permissions.
+> **Client action required:** Confirm exact PDP policy names, attribute mappings, and governed dataset list. The sections below describe where to find them in Domo; the automated exploration did not capture policy-level detail.
+
+## Where PDP is configured in Domo
+
+PDP is **not always a single admin page**. On many Domo instances (including regiscorp.domo.com), policies are managed in one or more of these places:
+
+| Location | How to open | What you configure |
+| --- | --- | --- |
+| **DataSet PDP (most common)** | **Data** → open a dataset (e.g. Daily Sales Master 2) → **PDP** or **Permissions** tab | Row filters and column masks per user/group |
+| **Admin → Governance** | **More** → **Admin** → **Governance** | Users, groups, roles, attributes used by Dynamic PDP |
+| **Governance Toolkit → PDP Automation** | **Admin** → **Governance** → **Toolkit** → **PDP Automation** | Automated PDP jobs (if enabled on your instance) |
+
+During library authoring, scripted navigation tried deep links such as `/admin/personalizeddata` and several REST API paths. Those URLs returned “page does not exist” or HTTP 404 on this instance — which indicates **wrong paths for this Domo version**, not necessarily missing Admin role. PDP policy detail was therefore documented from app behavior (franchisee scoping, shared datasets) rather than from the policy editor UI.
+
+### Recommended Admin walkthrough (complete the gaps)
+
+1. Sign in as Admin (e.g. Jeff Hart) on https://regiscorp.domo.com.
+2. Open **Data Center** → **Daily Sales Master 2** → **PDP** / **Permissions**.
+3. Record each policy: name, users/groups, filter column(s), operator, value(s).
+4. Repeat for **Store Scorecard Data**, **DimSalon**, and any other governed datasets.
+5. In **Admin** → **Governance** → **Attributes**, note attributes used for franchisee mapping (if Dynamic PDP).
+6. Add findings to this document and to franchisee access runbooks.
 
 ## How franchisee store assignments are determined
 
@@ -59,14 +80,14 @@ When a salon changes franchisee ownership or a new salon opens, update upstream 
 
 ## Accessing PDP configuration in Domo
 
-PDP is managed in Domo Admin. You need **Admin** or **Privileged** role.
+You need **Admin** or appropriate governance grants.
 
-1. Sign in to https://regiscorp.domo.com as an Admin or Privileged user.
-2. Go to **Admin** → **Governance** → **Personalized Data Permissions** (exact menu label may vary by Domo version).
-3. Review policies linked to franchisee groups or user attributes.
-4. Note which datasets and fields each policy filters on.
+1. Sign in to https://regiscorp.domo.com as an Admin user.
+2. Open **More** → **Admin** → **Governance** for users, groups, roles, and attributes.
+3. For each governed dataset, open **Data** → dataset → **PDP** tab and review row/column policies.
+4. Note policy names, groups/users, and filter fields (typically franchisee and/or salon identifiers).
 
-**If this fails:** Confirm your role under **Profile** → **Account Settings**. Escalate to the Domo instance Admin listed in `shared/escalation-and-support.md`.
+**If a menu item is missing:** Some features (e.g. Governance Toolkit) require additional grants even for Admin users. Check **Admin** → **Roles** for governance-related grants.
 
 ## Testing PDP
 
