@@ -44,12 +44,21 @@ On Windows (PowerShell execution policy): use `npm.cmd run build:all` if `npm` i
 ## Repository layout
 
 ```
-source/                 Markdown source (canonical)
-books/                  User vs admin guide manifests (topic order)
-source/delivery/        Intro and pointer pages for the books
-templates/html/         HTML stylesheet
-scripts/                Build scripts
-assets/                 Screenshots
+source/
+  00-handoff-overview.md          # Handoff package overview
+  library-catalog.md              # Master index of source topics
+  shared/                         # Cross-app documentation
+  apps/
+    regis-app/                    # REGIS APP (corporate)
+    regis-franchisee-app/         # REGIS FRANCHISEE APP (PDP-limited)
+  delivery/                       # Book intros and pointer pages
+  _templates/                     # Copy when creating new docs (not built)
+
+books/                            # User vs admin guide manifests
+templates/html/                   # HTML stylesheet
+scripts/                          # Build scripts
+assets/                           # Screenshots
+dist/delivery/                    # Client package (generated, gitignored)
 ```
 
 ## Two guides

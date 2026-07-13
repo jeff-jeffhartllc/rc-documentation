@@ -25,6 +25,17 @@ Output: `dist/delivery/` — zip this folder for the client.
 | `npm run html:build:clean` | HTML only |
 | `npm run docx:build:clean` | Legacy per-topic DOCX under `dist/` (optional) |
 
+## Two apps, one library
+
+| App | Folder | URL |
+| --- | --- | --- |
+| **REGIS APP** | `source/apps/regis-app/` | https://regiscorp.domo.com/app-studio/183500481/pages/925282956 |
+| **REGIS FRANCHISEE APP** | `source/apps/regis-franchisee-app/` | https://regiscorp.domo.com/app-studio/2028360971/pages/1195391822 |
+
+REGIS FRANCHISEE APP is a **subset** of REGIS APP with **Personalized Data Permissions (PDP)** that limits each franchisee user to their own stores. Document this relationship in `source/shared/regis-app-relationship.md`.
+
+Use `source/shared/` for cross-app documentation (PDP behavior, shared datasets, governance, glossary, etc.).
+
 ## Book structure
 
 Topic order and inclusion are defined in:
@@ -41,15 +52,45 @@ When adding a new document:
 3. Run `npm run build:all`
 4. Verify HTML links and Word book sections
 
-## Source layout
+## Required document categories
 
-| Folder | Purpose |
+Each app should include documents in these folders:
+
+| Folder | Purpose | Examples |
+| --- | --- | --- |
+| `daily-use/` | End-user and operator workflows | Navigation, filters, exports, scheduled reports |
+| `maintenance/` | How to keep the app healthy | Card/page changes, Beast Mode edits, access management |
+| `data-sources/` | Source-of-truth for data | Datasets, dataflows, refresh schedules, field definitions |
+
+Also maintain:
+
+| File | Purpose |
 | --- | --- |
-| `source/apps/regis-app/` | Corporate app docs |
-| `source/apps/regis-franchisee-app/` | Franchisee app docs |
-| `source/shared/` | Cross-app platform docs |
-| `source/delivery/` | Book intros and admin→user pointer pages |
-| `source/_templates/` | Templates (not built) |
+| `source/00-handoff-overview.md` | Executive summary and how to use the library |
+| `source/library-catalog.md` | Master index of source topics |
+| `source/shared/` | Cross-app platform, governance, and glossary docs |
+
+## Templates
+
+Copy from `source/_templates/` when creating new documents:
+
+| Template | Use for |
+| --- | --- |
+| `daily-use-guide.md` | Page/card walkthroughs and user procedures |
+| `maintenance-guide.md` | Change management and app upkeep |
+| `data-source-guide.md` | Dataset and pipeline documentation |
+| `runbook.md` | Step-by-step operational procedures |
+| `troubleshooting-guide.md` | Symptom → cause → fix reference |
+
+Templates are **not** exported to the client package. Remove placeholder text before marking a document complete.
+
+## Authoring rules
+
+1. **One topic per file** — lowercase, hyphen-separated filenames
+2. **Include metadata** at the top of each doc (app name, audience, last reviewed date, owner)
+3. **Screenshots** — use `![description](../../assets/...)` and add images under `assets/`
+4. **Be actionable** — numbered steps, expected outcomes, and failure handling
+5. **Update manifests** — add every new topic to `books/user-guide.json` and/or `books/admin-guide.json`
 
 ## Customer editing (no repo access)
 
@@ -73,6 +114,23 @@ When you ship updates, send a new zip; they merge Word edits or maintain a local
 - [ ] User roles and maintenance for both apps
 - [ ] Runbooks and troubleshooting
 - [ ] Pointer to User Guide (no duplicate daily-use content)
+
+### Shared / cross-app
+
+- [ ] Domo instance access notes
+- [ ] Shared datasets between REGIS APP and REGIS FRANCHISEE APP
+- [ ] PDP rules, testing, and franchisee access troubleshooting
+- [ ] Escalation contacts and support boundaries
+- [ ] Glossary of business terms and calculated fields
+
+## Suggested workflow for exploration
+
+1. Inventory both apps on regiscorp.domo.com (pages, cards, datasets, dataflows, schedules, roles, PDP rules)
+2. Map which REGIS APP pages/cards appear in REGIS FRANCHISEE APP
+3. Create overview docs first, then daily-use, then maintenance, then data-sources
+4. Expand `source/shared/regis-app-relationship.md` with PDP and shared-dataset detail
+5. Update book manifests, `library-catalog.md`, and `00-handoff-overview.md`
+6. Run `npm run build:all` and QA HTML and Word books in `dist/delivery/`
 
 ## Quality bar
 
