@@ -1,14 +1,19 @@
 {
   "name": "rc-documentation",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
     "docx:build": "node scripts/build-docx.mjs",
     "docx:build:clean": "node scripts/build-docx.mjs --clean",
-    "build:all": "npm run docx:build:clean"
+    "html:build": "node scripts/build-html.mjs",
+    "html:build:clean": "node scripts/build-html.mjs --clean",
+    "delivery:build": "node scripts/build-delivery.mjs",
+    "delivery:build:clean": "node scripts/build-delivery.mjs --clean",
+    "build:all": "node scripts/build-delivery.mjs --clean"
   },
   "devDependencies": {
-    "@mohtasham/md-to-docx": "^2.18.0"
+    "@mohtasham/md-to-docx": "^2.18.0",
+    "markdown-it": "^14.1.0"
   }
 }
