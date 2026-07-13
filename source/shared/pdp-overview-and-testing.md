@@ -116,7 +116,6 @@ Corporate users in **REGIS APP** are governed by standard Domo roles (Admin, Pri
 | **DSM2 - Daily Sales By Traffic** | `b5bac1e5-bd22-47b9-b8de-a19bc0237de0` | **Yes** | Same as DSM2 (ETL derivative; not primary app source) |
 | **Store Scorecard Data_Brand Peers** | `41cb7308-2860-431e-92ca-7b63049b8ce9` | **Yes** | **All Rows** · **Franchisee** (`FranchiseeNumber` = Ownership) |
 | **Daily Sales Indexed by Store 2** | `0239c170-55d5-43e1-9a92-a3498ba68548` | **Yes** | **All Rows** · **Franchisee** (`FranchiseeNumber` = Ownership) |
-| **Store Scorecard Data** | _same pattern as Brand Peers_ | **Yes** | **All Rows** · **Franchisee** (confirmed; identical to Brand Peers capture) |
 | DimSalon / domo_regis.MonthlySalonCounts | Salon dimension (ETL input) | **No** | Scoping via downstream PDP datasets |
 
 ## Where PDP is configured in Domo
