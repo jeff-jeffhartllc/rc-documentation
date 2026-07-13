@@ -6,9 +6,13 @@
   "scripts": {
     "pdf:build": "node scripts/build-pdfs.mjs",
     "pdf:build:clean": "node scripts/build-pdfs.mjs --clean",
-    "pdf:watch": "node scripts/build-pdfs.mjs --watch"
+    "pdf:watch": "node scripts/build-pdfs.mjs --watch",
+    "docx:build": "node scripts/build-docx.mjs",
+    "docx:build:clean": "node scripts/build-docx.mjs --clean",
+    "build:all": "npm run pdf:build:clean && npm run docx:build:clean"
   },
   "devDependencies": {
+    "@mohtasham/md-to-docx": "^2.18.0",
     "chokidar": "^4.0.3",
     "md-to-pdf": "^5.2.5"
   }
