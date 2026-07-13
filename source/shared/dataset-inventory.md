@@ -87,8 +87,8 @@ Captured from live Domo on 2026-07-13. See [PDP policy inventory](./pdp-policy-i
 
 | Group | ID | PDP role |
 | --- | --- | --- |
-| AllDataAccess | `2014419418` | Full row access |
-| RestrictedDataAccess | `950576281` | Franchisee-scoped access |
+| AllDataAccess | `2014419418` | Full row access (dynamic group membership) |
+| RestrictedDataAccess | `950576281` | Franchisee-scoped access (dynamic group membership) |
 | TerritoryDataAccess | `1547677730` | Territory scope (legacy DSM) |
 
 ## Related documents

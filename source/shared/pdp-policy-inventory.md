@@ -73,8 +73,8 @@ Domo resolves each user's **Ownership** attribute at login and filters rows wher
 
 | Group name | Group ID | Approx. members | Role in PDP |
 | --- | --- | --- | --- |
-| **AllDataAccess** | `2014419418` | 49 | Full row access via **All Rows** policy |
-| **RestrictedDataAccess** | `950576281` | 15 | Franchisee-scoped access via **Franchisee** policy |
+| **AllDataAccess** | `2014419418` | 49 | Full row access via **All Rows** policy (**dynamic group membership**) |
+| **RestrictedDataAccess** | `950576281` | 15 | Franchisee-scoped access via **Franchisee** policy (**dynamic group membership**) |
 | **3c090c15-223e-4377-bf0f-60e2eec980b4** | `1197243980` | 3 | Full row access via **All Rows** policy (internal / test group name is a UUID) |
 
 Test accounts visible in dataset sharing include **Jeff Franchisee** and **Jeff Territory** — useful for PDP validation.
@@ -281,8 +281,8 @@ GET /api/data/v3/datasources/{dataset-id}/permissions
 
 When adding a franchisee user:
 
-1. Add the user to **RestrictedDataAccess** (or a franchisee-specific group covered by the **Franchisee** policy).
-2. Set the user's **Ownership** attribute to the correct franchisee identifier (must match `FranchiseeNumber` values in Daily Sales Master 2).
+1. Set the user's **Ownership** attribute to the correct franchisee identifier (must match `FranchiseeNumber` values in Daily Sales Master 2).
+2. Confirm **RestrictedDataAccess** dynamic group rules include the user (and they are not in **AllDataAccess**).
 3. Test in REGIS FRANCHISEE APP per `pdp-overview-and-testing.md`.
 
 When a salon changes franchisee ownership:

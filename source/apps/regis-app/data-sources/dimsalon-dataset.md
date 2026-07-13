@@ -40,7 +40,7 @@ Upstream salon master (Alline Salon Master / warehouse) ──► DimSalon / Mon
 DimSalon does **not** have its own PDP policies. Franchisee access is controlled by:
 
 1. **Ownership** custom attribute on the user profile
-2. **RestrictedDataAccess** group membership
+2. **RestrictedDataAccess** membership (via that group's **dynamic group rules**)
 3. **Franchisee** row policy on Daily Sales Master 2 and other governed datasets (`FranchiseeNumber` = **Ownership**)
 
 When salon ownership changes, update upstream master data so ETL refreshes `FranchiseeNumber` in downstream datasets — PDP policies do not need to change unless attribute or column names change.
