@@ -24,9 +24,7 @@ Schedules below were captured from Domo **Dataflows** → each flow → **Schedu
 | **Daily Sales ETL 2** | Dataset update | Runs when **domo_regis.FactDailySales** updates | America/Chicago |
 | **Daily Sales Master Indexing 2** | Dataset update | Runs when **Daily Sales Master 2** updates | UTC |
 | **Store Scorecard by Brand ETL** | Dataset update + condition | Runs when **domo_regis.MonthlyMetrics** updates, after **Daily Sales Master 2** and **domo_regis.MonthlyMetrics** have both completed successfully since the last run | UTC |
-| **Daily Sales ETL** (legacy) | Cron | Daily at **6:40 AM** | America/Chicago |
-| **Daily Sales Master Indexing** (legacy) | Dataset update | Runs when **Daily Sales Master** updates | UTC |
-| **Corp Employees Daily Sales ETL** | Dataset update | Runs when **domo.CorpEmployeeDailySales** or **Daily Sales Master** updates | UTC |
+| **Corp Employees Daily Sales ETL** | Dataset update | Runs when **domo.CorpEmployeeDailySales** updates | UTC |
 | **Sales by Store by Day ETL** | Dataset update | Runs when **Daily Sales** or **Daily Labor** updates | America/Chicago |
 | **Regis Stock History Builder** | Dataset update | Runs when **Regis Stock Data Current** updates | UTC |
 
@@ -44,16 +42,6 @@ Schedules below were captured from Domo **Dataflows** → each flow → **Schedu
 | **Outputs** | Daily Sales Master 2, DSM2 - Daily Sales By Traffic, Daily Sales Unpivoted Services 2 |
 | **App impact** | **Critical** — primary dataset for both apps |
 
-### Daily Sales ETL (legacy)
-
-| Item | Value |
-| --- | --- |
-| **Status** | ENABLED — last run SUCCESS |
-| **Refresh trigger** | Daily cron **6:40 AM** (America/Chicago) |
-| **Inputs** | AllineDailyLabor, DimSalon, DimDate, FactDailySales, Alline Total Sales Forecast |
-| **Outputs** | Daily Sales Master, Daily Sales Unpivoted Services |
-| **App impact** | Legacy; Daily Sales Master 2 is current primary |
-
 ### Daily Sales Master Indexing 2
 
 | Item | Value |
@@ -63,15 +51,6 @@ Schedules below were captured from Domo **Dataflows** → each flow → **Schedu
 | **Inputs** | Daily Sales Master 2 |
 | **Outputs** | Daily Sales Indexed by Store 2 |
 | **App impact** | Indexed performance cards |
-
-### Daily Sales Master Indexing (legacy)
-
-| Item | Value |
-| --- | --- |
-| **Status** | ENABLED — last run SUCCESS |
-| **Refresh trigger** | When **Daily Sales Master** updates (UTC) |
-| **Inputs** | Daily Sales Master |
-| **Outputs** | Daily Sales Indexed by Store |
 
 ### Store Scorecard by Brand ETL
 
@@ -88,8 +67,8 @@ Schedules below were captured from Domo **Dataflows** → each flow → **Schedu
 | Item | Value |
 | --- | --- |
 | **Status** | ENABLED — last run SUCCESS |
-| **Refresh trigger** | When **domo.CorpEmployeeDailySales** or **Daily Sales Master** updates (UTC) |
-| **Inputs** | Daily Sales Master, domo.CorpEmployeeDailySales |
+| **Refresh trigger** | When **domo.CorpEmployeeDailySales** updates (UTC) |
+| **Inputs** | domo.CorpEmployeeDailySales |
 | **Outputs** | Corp Employee Daily Sales Master |
 | **App impact** | Corporate employee daily sales (if used on pages) |
 

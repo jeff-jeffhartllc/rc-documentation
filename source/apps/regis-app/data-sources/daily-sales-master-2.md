@@ -16,8 +16,6 @@
 
 **Daily Sales Master 2** is the primary dataset powering filters and KPI cards on both REGIS APP and REGIS FRANCHISEE APP. Filter labels on app pages show "Source: Daily Sales Master 2". It contains daily salon-level sales, traffic, productivity, loyalty, and dimension attributes.
 
-> **Naming note:** Domo also has a separate legacy dataset named **Daily Sales Master** (ID `19ae8295-9dab-4277-963a-f9c7aab23f78`, owner Keela Davis). The apps use **Daily Sales Master 2**, not the legacy dataset.
-
 ## Source system
 
 | Item | Value |
