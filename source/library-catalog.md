@@ -27,7 +27,7 @@ Use this catalog as the entry point to the full PDF library. Paths below refer t
 | Personalized Data Permissions — overview and testing | `shared/pdp-overview-and-testing.pdf` | Complete |
 | PDP policy inventory (live capture) | `shared/pdp-policy-inventory.pdf` | Complete |
 | Shared dataset inventory | `shared/dataset-inventory.pdf` | Complete |
-| Domo instance access and SSO | `shared/domo-access-and-sso.pdf` | Complete |
+| Domo instance access | `shared/domo-access.pdf` | Complete |
 | Glossary — business terms and calculated fields | `shared/glossary.pdf` | Complete |
 | Escalation and support model | `shared/escalation-and-support.pdf` | Complete |
 

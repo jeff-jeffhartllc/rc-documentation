@@ -44,4 +44,4 @@ How to provision franchisee users for REGIS FRANCHISEE APP and ensure correct PD
 
 - [PDP overview and testing (shared)](../../shared/pdp-overview-and-testing.md)
 - [PDP troubleshooting](./pdp-troubleshooting.md)
-- [Domo access and SSO (shared)](../../shared/domo-access-and-sso.md)
+- [Domo instance access (shared)](../../shared/domo-access.md)

@@ -51,6 +51,6 @@ Do **not** grant franchisee users access to REGIS APP unless there is a specific
 
 ## Related documents
 
-- [Domo access and SSO (shared)](../../shared/domo-access-and-sso.md)
+- [Domo instance access (shared)](../../shared/domo-access.md)
 - [PDP overview (franchisee app)](../../shared/pdp-overview-and-testing.md)
 - [Escalation and support (shared)](../../shared/escalation-and-support.md)

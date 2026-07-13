@@ -17,7 +17,7 @@
 | --- | --- | --- |
 | **Tier 1 — Daily users** | Self-service via this library | Navigation, filters, exports, basic troubleshooting |
 | **Tier 2 — App / data owners** | _TBD — primary app owner_ | Card errors, access requests, data quality questions |
-| **Tier 3 — Domo Admin / IT** | _TBD — Domo Admin_ | PDP configuration, SSO, user provisioning, connector credentials |
+| **Tier 3 — Domo Admin / IT** | _TBD — Domo Admin_ | PDP configuration, user provisioning, connector credentials |
 | **Tier 4 — Vendor / Domo Support** | Domo account team | Platform outages, Domo product defects |
 
 ## Ownership matrix (to be completed by client)
@@ -27,7 +27,7 @@
 | Primary app owner | _TBD_ | | REGIS APP and REGIS FRANCHISEE APP |
 | Data owner | _TBD_ | | Datasets, dataflows, refresh schedules |
 | PDP / access owner | _TBD_ | | Franchisee store assignments, PDP policies |
-| IT / SSO owner | _TBD_ | | Authentication, user provisioning |
+| IT / access owner | _TBD_ | | Domo user provisioning (native credentials) |
 | Escalation contact | _TBD_ | | Single point for unresolved issues |
 | Change approval | _TBD_ | | Production app and dataflow changes |
 
@@ -40,7 +40,7 @@
 | Franchisee sees wrong stores | PDP / access owner | **High — data privacy** |
 | Franchisee sees no data | PDP / access owner → data owner | Medium |
 | Dataflow failure | Data owner | High |
-| SSO / login failure | IT / Domo Admin | High |
+| Login failure | Domo Admin / access owner | High |
 | Incorrect metric after confirmed good data | App owner / analyst | Medium |
 | Need new page or major app change | App owner + change approval | Planned |
 
@@ -56,8 +56,7 @@
 
 **Out of scope / requires specialist:**
 
-- Connector credential rotation (typically IT)
-- SSO / IdP configuration changes (IT)
+- Connector credential rotation (typically IT / data owner)
 - Major data model redesign
 - Custom Domo plugin development
 - Domo platform licensing and billing
@@ -72,7 +71,7 @@ For platform-level issues (Domo outage, product bug):
 
 ## Related documents
 
-- [Domo access and SSO](./domo-access-and-sso.md)
+- [Domo instance access](./domo-access.md)
 - [Refresh failure runbook](../apps/regis-app/maintenance/runbook-refresh-failures.md)
 - [PDP troubleshooting](../apps/regis-franchisee-app/maintenance/pdp-troubleshooting.md)
 - [Troubleshooting guide (REGIS APP)](../apps/regis-app/maintenance/troubleshooting-guide.md)

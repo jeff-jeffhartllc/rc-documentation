@@ -81,8 +81,7 @@ The following items could not be fully verified during documentation and require
 1. **Ownership contacts** — All owner/escalation fields marked _TBD_.
 2. **Refresh schedules** — Dataflows are documented with lineage; exact cron schedules need confirmation in Domo Dataflows.
 3. **Full field dictionary** — Key fields documented; complete schema export from Data Center recommended.
-4. **SSO provider details** — Authentication configuration to be documented by IT.
-5. **Scheduled report recipients** — Distribute schedules to be documented by app owner.
+4. **Scheduled report recipients** — Distribute schedules to be documented by app owner.
 
 ## Document conventions
 

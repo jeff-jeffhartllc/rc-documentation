@@ -85,7 +85,7 @@ Before handoff, confirm the library includes at least:
 
 ### Shared / cross-app
 
-- [ ] Domo instance access and SSO notes
+- [ ] Domo instance access notes
 - [ ] Shared datasets between REGIS APP and REGIS FRANCHISEE APP
 - [ ] PDP rules, testing, and franchisee access troubleshooting
 - [ ] Naming conventions and environment notes (prod vs sandbox)

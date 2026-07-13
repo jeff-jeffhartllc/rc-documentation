@@ -41,7 +41,7 @@ Regis franchisee scoping uses Domo **Personalized Data Permissions (PDP)** with 
 | **Ownership** | **Franchisee** row policy on all franchisee-scoped datasets | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | Franchisee users in **RestrictedDataAccess** |
 | **Territory** | **TerritoryDataAccess** row policy on legacy Daily Sales Master only | `Alline_territory` **EQUALS** `Territory` (dynamic) | Territory leaders in **TerritoryDataAccess** |
 
-**Ownership** is the primary franchisee key. Each franchisee user's **Ownership** value must match the `FranchiseeNumber` column in governed datasets (for example Daily Sales Master 2). Values are typically set during user provisioning (manual entry in **Admin → Governance → People**, SSO attribute mapping, or automation — confirm with IT).
+**Ownership** is the primary franchisee key. Each franchisee user's **Ownership** value must match the `FranchiseeNumber` column in governed datasets (for example Daily Sales Master 2). Values are set in **Admin → Governance → People** when the user is provisioned.
 
 **Territory** applies only to the legacy **Daily Sales Master** dataset, not to Daily Sales Master 2 or REGIS FRANCHISEE APP.
 
