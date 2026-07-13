@@ -4,10 +4,7 @@ Daily-use documentation — page walkthroughs, filters, exports, and sharing —
 
 ## Open the User Guide
 
-| Format | Location |
-| --- | --- |
-| HTML (linked topics) | [User Guide home](../user-guide/index.html) |
-| Word (editable) | `Regis-User-Guide.docx` (in the package root) |
+Open **Regis-User-Guide.docx** (same folder as this Admin Guide).
 
 ## What is covered there
 
@@ -28,4 +25,4 @@ Daily-use documentation — page walkthroughs, filters, exports, and sharing —
 
 - Glossary of business terms and calculated fields
 
-When you change app pages or filters, update the User Guide (or ask your documentation maintainer to rebuild the package from source).
+When app pages or filters change, update **Regis-User-Guide.docx** in Microsoft Word.

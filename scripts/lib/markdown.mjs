@@ -1,7 +1,8 @@
+import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { resolveSourcePath, normalizeSourcePath, rootDir } from './books.mjs'
 
-/** Simplify cover-meta blocks for HTML and DOCX. */
+/** Simplify cover-meta blocks for DOCX. */
 export function stripCoverMeta(markdown) {
   return markdown.replace(
     /<div class="cover-meta">\s*([\s\S]*?)\s*<\/div>/gi,
@@ -17,54 +18,67 @@ export function stripCoverMeta(markdown) {
   )
 }
 
-/**
- * Rewrite markdown links and images for HTML output.
- */
-export function prepareMarkdownForHtml(markdown, sourceFile, currentBookId, fileIndex) {
-  const assetsPrefix = '../assets'
-  let content = stripCoverMeta(markdown)
-  const baseDir = path.dirname(normalizeSourcePath(sourceFile))
-
-  content = content.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
-    if (/^(https?:|data:|#)/.test(src)) return match
-    const imageAbs = path.resolve(rootDir, baseDir, src)
-    const assetsAbs = path.join(rootDir, 'assets')
-    const rel = path.relative(assetsAbs, imageAbs).split(path.sep).join('/')
-    return `![${alt}](${assetsPrefix}/${rel})`
-  })
-
-  content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, href) => {
-    if (/^(https?:|mailto:|#)/.test(href)) return match
-    if (!href.endsWith('.md')) return match
-
-    const targetPath = resolveSourcePath(sourceFile, href)
-    const entry = fileIndex.get(targetPath)
-    if (!entry) return match
-
-    const sameBook = entry.bookId === currentBookId
-    const prefix = sameBook ? '' : entry.bookId === 'user-guide' ? '../user-guide/' : '../admin-guide/'
-    const url = `${prefix}topics/${entry.slug}.html`
-    return `[${text}](${url})`
-  })
-
-  return content
+/** Remove the first top-level # heading (topic title comes from the book manifest). */
+export function stripLeadingTitle(markdown) {
+  return markdown.replace(/^\s*#\s+[^\n]+\n+/, '')
 }
 
-/** Prepare markdown for merged DOCX (file:// images). */
+/** Demote all ATX headings by one level so topic H1/H2 nest under book sections. */
+export function demoteHeadings(markdown) {
+  return markdown.replace(/^(#{1,5})\s/gm, '#$1 ')
+}
+
+/**
+ * Prepare a topic for inclusion in a compiled Word book.
+ * - Resolves images to file:// for embedding
+ * - Rewrites .md cross-links to plain “see … in this/other guide” text
+ * - Strips leading title and demotes headings under the book structure
+ */
 export function prepareMarkdownForDocxBook(markdown, sourceFile, fileIndex, currentBookId) {
   let content = stripCoverMeta(markdown)
+  content = stripLeadingTitle(content)
+  content = demoteHeadings(content)
+
   const baseDir = path.dirname(path.join(rootDir, normalizeSourcePath(sourceFile)))
 
   content = content.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
     if (/^(https?:|file:)/.test(src)) return match
-    const absolute = path.resolve(baseDir, src)
-    const fileUrl = `file:///${absolute.split(path.sep).join('/')}`
-    return `![${alt}](${fileUrl})`
+    let absolute = path.resolve(baseDir, src)
+    if (!existsSync(absolute)) {
+      // Common case: app topics used ../../assets but need ../../../assets
+      const byName = path.join(rootDir, 'assets', path.basename(src))
+      if (existsSync(byName)) absolute = byName
+    }
+    if (!existsSync(absolute)) {
+      console.warn(`  ⚠ missing image: ${src} (from ${sourceFile})`)
+      return match
+    }
+    const bytes = readFileSync(absolute)
+    const ext = path.extname(absolute).toLowerCase()
+    const mime =
+      ext === '.jpg' || ext === '.jpeg'
+        ? 'image/jpeg'
+        : ext === '.gif'
+          ? 'image/gif'
+          : ext === '.webp'
+            ? 'image/webp'
+            : 'image/png'
+    return `![${alt}](data:${mime};base64,${bytes.toString('base64')})`
   })
 
   content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, href) => {
     if (/^(https?:|mailto:|#)/.test(href)) return match
-    if (!href.endsWith('.md')) return match
+    if (!href.endsWith('.md') && !href.endsWith('.html')) return match
+
+    if (href.endsWith('.html')) {
+      if (href.includes('user-guide')) {
+        return `${text} (see Regis-User-Guide.docx)`
+      }
+      if (href.includes('admin-guide')) {
+        return `${text} (see Regis-Admin-Guide.docx)`
+      }
+      return text
+    }
 
     const targetPath = resolveSourcePath(sourceFile, href)
     const entry = fileIndex.get(targetPath)
@@ -72,9 +86,10 @@ export function prepareMarkdownForDocxBook(markdown, sourceFile, fileIndex, curr
     if (entry.bookId === currentBookId) {
       return `${text} (see “${entry.title}” in this guide)`
     }
-    const other = entry.bookId === 'user-guide' ? 'User Guide' : 'Admin Guide'
-    return `${text} (see “${entry.title}” in the ${other})`
+    const other =
+      entry.bookId === 'user-guide' ? 'Regis-User-Guide.docx' : 'Regis-Admin-Guide.docx'
+    return `${text} (see “${entry.title}” in ${other})`
   })
 
-  return content
+  return content.trim()
 }
