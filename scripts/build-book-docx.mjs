@@ -9,6 +9,7 @@ import {
   rootDir,
 } from './lib/books.mjs'
 import { prepareMarkdownForDocxBook } from './lib/markdown.mjs'
+import { styleDocxHyperlinks } from './lib/style-docx-hyperlinks.mjs'
 
 const deliveryDir = path.join(rootDir, 'dist', 'delivery')
 
@@ -76,6 +77,7 @@ async function buildBookDocx(manifest, fileIndex) {
   const buffer = Buffer.from(await blob.arrayBuffer())
   const dest = path.join(deliveryDir, manifest.docxFilename)
   await writeFile(dest, buffer)
+  await styleDocxHyperlinks(dest)
   console.log(`  ✓ ${manifest.docxFilename} (${topics.length} topics)`)
 }
 
