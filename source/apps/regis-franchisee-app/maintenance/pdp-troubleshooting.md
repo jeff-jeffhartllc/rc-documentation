@@ -30,7 +30,7 @@ Look up the symptom. Follow checks in order. PDP issues are **high priority** be
 
 1. Confirm user opens **REGIS FRANCHISEE APP** (not REGIS APP).
 2. Verify user exists and is enabled in Domo Admin.
-3. Verify user is in **RestrictedDataAccess** (Domo group ID `950576281`).
+3. Verify the user is in **RestrictedDataAccess** (Domo group ID `950576281`) via that group's **dynamic membership rules**.
 4. Verify the user's **Ownership** attribute matches `FranchiseeNumber` values in Daily Sales Master 2 (Admin → Governance → Attributes).
 5. In **Data** → **Daily Sales Master 2** → **PDP**, confirm the **Franchisee** policy includes RestrictedDataAccess.
 6. Check **Daily Sales Master 2** last refresh — blank cards may be a data issue, not PDP.
@@ -39,7 +39,7 @@ Look up the symptom. Follow checks in order. PDP issues are **high priority** be
 
 | Root cause | Fix |
 | --- | --- |
-| No PDP assignment | Add user to **RestrictedDataAccess**; set **Ownership** attribute to franchisee ID |
+| No PDP assignment | Set **Ownership**; confirm **RestrictedDataAccess** dynamic rules include the user |
 | Data refresh failure | [Runbook — refresh failures](../../regis-app/maintenance/runbook-refresh-failures.md) |
 | New user not provisioned | Complete user setup per [User roles and access](./user-roles-and-access.md) |
 
@@ -73,7 +73,7 @@ Look up the symptom. Follow checks in order. PDP issues are **high priority** be
 
 ### Resolution
 
-- Remove user from **AllDataAccess**; add to **RestrictedDataAccess** only.
+- Correct user attributes so **AllDataAccess** dynamic rules no longer include the user and **RestrictedDataAccess** rules do.
 - Confirm **Franchisee** PDP policy is enabled on Daily Sales Master 2 (`8d851507-f995-4918-abc8-90032b2eff65`).
 - Audit recent access logs if available.
 

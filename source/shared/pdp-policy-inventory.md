@@ -13,7 +13,7 @@
 
 ## Purpose
 
-This document records **live Personalized Data Permission (PDP) row policies** captured from regiscorp.domo.com on 2026-07-13 while signed in as Jeff Hart (Admin). It supplements **PDP overview and testing** with exact policy names, groups, filter columns, and dataset IDs.
+This document records **live Personalized Data Permission (PDP) row policies** captured from regiscorp.domo.com on 2026-07-13 (Admin session). It supplements **PDP overview and testing** with exact policy names, groups, filter columns, and dataset IDs.
 
 For **how PDP ties together** — Domo groups, the **Ownership** custom attribute, and dynamic row filters — see the architecture section in [PDP overview and testing](./pdp-overview-and-testing.md#pdp-architecture-groups-custom-attributes-and-row-policies).
 
@@ -31,8 +31,6 @@ Direct URL pattern:
 https://regiscorp.domo.com/datasources/{dataset-id}/details/rls
 ```
 
-> **Note:** Older documentation paths such as `/admin/personalizeddata` and `/page/datacenter/pdp/{id}` do not work on this Domo instance. Use the dataset **PDP** tab or `/details/rls` instead.
-
 ## Daily Sales Master 2 (primary franchisee dataset)
 
 This is the dataset referenced by app filter labels ("Source: Daily Sales Master 2") and the main PDP scope for REGIS FRANCHISEE APP.
@@ -42,7 +40,7 @@ This is the dataset referenced by app filter labels ("Source: Daily Sales Master
 | **Domo dataset name** | Daily Sales Master 2 |
 | **Dataset ID** | `8d851507-f995-4918-abc8-90032b2eff65` |
 | **Type** | DataFlow output |
-| **Owner** | Jeff Hart |
+| **Owner** | _TBD — data owner_ |
 | **Scale** | 204 columns · 1,513,506 rows (as of 2026-07-13) |
 | **PDP status** | **Enabled** — Row Filtering ON |
 | **PDP URL** | https://regiscorp.domo.com/datasources/8d851507-f995-4918-abc8-90032b2eff65/details/rls |
@@ -73,10 +71,10 @@ Domo resolves each user's **Ownership** attribute at login and filters rows wher
 
 | Group name | Group ID | Approx. members | Role in PDP |
 | --- | --- | --- | --- |
-| **AllDataAccess** | `2014419418` | 49 | Full row access via **All Rows** policy |
-| **RestrictedDataAccess** | `950576281` | 15 | Franchisee-scoped access via **Franchisee** policy |
+| **AllDataAccess** | `2014419418` | 49 | Full row access via **All Rows** policy (**dynamic group membership**) |
+| **RestrictedDataAccess** | `950576281` | 15 | Franchisee-scoped access via **Franchisee** policy (**dynamic group membership**) |
 
-Test accounts visible in dataset sharing include **Jeff Franchisee** — useful for PDP validation.
+Use dedicated franchisee test accounts in dataset sharing / group membership for PDP validation.
 
 ## domo_regis.MonthlyMetrics (scorecard upstream input)
 
@@ -86,7 +84,7 @@ Warehouse-fed monthly metrics dataset used as an input to **Store Scorecard by B
 | --- | --- |
 | **Domo dataset name** | domo_regis.MonthlyMetrics |
 | **Dataset ID** | `f303a86a-67b5-49fa-8874-195eab30506c` |
-| **Owner** | Jeff Hart |
+| **Owner** | _TBD — data owner_ |
 | **Scale** | 117 columns · 47,479 rows |
 | **Tags** | PROD, PDP |
 | **PDP status** | **Enabled** — Row Filtering ON |
@@ -136,7 +134,7 @@ Service-type breakdown dataset output from **Daily Sales ETL 2**. Not a primary 
 | --- | --- |
 | **Domo dataset name** | Daily Sales Unpivoted Services 2 |
 | **Dataset ID** | `e8d85e2e-6464-40d2-b4e4-a2f138de815d` |
-| **Owner** | Jeff Hart |
+| **Owner** | _TBD — data owner_ |
 | **Scale** | 35 columns · 12,108,048 rows |
 | **Tags** | PDP |
 | **PDP status** | **Enabled** — Row Filtering ON |
@@ -159,7 +157,7 @@ Traffic-based sales split dataset output from **Daily Sales ETL 2**. Not a prima
 | --- | --- |
 | **Domo dataset name** | DSM2 - Daily Sales By Traffic |
 | **Dataset ID** | `b5bac1e5-bd22-47b9-b8de-a19bc0237de0` |
-| **Owner** | Jeff Hart |
+| **Owner** | _TBD — data owner_ |
 | **Scale** | 23 columns · 4,540,518 rows |
 | **Tags** | PDP |
 | **PDP status** | **Enabled** — Row Filtering ON |
@@ -182,7 +180,7 @@ Scorecard dataset output from **Store Scorecard by Brand ETL**. Powers **Store P
 | --- | --- |
 | **Domo dataset name** | Store Scorecard Data_Brand Peers |
 | **Dataset ID** | `41cb7308-2860-431e-92ca-7b63049b8ce9` |
-| **Owner** | Jeff Hart |
+| **Owner** | _TBD — data owner_ |
 | **Scale** | 112 columns · 42,252 rows |
 | **Tags** | PROD, PDP |
 | **PDP status** | **Enabled** — Row Filtering ON |
@@ -205,7 +203,7 @@ Indexed store performance dataset output from **Daily Sales Master Indexing 2**.
 | --- | --- |
 | **Domo dataset name** | Daily Sales Indexed by Store 2 |
 | **Dataset ID** | `0239c170-55d5-43e1-9a92-a3498ba68548` |
-| **Owner** | Jeff Hart |
+| **Owner** | _TBD — data owner_ |
 | **Scale** | 164 columns · 3,590 rows |
 | **Tags** | PROD, PDP |
 | **PDP status** | **Enabled** — Row Filtering ON |
@@ -248,8 +246,8 @@ GET /api/data/v3/datasources/{dataset-id}/permissions
 
 When adding a franchisee user:
 
-1. Add the user to **RestrictedDataAccess** (or a franchisee-specific group covered by the **Franchisee** policy).
-2. Set the user's **Ownership** attribute to the correct franchisee identifier (must match `FranchiseeNumber` values in Daily Sales Master 2).
+1. Set the user's **Ownership** attribute to the correct franchisee identifier (must match `FranchiseeNumber` values in Daily Sales Master 2).
+2. Confirm **RestrictedDataAccess** dynamic group rules include the user (and they are not in **AllDataAccess**).
 3. Test in REGIS FRANCHISEE APP per **PDP overview and testing**.
 
 When a salon changes franchisee ownership:

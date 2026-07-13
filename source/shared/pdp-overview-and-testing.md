@@ -51,7 +51,7 @@ Regis franchisee scoping uses Domo **Personalized Data Permissions (PDP)** with 
 
 All Admins and DataSet Owners also receive **All Rows** access via Domo's built-in open-policy rule.
 
-> **Note on dynamic groups:** Domo supports **dynamic groups** (membership rules based on attributes). This documentation captures **group names, IDs, and PDP bindings** from the live instance. Whether **RestrictedDataAccess** or **AllDataAccess** membership is maintained manually or by dynamic group rules should be confirmed in **Admin → Governance → Groups** → select group → membership rules.
+**AllDataAccess** and **RestrictedDataAccess** membership is governed by **dynamic group rules** (attribute-based membership in **Admin → Governance → Groups**). Do not maintain these groups by manually adding or removing people for routine provisioning — set the user attributes the rules evaluate, then confirm the user appears in the correct group. Review or change the rules themselves only when the membership criteria must change.
 
 ### Standard row policies (replicated across datasets)
 
@@ -76,13 +76,13 @@ Franchisee users do not need PDP on the salon master because app cards and filte
 
 1. **Admin → Governance → People** — create or locate the user.
 2. Set custom attribute **Ownership** to the franchisee identifier (must match `FranchiseeNumber` in Daily Sales Master 2).
-3. **Admin → Governance → Groups** — add user to **RestrictedDataAccess**; confirm they are **not** in **AllDataAccess**.
+3. Confirm **dynamic group rules** place the user in **RestrictedDataAccess** and **not** in **AllDataAccess** (**Admin → Governance → Groups**).
 4. Grant access to **REGIS FRANCHISEE APP** (not REGIS APP unless intentional).
 5. Test per [Testing PDP](#testing-pdp) below.
 
 ### Changing franchisee scope
 
-1. Update **Ownership** on the user (or group membership if moving between corporate and franchisee).
+1. Update **Ownership** on the user (and any other attributes that drive the AllDataAccess / RestrictedDataAccess dynamic group rules if moving between corporate and franchisee access).
 2. Confirm upstream salon master and ETL have refreshed so `FranchiseeNumber` values are current.
 3. Re-test in REGIS FRANCHISEE APP. No PDP policy edit is required unless the filter column or attribute name changes.
 
@@ -125,11 +125,9 @@ Corporate users in **REGIS APP** are governed by standard Domo roles (Admin, Pri
 | Direct URL | `https://regiscorp.domo.com/datasources/{dataset-id}/details/rls` | Same PDP editor |
 | **Admin → Governance** | **More** → **Admin** → **Governance** | Users, groups, roles, **Ownership** and other attributes used by Dynamic PDP |
 
-During library authoring, legacy deep links such as `/admin/personalizeddata` returned 404 on this instance. Use the dataset **PDP** tab instead.
-
 ## How franchisee store assignments are determined
 
-1. **Group membership** — franchisee users belong to **RestrictedDataAccess** (15 members as of 2026-07-13).
+1. **Dynamic group membership** — franchisee users are in **RestrictedDataAccess** via that group's dynamic membership rules (15 members as of 2026-07-13).
 2. **Ownership attribute** — each user's **Ownership** value must match `FranchiseeNumber` in Daily Sales Master 2.
 3. **PDP policy** — the **Franchisee** row policy applies the dynamic filter `FranchiseeNumber EQUALS Ownership`.
 4. **Upstream master data** — salon-to-franchisee relationships must stay current in DimSalon / **domo_regis.MonthlySalonCounts** so `FranchiseeNumber` in DSM2 is accurate after ETL runs (DimSalon itself has no PDP).
@@ -143,14 +141,14 @@ You need **Admin** or appropriate governance grants.
 1. Sign in to https://regiscorp.domo.com as an Admin user.
 2. Open **Data** → **Daily Sales Master 2** → **PDP** → **Row Policies**.
 3. Review **All Rows** and **Franchisee** policies; use **IMPACT** to see affected users.
-4. In **Admin** → **Governance** → **Groups**, manage **RestrictedDataAccess** and **AllDataAccess** membership.
-5. In **Admin** → **Governance** → **Attributes**, confirm the **Ownership** attribute mapping for franchisee users.
+4. In **Admin** → **Governance → Groups**, review **RestrictedDataAccess** and **AllDataAccess** dynamic membership rules (do not manually add people for routine changes).
+5. In **Admin** → **Governance → Attributes**, confirm the **Ownership** attribute mapping for franchisee users.
 
 ## Testing PDP
 
 ### Test as an admin (impersonation)
 
-1. Use test accounts **Jeff Franchisee** or a known franchisee user in **RestrictedDataAccess**.
+1. Use a known franchisee test account in **RestrictedDataAccess**.
 2. In Domo Admin, use **View as User** (or equivalent impersonation) to open REGIS FRANCHISEE APP as that franchisee.
 3. On **Franchisee Performance**, verify:
    - Only the franchisee's salons appear in the Salon filter.
@@ -182,9 +180,9 @@ See **PDP troubleshooting** in this guide for symptom → cause → fix detail.
 
 | Symptom | Likely cause | First action |
 | --- | --- | --- |
-| Franchisee sees **no data** | Not in RestrictedDataAccess; missing Ownership attribute; data refresh failure | Verify group + Ownership; check Daily Sales Master 2 refresh |
+| Franchisee sees **no data** | Not in RestrictedDataAccess (check dynamic group rules); missing Ownership attribute; data refresh failure | Verify attributes → group membership + Ownership; check Daily Sales Master 2 refresh |
 | Franchisee sees **wrong stores** | Incorrect Ownership value; stale DimSalon / ETL | Review Ownership attribute; validate FranchiseeNumber in DSM2 |
-| Franchisee sees **all stores** | User in AllDataAccess; using REGIS APP; Admin role | Confirm RestrictedDataAccess only; confirm REGIS FRANCHISEE APP URL |
+| Franchisee sees **all stores** | User in AllDataAccess via dynamic rules; using REGIS APP; Admin role | Confirm RestrictedDataAccess only; confirm REGIS FRANCHISEE APP URL |
 | Cards error after dataset change | PDP field renamed/removed | Update **Franchisee** policy if `FranchiseeNumber` changes |
 
 ## Related topics

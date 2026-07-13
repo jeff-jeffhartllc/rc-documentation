@@ -57,8 +57,8 @@ App-specific access is further controlled by group membership and page sharing s
    - User name and email
    - App needed (REGIS APP and/or REGIS FRANCHISEE APP)
    - Role required (typically Participant for daily users, Editor for analysts)
-   - For franchisee users: franchisee entity for **Ownership** attribute and **RestrictedDataAccess** group
-3. Administrator creates or updates the user in **Admin → Governance → People**, assigns groups, sets **Ownership**, and validates PDP scope.
+   - For franchisee users: franchisee entity for the **Ownership** attribute (so **RestrictedDataAccess** dynamic group rules include them)
+3. Administrator creates or updates the user in **Admin → Governance → People**, sets **Ownership** (and any other attributes the dynamic group rules require), confirms group membership, and validates PDP scope.
 
 ## If sign-in fails
 
