@@ -1,4 +1,4 @@
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { convertMarkdownToDocx } from '@mohtasham/md-to-docx'
@@ -12,30 +12,71 @@ import { prepareMarkdownForDocxBook } from './lib/markdown.mjs'
 
 const deliveryDir = path.join(rootDir, 'dist', 'delivery')
 
+const docxOptions = {
+  toc: {
+    title: 'Contents',
+    minDepth: 1,
+    maxDepth: 2,
+  },
+  imageHandling: {
+    maxImages: 100,
+  },
+  style: {
+    fontFamily: 'Calibri',
+    titleSize: 48,
+    heading1Size: 36,
+    heading2Size: 28,
+    heading3Size: 24,
+    paragraphSize: 22,
+    headingSpacing: 200,
+    paragraphSpacing: 120,
+    lineSpacing: 1.15,
+    tocFontSize: 22,
+    tocHeading1FontSize: 24,
+    tocHeading1Bold: true,
+    tocHeading2FontSize: 22,
+    tocHeading2Bold: false,
+  },
+}
+
 async function buildBookDocx(manifest, fileIndex) {
   const topics = flattenTopics(manifest)
   const parts = [
     `# ${manifest.title}`,
     '',
-    manifest.subtitle,
+    `*${manifest.subtitle}*`,
     '',
-    '---',
+    '**How to use this guide**',
+    '',
+    '- Use the **Contents** list below to jump to a topic (Ctrl+click / Cmd+click a link).',
+    '- Or open **View → Navigation pane** in Microsoft Word to browse by heading.',
+    '- Edit this file directly in Word. Save a dated backup before major changes.',
+    '- This guide is self-contained. No repository, HTML site, or rebuild tools are required for day-to-day maintenance.',
+    '',
+    '[TOC]',
     '',
   ]
 
+  let currentSection = null
   for (const topic of topics) {
+    if (topic.sectionTitle !== currentSection) {
+      currentSection = topic.sectionTitle
+      parts.push(`# ${currentSection}`, '')
+    }
+
     const sourcePath = path.join(rootDir, topic.file)
     const raw = await readFile(sourcePath, 'utf8')
     const prepared = prepareMarkdownForDocxBook(raw, topic.file, fileIndex, manifest.id)
-    parts.push(`## ${topic.title}`, '', prepared, '', '---', '')
+    // Topic title as Heading 2 under the section Heading 1 (drives TOC + Navigation pane).
+    parts.push(`## ${topic.title}`, '', prepared, '')
   }
 
   const markdown = parts.join('\n')
-  const blob = await convertMarkdownToDocx(markdown)
+  const blob = await convertMarkdownToDocx(markdown, docxOptions)
   const buffer = Buffer.from(await blob.arrayBuffer())
   const dest = path.join(deliveryDir, manifest.docxFilename)
   await writeFile(dest, buffer)
-  console.log(`  ✓ ${manifest.docxFilename}`)
+  console.log(`  ✓ ${manifest.docxFilename} (${topics.length} topics)`)
 }
 
 export async function buildAllBookDocx() {
@@ -45,16 +86,17 @@ export async function buildAllBookDocx() {
   const adminManifest = await loadBookManifest('admin-guide')
   const fileIndex = buildFileIndex([userManifest, adminManifest])
 
-  console.log('Building compiled Word books...')
+  console.log('Building Word guides...')
   await buildBookDocx(userManifest, fileIndex)
   await buildBookDocx(adminManifest, fileIndex)
 }
 
-const isMain = import.meta.url === `file://${process.argv[1]}` || fileURLToPath(import.meta.url) === path.resolve(process.argv[1])
+const isMain =
+  process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])
 
 if (isMain) {
   buildAllBookDocx()
-    .then(() => console.log('\nWord books written to dist/delivery/'))
+    .then(() => console.log('\nWord guides written to dist/delivery/'))
     .catch((err) => {
       console.error(err)
       process.exit(1)

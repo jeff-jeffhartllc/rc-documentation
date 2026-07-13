@@ -1,26 +1,22 @@
 # Archive
 
-This folder holds **internal exploration artifacts** from building the documentation library. Nothing here is required to build or deliver the client package.
+Internal exploration and superseded build tooling. **Not required** to build or deliver the client package.
 
-You can ignore this folder for day-to-day work.
-
-## Contents
-
-| Folder | What it is |
+| Path | What it is |
 | --- | --- |
-| `exploration-scripts/` | One-off Puppeteer/API scripts used to capture PDP policies and dataflow schedules from Domo |
-| `exploration-assets/` | Extra screenshots from exploration sessions (superseded by images in `assets/`) |
-| `exploration-data/` | Raw JSON captures from API exploration |
-| `legacy-build/` | Old per-topic DOCX builder (`build-docx.mjs`) — replaced by `npm run build:all` |
+| `exploration-scripts/` | One-off Domo PDP/dataflow capture scripts |
+| `exploration-assets/` | Extra exploration screenshots |
+| `exploration-data/` | Raw API JSON captures |
+| `legacy-build/` | Old per-topic DOCX builder |
+| `legacy-html/` | Obsolete linked-HTML delivery (replaced by two Word guides) |
 
-## Active repo (what you use)
+## What you use
 
 ```
-source/          Markdown content (edit here)
-books/           User Guide and Admin Guide topic lists
-scripts/         build-delivery.mjs, build-html.mjs, build-book-docx.mjs
-assets/          Screenshots referenced in the docs
-templates/html/  HTML stylesheet
+source/     → Markdown (vendor build input)
+books/      → Topic order for each Word guide
+assets/     → Screenshots
+scripts/    → build-delivery.mjs → two .docx files
 ```
 
-Build client package: `npm run build:all` → output in `dist/delivery/`
+`npm run build:all` → `dist/delivery/Regis-User-Guide.docx` + `Regis-Admin-Guide.docx`

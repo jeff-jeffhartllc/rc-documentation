@@ -12,4 +12,4 @@
 
 ## Administrators
 
-System configuration, data pipelines, PDP policies, and escalation contacts are documented in the **Admin Guide** (`../admin-guide/index.html` or `Regis-Admin-Guide.docx`).
+System configuration, data pipelines, PDP policies, and escalation contacts are documented in **Regis-Admin-Guide.docx**.

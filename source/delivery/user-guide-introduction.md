@@ -16,9 +16,11 @@ Franchisee users see only their own stores. Corporate users see the full organiz
 
 ## How to navigate this guide
 
-- Use the **table of contents** on the home page or the sidebar on each topic page.
-- **REGIS APP** topics are in the first section; **REGIS FRANCHISEE APP** topics follow.
-- For system administration, data pipelines, PDP configuration, and runbooks, see the separate **Admin Guide** (`admin-guide/index.html` or `Regis-Admin-Guide.docx`).
+- Use **Contents** at the front of this document (Ctrl+click / Cmd+click a topic).
+- Or use **View → Navigation pane** in Microsoft Word.
+- **REGIS APP** topics are in the corporate section; **REGIS FRANCHISEE APP** topics follow.
+
+For system administration, data pipelines, PDP configuration, and runbooks, open **Regis-Admin-Guide.docx**.
 
 ## Getting help
 

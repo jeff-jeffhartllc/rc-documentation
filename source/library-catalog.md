@@ -12,23 +12,23 @@
 
 ## Client delivery
 
-Customers receive a zip of **`dist/delivery/`**, not this repository:
+Customers receive **two Word files** (plus a short README):
 
 | Deliverable | Description |
 | --- | --- |
-| `user-guide/index.html` | Linked HTML User Guide |
-| `admin-guide/index.html` | Linked HTML Admin Guide |
-| `Regis-User-Guide.docx` | Compiled Word User Guide (editable) |
-| `Regis-Admin-Guide.docx` | Compiled Word Admin Guide (editable) |
-| `README.txt` | How to open and edit the package |
+| `Regis-User-Guide.docx` | User Guide — daily use |
+| `Regis-Admin-Guide.docx` | Admin Guide — platform and maintenance |
+| `README.txt` | How to open and maintain |
 
-Build: `npm run build:all`
+Build: `npm run build:all` → zip `dist/delivery/`
 
-Topic order for each book is defined in `books/user-guide.json` and `books/admin-guide.json`.
+Topic order: `books/user-guide.json` and `books/admin-guide.json`.
+
+After handoff, customers edit the Word files directly. This repository is not required for maintenance.
 
 ## Source topics (Markdown)
 
-All content is authored under `source/`. The tables below list source files; the build maps them into the two guides.
+All content is authored under `source/`. The tables below list source files used to build the Word books.
 
 ### Package overview
 
@@ -119,11 +119,9 @@ All content is authored under `source/`. The tables below list source files; the
 | --- | --- |
 | Shared datasets (franchisee app) | `apps/regis-franchisee-app/data-sources/shared-datasets.md` |
 
-## Adding new documents
+## Adding new documents (before handoff)
 
-1. Create a Markdown file under the appropriate `source/` folder
+1. Create Markdown under `source/`
 2. Add the topic to `books/user-guide.json` and/or `books/admin-guide.json`
 3. Run `npm run build:all`
-4. Verify topics in `dist/delivery/`
-
-See [DOCUMENTATION_GUIDE.md](../DOCUMENTATION_GUIDE.md) for templates and the full coverage checklist.
+4. Verify Contents and Navigation in the generated Word files

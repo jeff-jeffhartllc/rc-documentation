@@ -7,12 +7,22 @@ This guide is the **administrator and maintainer** reference for REGIS APP and R
 
 ## Companion user guide
 
-End-user documentation (daily navigation, filters, page walkthroughs, exports) is in the **User Guide**:
+Day-to-day operator documentation (navigation, filters, page walkthroughs, exports) is in the separate Word file:
 
-- **HTML:** open `../user-guide/index.html` in a browser
-- **Word:** `Regis-User-Guide.docx` in this package
+**Regis-User-Guide.docx**
 
-This admin guide does not duplicate daily-use content; link to the user guide when onboarding operators.
+Point operators to that file. This Admin Guide does not duplicate daily-use content.
+
+## Maintaining this documentation
+
+After handoff, **this Word file and Regis-User-Guide.docx are the documentation**. Edit them directly in Microsoft Word:
+
+1. Keep **Heading 1** for major sections and **Heading 2** for topics so Contents and the Navigation pane stay useful.
+2. After changing headings, right-click **Contents** → **Update Field** → **Update entire table** (when available).
+3. Save dated backups before large rewrites.
+4. Optionally keep org-specific contacts and notes in a separate addendum document.
+
+No repository, HTML site, or rebuild tools are required for ongoing maintenance.
 
 ## Recommended reading order
 

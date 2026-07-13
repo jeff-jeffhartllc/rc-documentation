@@ -1,72 +1,44 @@
 # RC Documentation Library
 
-Client handoff documentation for **REGIS APP** and **REGIS FRANCHISEE APP** on regiscorp.domo.com.
+Source workspace used to **build** two Word guides for REGIS APP and REGIS FRANCHISEE APP. The customer receives those Word files only — not this repository.
 
-You edit Markdown here; the customer receives a **zip of `dist/delivery/`** — not this repo.
-
-## Repository layout
+## Customer deliverable
 
 ```
-rc-documentation/
-├── README.md                 ← you are here
-├── DOCUMENTATION_GUIDE.md    ← how to author and build
-├── package.json              ← one build command
-│
-├── source/                   ← EDIT CONTENT HERE
-│   ├── 00-handoff-overview.md
-│   ├── library-catalog.md
-│   ├── delivery/             ← book intro pages
-│   ├── shared/               ← cross-app docs (PDP, datasets, …)
-│   └── apps/
-│       ├── regis-app/
-│       └── regis-franchisee-app/
-│
-├── books/                    ← topic order for User Guide & Admin Guide
-│   ├── user-guide.json
-│   └── admin-guide.json
-│
-├── assets/                   ← screenshots used in the docs
-├── templates/html/           ← HTML styling
-├── scripts/                  ← build scripts (don't edit unless changing build)
-│
-├── archive/                  ← old exploration scripts & extras (ignore)
-└── dist/delivery/            ← CLIENT PACKAGE (generated — do not edit)
+dist/delivery/
+  Regis-User-Guide.docx    ← operators (daily use)
+  Regis-Admin-Guide.docx   ← admins (platform, PDP, maintenance)
+  README.txt               ← how to open and maintain
 ```
 
-## Build and deliver
+Zip `dist/delivery/` and hand it off. After handoff, the customer owns and edits the two `.docx` files in Microsoft Word. No further repo access or rebuilds are required from the vendor.
+
+## Build (vendor only)
 
 ```powershell
 npm.cmd install
 npm.cmd run build:all
 ```
 
-Zip **`dist\delivery\`** and send to the client. It contains:
+## Repository layout
 
-| Item | Purpose |
-| --- | --- |
-| `user-guide\index.html` | Linked HTML for daily users |
-| `admin-guide\index.html` | Linked HTML for admins |
-| `Regis-User-Guide.docx` | Editable Word book (operators) |
-| `Regis-Admin-Guide.docx` | Editable Word book (admins) |
-| `README.txt` | Instructions for the customer |
+```
+source/          Markdown used to generate the Word books
+books/           Topic order for each guide (JSON manifests)
+assets/          Screenshots embedded into Word
+scripts/         Build scripts
+templates/       (legacy HTML styling — not used for delivery)
+archive/         Exploration artifacts — ignore
+```
 
 ## Two guides
 
-| Guide | Audience |
+| File | Audience |
 | --- | --- |
-| **User Guide** | Daily use — navigation, pages, exports |
-| **Admin Guide** | Handoff, PDP, dataflows, maintenance, runbooks |
+| `Regis-User-Guide.docx` | Daily use — navigation, pages, exports |
+| `Regis-Admin-Guide.docx` | Handoff, PDP, dataflows, maintenance, runbooks |
 
-Topic lists: `books/user-guide.json` and `books/admin-guide.json`.
-
-## Typical workflow
-
-1. Edit files under `source/`
-2. Add new topics to the appropriate book JSON if needed
-3. `npm.cmd run build:all`
-4. Zip `dist\delivery\` for the client
-
-See [DOCUMENTATION_GUIDE.md](./DOCUMENTATION_GUIDE.md) for full detail.
+Each book has a clickable **Contents** page and Heading styles that work with Word’s Navigation pane.
 
 ## Apps
 

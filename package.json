@@ -1,6 +1,6 @@
 {
   "name": "rc-documentation",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,7 +8,6 @@
     "build:all": "node scripts/build-delivery.mjs --clean"
   },
   "devDependencies": {
-    "@mohtasham/md-to-docx": "^2.18.0",
-    "markdown-it": "^14.1.0"
+    "@mohtasham/md-to-docx": "^2.18.0"
   }
 }

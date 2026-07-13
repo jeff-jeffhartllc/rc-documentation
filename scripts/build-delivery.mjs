@@ -1,67 +1,66 @@
-import { writeFile, rm } from 'node:fs/promises'
+import { mkdir, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { rootDir } from './lib/books.mjs'
-import { buildAllHtml } from './build-html.mjs'
 import { buildAllBookDocx } from './build-book-docx.mjs'
 
 const deliveryDir = path.join(rootDir, 'dist', 'delivery')
 
-const README = `REGIS Domo Documentation Package
-================================
+const README = `REGIS Domo Documentation
+=======================
 
-This package contains linked HTML guides and editable Word books for REGIS APP
-and REGIS FRANCHISEE APP on https://regiscorp.domo.com.
+This package contains two Microsoft Word guides for REGIS APP and
+REGIS FRANCHISEE APP on https://regiscorp.domo.com.
 
 CONTENTS
 --------
 
-  README.txt                 This file
-  Regis-User-Guide.docx      User guide (Word — for editing)
-  Regis-Admin-Guide.docx     Admin guide (Word — for editing)
-  user-guide/                User guide (HTML — for browsing)
-    index.html               Start here — table of contents
-    topics/                  Individual topic pages
-    assets/                  Screenshots
-  admin-guide/               Admin guide (HTML — for browsing)
-    index.html               Start here — table of contents
-    topics/                  Individual topic pages
-    assets/                  Screenshots
+  Regis-User-Guide.docx     For daily users and analysts
+  Regis-Admin-Guide.docx    For Domo admins, app owners, and data owners
+  README.txt                This file
 
-HOW TO USE (HTML)
------------------
+HOW TO OPEN
+-----------
 
-1. Unzip this folder anywhere on your computer or copy to a network share.
-2. Open user-guide/index.html or admin-guide/index.html in a web browser
-   (Chrome, Edge, or Firefox recommended).
-3. Use the table of contents and sidebar links to navigate between topics.
+Open either .docx file in Microsoft Word (or compatible software such as
+Word for the web, LibreOffice Writer, or Google Docs via upload).
 
-No internet connection is required after unzip. Links work offline.
+HOW TO NAVIGATE
+---------------
 
-HOW TO EDIT (WORD)
-------------------
+1. Use the Contents page at the front of the document — Ctrl+click (Windows)
+   or Cmd+click (Mac) a topic to jump to it.
+2. Or turn on View → Navigation pane to browse by heading.
 
-1. Open Regis-User-Guide.docx or Regis-Admin-Guide.docx in Microsoft Word.
-2. Use Word's Navigation pane (View → Navigation pane) to jump between sections.
-3. Save your edited copy locally.
+WHO SHOULD USE WHICH FILE
+-------------------------
 
-Your Word edits are not automatically synced back to the vendor. When you receive
-an updated package from your documentation maintainer, merge your local changes
-into the new files or keep a separate "local addendum" document for org-specific notes.
+  User Guide     Day-to-day use: navigation, filters, pages, exports
+  Admin Guide    Domo access, PDP, datasets, dataflows, maintenance, runbooks
 
-WHICH GUIDE?
-------------
+  Admins: point operators to the User Guide rather than duplicating
+  daily-use content in the Admin Guide.
 
-  User Guide   Daily use — navigation, filters, pages, exports (operators)
-  Admin Guide  Handoff, access, PDP, datasets, dataflows, maintenance, runbooks
+HOW TO MAINTAIN AFTER HANDOFF
+-----------------------------
 
-The Admin Guide links to the User Guide for daily-use topics instead of duplicating them.
+These two Word files are the documentation. Edit them directly.
 
-UPDATES
--------
+1. Open Regis-User-Guide.docx or Regis-Admin-Guide.docx in Word.
+2. Edit text, tables, and screenshots as needed.
+3. Keep Heading 1 / Heading 2 styles for section and topic titles so the
+   Contents list and Navigation pane stay useful.
+4. After major heading changes: right-click the Contents list → Update Field
+   → Update entire table (if Word shows that option for the TOC).
+5. Save a dated backup (e.g. Regis-Admin-Guide-2026-08-01.docx) before
+   large rewrites.
 
-When your vendor sends a new documentation package, replace this folder or merge
-your Word edits into the new Regis-User-Guide.docx and Regis-Admin-Guide.docx files.
+Optional: keep a separate "Regis local addendum.docx" for org-specific notes
+(ownership contacts, internal process) so updates to the main guides do not
+overwrite those notes if you later merge revisions.
+
+There is no HTML site and no repository to keep in sync. Ownership of these
+two files is complete once this package is accepted.
 
 Generated: {{DATE}}
 `
@@ -70,28 +69,28 @@ async function buildDelivery({ clean = true } = {}) {
   if (clean) {
     await rm(deliveryDir, { recursive: true, force: true })
   }
+  await mkdir(deliveryDir, { recursive: true })
 
-  console.log('Building client delivery package...\n')
-  await buildAllHtml({ clean: false })
+  console.log('Building client delivery package (Word guides only)...\n')
   await buildAllBookDocx()
 
   const readme = README.replace('{{DATE}}', new Date().toISOString().slice(0, 10))
   await writeFile(path.join(deliveryDir, 'README.txt'), readme, 'utf8')
   console.log('  ✓ README.txt')
 
-  console.log(`\nDone. Delivery package written to dist/delivery/`)
-  console.log('Zip dist/delivery/ for client handoff.')
+  console.log(`\nDone. Package written to dist/delivery/`)
+  console.log('Deliver exactly two files: Regis-User-Guide.docx and Regis-Admin-Guide.docx')
 }
 
-const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])
+const isMain =
+  process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])
 
 if (isMain) {
   const args = new Set(process.argv.slice(2))
-  buildDelivery({ clean: args.has('--clean') })
-    .catch((err) => {
-      console.error(err)
-      process.exit(1)
-    })
+  buildDelivery({ clean: args.has('--clean') }).catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })
 }
 
 export { buildDelivery }
