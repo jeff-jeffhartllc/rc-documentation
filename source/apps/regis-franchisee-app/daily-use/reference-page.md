@@ -32,7 +32,7 @@ https://regiscorp.domo.com/app-studio/2028360971/pages/507890851
 
 > Review the live page in Domo for authoritative definitions maintained by the app owner.
 
-## Related documents
+## Related topics
 
 - [Glossary (shared)](../../shared/glossary.md)
 - [Reference page (REGIS APP)](../../regis-app/daily-use/reference-page.md)

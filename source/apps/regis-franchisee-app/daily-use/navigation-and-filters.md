@@ -73,7 +73,7 @@ Filters operate **within your PDP-assigned stores**. You cannot filter to salons
 
 See [PDP troubleshooting](../maintenance/pdp-troubleshooting.md).
 
-## Related documents
+## Related topics
 
 - [Franchisee Performance](./franchisee-performance.md)
 - [PDP overview (shared)](../../shared/pdp-overview-and-testing.md)

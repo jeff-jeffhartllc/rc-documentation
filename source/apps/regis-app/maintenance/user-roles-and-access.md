@@ -32,7 +32,6 @@ These groups control row-level data access on PDP-enabled datasets. Group names 
 | --- | --- | --- | --- |
 | **AllDataAccess** | `2014419418` | 49 | Corporate users who see all salon rows via the **All Rows** PDP policy |
 | **RestrictedDataAccess** | `950576281` | 15 | Franchisee users scoped by **Ownership** attribute |
-| **TerritoryDataAccess** | `1547677730` | — | Territory leaders on legacy **Daily Sales Master** only |
 | **3c090c15-223e-4377-bf0f-60e2eec980b4** | `1197243980` | 3 | Internal / test full-access group (UUID name) |
 
 **Admin → Governance → Groups** is where membership is managed. Franchisee users belong in **RestrictedDataAccess**, not **AllDataAccess**.
@@ -51,7 +50,6 @@ These groups control row-level data access on PDP-enabled datasets. Group names 
 | --- | --- | --- | --- |
 | Corporate user | REGIS APP | **AllDataAccess** (typical) | Standard role-based access plus **All Rows** PDP |
 | Franchisee user | REGIS FRANCHISEE APP | **RestrictedDataAccess** | Separate app; **Ownership** attribute limits store scope |
-| Territory leader | REGIS APP | **TerritoryDataAccess** | Legacy **Daily Sales Master** territory filter only |
 | Corporate user with franchisee oversight | Both apps | Case by case | May need both app shares |
 
 Do **not** grant franchisee users **AllDataAccess** or access to REGIS APP unless there is a specific business reason — franchisee scoping is enforced on REGIS FRANCHISEE APP via **RestrictedDataAccess** and **Ownership**.
@@ -64,7 +62,7 @@ Do **not** grant franchisee users **AllDataAccess** or access to REGIS APP unles
 - [ ] Franchisee users are routed to REGIS FRANCHISEE APP, not REGIS APP
 - [ ] Franchisee users are in **RestrictedDataAccess** with **Ownership** set — not in **AllDataAccess**
 
-## Related documents
+## Related topics
 
 - [Domo instance access (shared)](../../shared/domo-access.md)
 - [PDP overview (franchisee app)](../../shared/pdp-overview-and-testing.md)

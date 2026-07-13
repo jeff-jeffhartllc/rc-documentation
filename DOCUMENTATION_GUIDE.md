@@ -50,6 +50,16 @@ Intro pages live in `source/delivery/`.
 - Maintenance and runbooks
 - Pointer to User Guide (no duplicate daily-use content)
 
+## Cross-references
+
+Customers only have Word files. In topic prose:
+
+- Link topics with Markdown, using the topic title as link text: `[PDP overview and testing](./pdp-overview-and-testing.md)`
+- Do **not** write repository paths such as `` `shared/pdp-overview-and-testing.md` `` or fake per-topic `.docx` paths
+- Prefer a **Related topics** list at the end of a topic
+
+The DOCX build rewrites those links to guide-aware text (for example: “PDP overview and testing” (this guide)).
+
 ## Quality bar
 
 Each topic should answer who, when, what steps, where in Domo, expected results, and what to do on failure. Avoid credentials.

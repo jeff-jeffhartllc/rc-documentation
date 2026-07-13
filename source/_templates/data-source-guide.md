@@ -57,7 +57,8 @@ Explain how to request or implement schema changes, new fields, or logic updates
 | Late upstream data | _Symptom_ | _Steps_ |
 | Schema change | _Symptom_ | _Steps_ |
 
-## Related documents
+## Related topics
 
-- [Maintenance guide](../maintenance/example.md)
-- [Runbook](../../shared/example-runbook.md)
+- Cross-link related topics with Markdown using the **topic title** as link text
+- Do not write repository paths such as `` `shared/example.md` `` in prose
+- The Word build rewrites links to guide references (this guide / Regis-User-Guide.docx / Regis-Admin-Guide.docx)

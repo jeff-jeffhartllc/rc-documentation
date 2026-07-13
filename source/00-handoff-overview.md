@@ -21,7 +21,7 @@ The documentation consists of **two Microsoft Word files**:
 
 Open either file in Microsoft Word. Use **Contents** at the front of the document (Ctrl+click / Cmd+click) or **View → Navigation pane** to jump between topics.
 
-After handoff, these two files are fully owned and maintained by Regis. Edit them directly in Word — no repository or rebuild tools are required.
+After handoff, Regis owns these two files. For how to edit them in Word, see **About this guide → Maintaining this documentation** at the start of this Admin Guide.
 
 ## Purpose of this library
 
@@ -87,16 +87,9 @@ Use the **Admin Guide** data platform sections for dataflow, refresh, and lineag
 
 ## Document conventions
 
-- **Screenshots** are embedded in the Word guides
-- **Tables** summarize datasets, pages, and ownership
-- **Runbooks** provide step-by-step operational procedures
-- **Troubleshooting guides** map symptoms to likely causes and fixes
+Inside this guide you will find:
 
-## Maintaining the guides after handoff
-
-Edit **Regis-User-Guide.docx** and **Regis-Admin-Guide.docx** directly in Microsoft Word:
-
-1. Preserve **Heading 1** (sections) and **Heading 2** (topics) styles so Contents and Navigation remain useful.
-2. After heading changes, right-click Contents → Update Field → Update entire table (when available).
-3. Keep dated backups before large rewrites.
-4. Optional: store org-specific notes in a separate addendum document.
+- **Screenshots** of Domo pages and PDP settings
+- **Tables** that summarize datasets, pages, groups, and ownership
+- **Step-by-step procedures** for common operational tasks (for example, refresh failures and access / PDP issues)
+- **Troubleshooting sections** that map symptoms to likely causes and fixes
