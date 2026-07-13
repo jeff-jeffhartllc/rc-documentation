@@ -20,11 +20,11 @@
 ```
 Daily Sales Master 2 ──┐
                         ├──► Store Scorecard ETL ──► Store Scorecard Data
-domo_regis.MonthlyMetrics ┘
+domo_regis.MonthlyMetrics ┘          (PDP enabled — FranchiseeNumber = Ownership)
 
 Daily Sales Master 2 ──┐
                         ├──► Store Scorecard by Brand ETL ──► Store Scorecard Data_Brand Peers
-domo_regis.MonthlyMetrics ┘
+domo_regis.MonthlyMetrics ┘          (PDP enabled — FranchiseeNumber = Ownership)
 ```
 
 ## Downstream usage
@@ -45,6 +45,10 @@ domo_regis.MonthlyMetrics ┘
 | SPH (Svc Sales) | Service sales per hour |
 | SST Letter Grade | Letter grade per Reference page definitions |
 
+## PDP note
+
+**domo_regis.MonthlyMetrics** (upstream input) has PDP row filtering enabled with the same **Franchisee** policy as Daily Sales Master 2 (`FranchiseeNumber` = **Ownership** → RestrictedDataAccess). PDP on **Store Scorecard Data** and **Store Scorecard Data_Brand Peers** (ETL outputs) was not captured in this documentation pass — verify in Data Center if franchisee scorecard scope looks incorrect.
+
 ## Failure handling
 
 | Failure mode | Response |
@@ -58,3 +62,4 @@ domo_regis.MonthlyMetrics ┘
 - [Store Performance Report Card (daily use)](../daily-use/store-performance-report-card.md)
 - [Dataflow inventory](./dataflow-inventory.md)
 - [Daily Sales Master 2](./daily-sales-master-2.md)
+- [PDP policy inventory (shared)](../../shared/pdp-policy-inventory.md)

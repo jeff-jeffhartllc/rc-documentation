@@ -99,6 +99,31 @@ The older **Daily Sales Master** dataset (without "2") is a separate DataFlow ou
 
 This territory-scoped policy supports corporate territory leaders, not franchisee app users.
 
+## domo_regis.MonthlyMetrics (scorecard upstream input)
+
+Warehouse-fed monthly metrics dataset used as an input to **Store Scorecard ETL** and **Store Scorecard by Brand ETL**. PDP on this dataset uses the **same franchisee pattern** as Daily Sales Master 2.
+
+| Item | Value |
+| --- | --- |
+| **Domo dataset name** | domo_regis.MonthlyMetrics |
+| **Dataset ID** | `f303a86a-67b5-49fa-8874-195eab30506c` |
+| **Owner** | Jeff Hart |
+| **Scale** | 117 columns · 47,479 rows |
+| **Tags** | PROD, PDP |
+| **PDP status** | **Enabled** — Row Filtering ON |
+| **PDP URL** | https://regiscorp.domo.com/datasources/f303a86a-67b5-49fa-8874-195eab30506c/details/rls |
+
+![domo_regis.MonthlyMetrics PDP row policies](../../assets/monthly-metrics-pdp-policies.png)
+
+### Row policies (domo_regis.MonthlyMetrics)
+
+| Policy name | Type | Data access / filter | Groups & people | Notes |
+| --- | --- | --- | --- | --- |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
+
+Scorecard app pages consume **Store Scorecard Data** (ETL output), not this dataset directly — but franchisee PDP on scorecard pages may depend on aligned policies across the scorecard lineage (MonthlyMetrics → ETL → Store Scorecard Data).
+
 ## Other datasets (PDP status TBD)
 
 Scorecard and dimension datasets below are used by app cards and filters. Their PDP settings were **not fully captured** in this session. An Admin should open each dataset's **PDP** tab and confirm whether row policies mirror Daily Sales Master 2 or are inherited through card filter linkage.

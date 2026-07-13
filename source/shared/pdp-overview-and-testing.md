@@ -42,6 +42,7 @@ Corporate users in **REGIS APP** are governed by standard Domo roles (Admin, Pri
 | --- | --- | --- | --- |
 | **Daily Sales Master 2** | `8d851507-f995-4918-abc8-90032b2eff65` | **Yes** | **All Rows** (AllDataAccess + admins) · **Franchisee** (`FranchiseeNumber` = Ownership) |
 | Daily Sales Master (legacy) | `19ae8295-9dab-4277-963a-f9c7aab23f78` | Yes | **All Rows** · **TerritoryDataAccess** (`Alline_territory` = Territory) |
+| **domo_regis.MonthlyMetrics** | `f303a86a-67b5-49fa-8874-195eab30506c` | **Yes** | Same as DSM2: **All Rows** · **Franchisee** (`FranchiseeNumber` = Ownership) |
 | Store Scorecard Data | _TBD_ | Not captured | Verify in Data Center → PDP tab |
 | Store Scorecard Data_Brand Peers | _TBD_ | Not captured | Verify in Data Center → PDP tab |
 | Daily Sales Indexed by Store 2 | _TBD_ | Not captured | Verify in Data Center → PDP tab |

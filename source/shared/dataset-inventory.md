@@ -50,7 +50,7 @@ These feed the Magic ETL dataflows and are not directly bound to app cards:
 | AllineDailyLabor | Daily Sales ETL, Daily Sales ETL 2 |
 | Alline Total Sales Forecast | Daily Sales ETL, Daily Sales ETL 2 |
 | DimDate | Daily Sales ETL, Daily Sales ETL 2 |
-| domo_regis.MonthlyMetrics | Store Scorecard ETL, Store Scorecard by Brand ETL |
+| domo_regis.MonthlyMetrics | Store Scorecard ETL, Store Scorecard by Brand ETL | **PDP enabled** — see [PDP policy inventory](./pdp-policy-inventory.md) |
 | domo.CorpEmployeeDailySales | Corp Employees Daily Sales ETL |
 | Alline Salon Master | Sales by Store by Day ETL |
 | Daily Labor, Daily Sales | Sales by Store by Day ETL |
@@ -73,6 +73,7 @@ Captured from live Domo on 2026-07-13. See [PDP policy inventory](./pdp-policy-i
 | --- | --- | --- | --- |
 | **Daily Sales Master 2** | `8d851507-f995-4918-abc8-90032b2eff65` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | Daily Sales Master (legacy) | `19ae8295-9dab-4277-963a-f9c7aab23f78` | Yes | Territory: `Alline_territory` = **Territory** (TerritoryDataAccess) |
+| **domo_regis.MonthlyMetrics** | `f303a86a-67b5-49fa-8874-195eab30506c` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | Store Scorecard Data | _TBD_ | Not captured — verify | _TBD_ |
 | Store Scorecard Data_Brand Peers | _TBD_ | Not captured — verify | _TBD_ |
 | Daily Sales Indexed by Store 2 | _TBD_ | Not captured — verify | _TBD_ |
