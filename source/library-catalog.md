@@ -6,7 +6,7 @@
 **Audience:** All client users  
 **Domo instance:** https://regiscorp.domo.com  
 **Status:** Complete  
-**Last updated:** 2026-07-10
+**Last updated:** 2026-07-13
 
 </div>
 
@@ -25,6 +25,7 @@ Use this catalog as the entry point to the full PDF library. Paths below refer t
 | --- | --- | --- |
 | REGIS APP and REGIS FRANCHISEE APP — relationship guide | `shared/regis-app-relationship.pdf` | Complete |
 | Personalized Data Permissions — overview and testing | `shared/pdp-overview-and-testing.pdf` | Complete |
+| PDP policy inventory (live capture) | `shared/pdp-policy-inventory.pdf` | Complete |
 | Shared dataset inventory | `shared/dataset-inventory.pdf` | Complete |
 | Domo instance access and SSO | `shared/domo-access-and-sso.pdf` | Complete |
 | Glossary — business terms and calculated fields | `shared/glossary.pdf` | Complete |

@@ -5,7 +5,7 @@
 **App:** REGIS FRANCHISEE APP  
 **Document type:** Troubleshooting guide  
 **Audience:** Franchisee support, PDP owners, app owners  
-**Last updated:** 2026-07-10  
+**Last updated:** 2026-07-13  
 **Author / owner:** _TBD — PDP / access owner_
 
 </div>
@@ -30,15 +30,16 @@ Look up the symptom. Follow checks in order. PDP issues are **high priority** be
 
 1. Confirm user opens **REGIS FRANCHISEE APP** (not REGIS APP).
 2. Verify user exists and is enabled in Domo Admin.
-3. Verify user is in the franchisee group (_TBD — group name_).
-4. Check PDP policy assigns the user to a franchisee entity (Admin role required).
-5. Check **Daily Sales Master 2** last refresh — blank cards may be a data issue, not PDP.
+3. Verify user is in **RestrictedDataAccess** (Domo group ID `950576281`).
+4. Verify the user's **Ownership** attribute matches `FranchiseeNumber` values in Daily Sales Master 2 (Admin → Governance → Attributes).
+5. In **Data** → **Daily Sales Master 2** → **PDP**, confirm the **Franchisee** policy includes RestrictedDataAccess.
+6. Check **Daily Sales Master 2** last refresh — blank cards may be a data issue, not PDP.
 
 ### Resolution
 
 | Root cause | Fix |
 | --- | --- |
-| No PDP assignment | Add user to PDP policy with correct franchisee attribute |
+| No PDP assignment | Add user to **RestrictedDataAccess**; set **Ownership** attribute to franchisee ID |
 | Data refresh failure | [Runbook — refresh failures](../../regis-app/maintenance/runbook-refresh-failures.md) |
 | New user not provisioned | Complete user setup per [User roles and access](./user-roles-and-access.md) |
 
@@ -49,14 +50,14 @@ Look up the symptom. Follow checks in order. PDP issues are **high priority** be
 1. Log in as or impersonate the franchisee user.
 2. Open Salon filter — list all visible salon names.
 3. Compare to expected salon list from franchisee master data.
-4. In Admin (Admin role): review PDP policy attribute mapping.
+4. In Admin: review user's **Ownership** attribute and **Franchisee** PDP policy (`FranchiseeNumber` EQUALS Ownership).
 5. Check **DimSalon** for franchisee key on the unexpected salons.
 
 ### Resolution
 
 | Root cause | Fix |
 | --- | --- |
-| Wrong franchisee attribute on user | Correct user attribute or group in PDP policy |
+| Wrong Ownership attribute on user | Correct **Ownership** in Governance → People / Attributes |
 | Stale DimSalon | Wait for upstream refresh; re-run Daily Sales ETL 2 |
 | Salon reassignment not reflected | Update upstream master; re-run ETL; re-test PDP |
 
@@ -67,13 +68,13 @@ Look up the symptom. Follow checks in order. PDP issues are **high priority** be
 ### Checks
 
 1. Confirm which app the user is viewing (URL must contain `2028360971`).
-2. Check if user has Admin/Editor role (admins bypass PDP for testing).
+2. Check if user is in **AllDataAccess** or has Admin role (full data access for testing).
 3. Review PDP policy — confirm it is attached to the user/group.
 
 ### Resolution
 
-- Restrict user role to Participant.
-- Apply or fix PDP policy.
+- Remove user from **AllDataAccess**; add to **RestrictedDataAccess** only.
+- Confirm **Franchisee** PDP policy is enabled on Daily Sales Master 2 (`8d851507-f995-4918-abc8-90032b2eff65`).
 - Audit recent access logs if available.
 
 ## After corporate app or dataset changes
@@ -86,5 +87,6 @@ Look up the symptom. Follow checks in order. PDP issues are **high priority** be
 ## Related documents
 
 - [PDP overview and testing (shared)](../../shared/pdp-overview-and-testing.md)
+- [PDP policy inventory (shared)](../../shared/pdp-policy-inventory.md)
 - [DimSalon data source](../../regis-app/data-sources/dimsalon-dataset.md)
 - [Escalation and support (shared)](../../shared/escalation-and-support.md)

@@ -5,8 +5,8 @@
 **Document type:** Handoff package overview  
 **Audience:** Client stakeholders and app owners  
 **Domo instance:** https://regiscorp.domo.com  
-**Status:** Complete — pending client ownership contacts and PDP admin validation  
-**Last updated:** 2026-07-10
+**Status:** Complete — pending client ownership contacts; scorecard/dimension PDP verification  
+**Last updated:** 2026-07-13
 
 </div>
 
@@ -61,7 +61,7 @@ Use the **data-sources** guides and the shared dataset inventory for dataflow, r
 3. `shared/regis-app-relationship.pdf`
 4. Your app's overview and daily-use guides
 5. Maintenance and data-source guides for your role
-6. `shared/pdp-overview-and-testing.pdf` (if you manage franchisee access)
+6. `shared/pdp-overview-and-testing.pdf` and `shared/pdp-policy-inventory.pdf` (if you manage franchisee access)
 
 ## Support model after handoff
 
@@ -78,13 +78,12 @@ Use the **data-sources** guides and the shared dataset inventory for dataflow, r
 
 The following items could not be fully verified during documentation and require client completion:
 
-1. **PDP policy details** — PDP policy names, attribute mappings, and field-level rules were not captured during automated exploration (see `shared/pdp-overview-and-testing.md`). An Admin user should complete this section from Domo Admin / dataset PDP settings.
+1. **Scorecard / dimension PDP** — Daily Sales Master 2 PDP is documented (see `shared/pdp-policy-inventory.md`). Store Scorecard Data, DimSalon, and related datasets still need PDP tab verification.
 2. **Ownership contacts** — All owner/escalation fields marked _TBD_.
 3. **Refresh schedules** — Dataflows are documented with lineage; exact cron schedules need confirmation in Domo Dataflows.
 4. **Full field dictionary** — Key fields documented; complete schema export from Data Center recommended.
-5. **Group names** — Franchisee and corporate access group names need to be filled in.
-6. **SSO provider details** — Authentication configuration to be documented by IT.
-7. **Scheduled report recipients** — Distribute schedules to be documented by app owner.
+5. **SSO provider details** — Authentication configuration to be documented by IT.
+6. **Scheduled report recipients** — Distribute schedules to be documented by app owner.
 
 ## Document conventions
 

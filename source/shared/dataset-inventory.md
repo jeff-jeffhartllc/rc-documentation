@@ -6,7 +6,7 @@
 **Document type:** Shared data reference  
 **Audience:** Data owners, analysts, app owners  
 **Domo instance:** https://regiscorp.domo.com  
-**Last updated:** 2026-07-10  
+**Last updated:** 2026-07-13  
 **Author / owner:** _TBD — data owner_
 
 </div>
@@ -67,17 +67,29 @@ These feed the Magic ETL dataflows and are not directly bound to app cards:
 
 ## PDP-governed datasets
 
-Franchisee PDP most likely filters these datasets (confirm with Admin):
+Captured from live Domo on 2026-07-13. See [PDP policy inventory](./pdp-policy-inventory.md) for full policy detail.
 
-- Daily Sales Master 2
-- Store Scorecard Data
-- Store Scorecard Data_Brand Peers
-- Daily Sales Indexed by Store 2
-- DimSalon
+| Dataset | Dataset ID | PDP | Franchisee filter |
+| --- | --- | --- | --- |
+| **Daily Sales Master 2** | `8d851507-f995-4918-abc8-90032b2eff65` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
+| Daily Sales Master (legacy) | `19ae8295-9dab-4277-963a-f9c7aab23f78` | Yes | Territory: `Alline_territory` = **Territory** (TerritoryDataAccess) |
+| Store Scorecard Data | _TBD_ | Not captured — verify | _TBD_ |
+| Store Scorecard Data_Brand Peers | _TBD_ | Not captured — verify | _TBD_ |
+| Daily Sales Indexed by Store 2 | _TBD_ | Not captured — verify | _TBD_ |
+| DimSalon | _TBD_ | Not captured — verify | _TBD_ |
+
+**Domo groups (Daily Sales Master 2):**
+
+| Group | ID | PDP role |
+| --- | --- | --- |
+| AllDataAccess | `2014419418` | Full row access |
+| RestrictedDataAccess | `950576281` | Franchisee-scoped access |
+| TerritoryDataAccess | `1547677730` | Territory scope (legacy DSM) |
 
 ## Related documents
 
 - [Daily Sales Master 2 data source guide](../apps/regis-app/data-sources/daily-sales-master-2.md)
+- [PDP policy inventory](./pdp-policy-inventory.md)
 - [Dataflow inventory](../apps/regis-app/data-sources/dataflow-inventory.md)
 - [PDP overview and testing](./pdp-overview-and-testing.md)
 - [REGIS app relationship guide](./regis-app-relationship.md)
