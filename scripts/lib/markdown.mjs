@@ -71,18 +71,20 @@ export function lookupTopicEntry(fromFile, linkHref, fileIndex) {
   return null
 }
 
+const BOOK_DOCX = {
+  'user-guide': 'Regis-User-Guide.docx',
+  'franchisee-guide': 'Regis-Franchisee-Guide.docx',
+  'admin-guide': 'Regis-Admin-Guide.docx',
+}
+
 export function formatTopicReference(entry, currentBookId) {
   const guideLabel =
-    entry.bookId === currentBookId
-      ? 'this guide'
-      : entry.bookId === 'user-guide'
-        ? 'Regis-User-Guide.docx'
-        : 'Regis-Admin-Guide.docx'
+    entry.bookId === currentBookId ? 'this guide' : BOOK_DOCX[entry.bookId] || entry.bookId
   return `“${entry.title}” (${guideLabel})`
 }
 
 function isDeliverableFilename(name) {
-  return /^(Regis-(User|Admin)-Guide\.docx|README\.txt)$/i.test(name)
+  return /^(Regis-(User|Franchisee|Admin)-Guide\.docx|README\.txt)$/i.test(name)
 }
 
 /**
@@ -127,6 +129,7 @@ export function prepareMarkdownForDocxBook(markdown, sourceFile, fileIndex, curr
 
     const pathOnly = stripLinkExtras(href)
     if (pathOnly.endsWith('.html')) {
+      if (pathOnly.includes('franchisee-guide')) return 'Regis-Franchisee-Guide.docx'
       if (pathOnly.includes('user-guide')) return 'Regis-User-Guide.docx'
       if (pathOnly.includes('admin-guide')) return 'Regis-Admin-Guide.docx'
       return _text

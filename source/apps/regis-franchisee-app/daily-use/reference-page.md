@@ -4,16 +4,16 @@
 
 **App:** REGIS FRANCHISEE APP  
 **Document type:** Daily use guide  
-**Audience:** Franchisee users  
+**Audience:** Franchisee operators  
 **Domo page:** Reference (`507890851`)  
-**Last updated:** 2026-07-10  
+**Last updated:** 2026-07-13  
 **Author / owner:** _TBD — primary app owner_
 
 </div>
 
 ## Purpose
 
-Filter definitions, SST letter grade conversion, and usage tips — equivalent to the REGIS APP Reference page.
+Filter definitions, SST letter grade conversion, and usage tips for REGIS FRANCHISEE APP.
 
 ## Opening the page
 
@@ -26,13 +26,13 @@ https://regiscorp.domo.com/app-studio/2028360971/pages/507890851
 
 | Section | Description |
 | --- | --- |
-| Filters | Global vs. per-card filter behavior |
+| Filters | How global and per-card filters behave |
 | SST Letter Grade and Conversion | Scorecard grade thresholds |
 | Usage Tips | Best practices |
 
-> Review the live page in Domo for authoritative definitions maintained by the app owner.
+> The live page in Domo is the authoritative source for definitions maintained by the app owner.
 
 ## Related topics
 
-- [Glossary (shared)](../../shared/glossary.md)
-- [Reference page (REGIS APP)](../../regis-app/daily-use/reference-page.md)
+- [Glossary](./glossary.md)
+- [Navigation and filters](./navigation-and-filters.md)

@@ -1,28 +1,29 @@
-# Daily use guides (User Guide)
+# Daily use guides
 
-Daily-use documentation — page walkthroughs, filters, exports, and sharing — is maintained in the **User Guide** so operators have a single, focused manual.
+Daily-use documentation is split so franchisee operators do not receive the corporate User Guide.
 
-## Open the User Guide
+## Open the right operator guide
 
-Open **Regis-User-Guide.docx** (same folder as this Admin Guide).
+| Audience | File |
+| --- | --- |
+| Corporate REGIS APP users | **Regis-User-Guide.docx** |
+| Franchisee REGIS FRANCHISEE APP users | **Regis-Franchisee-Guide.docx** |
 
-## What is covered there
+Both files sit in the same delivery folder as this Admin Guide.
 
-### REGIS APP (corporate)
+## What is covered
 
-- App overview, navigation and filters
+### Regis-User-Guide.docx (corporate)
+
+- REGIS APP overview, navigation and filters
 - Corporate Overview, Franchisee Performance, Store Performance Report Card and Scorecard
 - Daily Sales Email Report, Daily Laddering Report, Reference page
-- Exports and sharing
+- Exports and sharing, glossary, getting help
 
-### REGIS FRANCHISEE APP
+### Regis-Franchisee-Guide.docx (franchisee)
 
-- App overview, navigation and filters
+- REGIS FRANCHISEE APP overview, navigation and filters
 - Franchisee Performance, Store Performance Report Card and Scorecard
-- Reference page, exports and sharing
+- Reference page, exports and sharing, franchisee glossary, getting help
 
-### Shared
-
-- Glossary of business terms and calculated fields
-
-When app pages or filters change, update **Regis-User-Guide.docx** in Microsoft Word.
+When app pages or filters change, update the matching Word guide in Microsoft Word. Keep franchisee-facing content free of corporate-only page lists and “what you cannot see” comparisons.

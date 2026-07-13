@@ -5,17 +5,26 @@
 
 This guide is the **administrator and maintainer** reference for REGIS APP and REGIS FRANCHISEE APP. It covers handoff context, platform access, datasets and dataflows, Personalized Data Permissions (PDP), maintenance procedures, and operational runbooks.
 
-## Companion user guide
+## Companion operator guides
 
-Day-to-day operator documentation (navigation, filters, page walkthroughs, exports) is in the separate Word file:
+Day-to-day operator documentation is in separate Word files:
 
-**Regis-User-Guide.docx**
+| File | Audience |
+| --- | --- |
+| **Regis-User-Guide.docx** | Corporate REGIS APP users |
+| **Regis-Franchisee-Guide.docx** | Franchisee REGIS FRANCHISEE APP users |
 
-Point operators to that file. This Admin Guide does not duplicate daily-use content.
+Give franchisee operators only the Franchisee Guide. This Admin Guide does not duplicate daily-use content.
 
 ## Maintaining this documentation
 
-After handoff, **this Word file and Regis-User-Guide.docx are the documentation**. Edit them directly in Microsoft Word. No repository or rebuild tools are required.
+After handoff, **these Word files are the documentation**:
+
+- Regis-User-Guide.docx
+- Regis-Franchisee-Guide.docx
+- Regis-Admin-Guide.docx
+
+Edit them directly in Microsoft Word. No repository or rebuild tools are required.
 
 1. Preserve **Heading 1** (sections) and **Heading 2** (topics) styles so Contents and Navigation remain useful.
 2. After heading changes, right-click **Contents** → **Update Field** → **Update entire table** (when available).

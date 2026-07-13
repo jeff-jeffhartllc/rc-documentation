@@ -12,16 +12,19 @@
 
 ## Documentation package
 
-The documentation consists of **two Microsoft Word files**:
+The documentation consists of **three Microsoft Word files**:
 
 | Guide | File | Audience |
 | --- | --- | --- |
-| **User Guide** | `Regis-User-Guide.docx` | Daily users and analysts |
+| **User Guide** | `Regis-User-Guide.docx` | Corporate REGIS APP users |
+| **Franchisee Guide** | `Regis-Franchisee-Guide.docx` | Franchisee REGIS FRANCHISEE APP users |
 | **Admin Guide** | `Regis-Admin-Guide.docx` | Domo admins, app owners, data owners |
 
-Open either file in Microsoft Word. Use **Contents** at the front of the document (Ctrl+click / Cmd+click) or **View → Navigation pane** to jump between topics.
+Open each file in Microsoft Word. Use **Contents** at the front of the document (Ctrl+click / Cmd+click) or **View → Navigation pane** to jump between topics.
 
-After handoff, Regis owns these two files. For how to edit them in Word, see **About this guide → Maintaining this documentation** at the start of this Admin Guide.
+Distribute the **Franchisee Guide** to franchisee operators. Do **not** give franchisee end users the corporate User Guide or Admin Guide.
+
+After handoff, Regis owns these three files. For how to edit them in Word, see **About this guide → Maintaining this documentation** at the start of this Admin Guide.
 
 ## Purpose of this library
 
@@ -34,8 +37,9 @@ This documentation supports Regis's transition to **self-maintenance** for two c
 
 | Guide | Contents |
 | --- | --- |
-| **User Guide** | REGIS APP and franchisee app daily-use topics, glossary, getting help |
-| **Admin Guide** | Handoff, PDP, datasets, dataflows, maintenance, runbooks; points to the User Guide for daily use |
+| **User Guide** | REGIS APP daily-use topics, glossary, getting help |
+| **Franchisee Guide** | REGIS FRANCHISEE APP daily-use topics only (no corporate-only page inventory) |
+| **Admin Guide** | Handoff, PDP, datasets, dataflows, maintenance, runbooks; points to the operator guides for daily use |
 
 ## App quick reference
 
@@ -48,12 +52,13 @@ REGIS FRANCHISEE APP reuses 4 pages from REGIS APP with PDP limiting each franch
 
 ## How to use this library
 
-### For daily users
+### For corporate daily users
 
-Open **Regis-User-Guide.docx**:
+Open **Regis-User-Guide.docx** and start with **App overview**.
 
-- Corporate users → start with **App overview** (REGIS APP section)
-- Franchisee users → start with **App overview** (REGIS FRANCHISEE APP section)
+### For franchisee operators
+
+Open **Regis-Franchisee-Guide.docx** only.
 
 ### For app owners and analysts
 
@@ -67,7 +72,7 @@ Use the **Admin Guide** data platform sections for dataflow, refresh, and lineag
 
 1. This overview (in the Admin Guide)
 2. REGIS APP and franchisee app relationship
-3. Your role’s topics in the User Guide or Admin Guide
+3. Your role’s topics in the User Guide, Franchisee Guide, or Admin Guide
 4. PDP overview and policy inventory (if you manage franchisee access)
 
 ## Support model after handoff

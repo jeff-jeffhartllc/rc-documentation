@@ -83,11 +83,13 @@ export async function buildAllBookDocx() {
   await mkdir(deliveryDir, { recursive: true })
 
   const userManifest = await loadBookManifest('user-guide')
+  const franchiseeManifest = await loadBookManifest('franchisee-guide')
   const adminManifest = await loadBookManifest('admin-guide')
-  const fileIndex = buildFileIndex([userManifest, adminManifest])
+  const fileIndex = buildFileIndex([userManifest, franchiseeManifest, adminManifest])
 
   console.log('Building Word guides...')
   await buildBookDocx(userManifest, fileIndex)
+  await buildBookDocx(franchiseeManifest, fileIndex)
   await buildBookDocx(adminManifest, fileIndex)
 }
 

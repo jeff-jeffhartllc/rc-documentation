@@ -12,19 +12,20 @@
 
 ## Client delivery
 
-Customers receive **two Word files** (plus a short README):
+Customers receive **three Word files** (plus a short README):
 
 | Deliverable | Description |
 | --- | --- |
-| `Regis-User-Guide.docx` | User Guide — daily use |
+| `Regis-User-Guide.docx` | Corporate REGIS APP daily use |
+| `Regis-Franchisee-Guide.docx` | Franchisee REGIS FRANCHISEE APP daily use |
 | `Regis-Admin-Guide.docx` | Admin Guide — platform and maintenance |
 | `README.txt` | How to open and maintain |
 
 Build: `npm run build:all` → zip `dist/delivery/`
 
-Topic order and source file mapping: `books/user-guide.json` and `books/admin-guide.json`.
+Topic order and source file mapping: `books/user-guide.json`, `books/franchisee-guide.json`, and `books/admin-guide.json`.
 
-After handoff, customers edit the Word files directly. This repository is not required for maintenance. Do not put repository paths (for example `shared/…md`) in customer-facing prose — use topic titles and guide names instead.
+Give franchisee operators **only** the Franchisee Guide. Do not put corporate-only page inventories or “what you cannot see” comparisons in franchisee topics.
 
 ## Topics by Word guide
 
@@ -81,6 +82,7 @@ After handoff, customers edit the Word files directly. This repository is not re
 
 | Topic title in Word |
 | --- |
+| About this guide |
 | App overview |
 | Navigation and filters |
 | Corporate Overview |
@@ -91,11 +93,14 @@ After handoff, customers edit the Word files directly. This repository is not re
 | Daily Laddering Report |
 | Reference page |
 | Exports and sharing |
+| Glossary |
+| Getting help |
 
-### User Guide — REGIS FRANCHISEE APP
+### Franchisee Guide — REGIS FRANCHISEE APP
 
 | Topic title in Word |
 | --- |
+| About this guide |
 | App overview |
 | Navigation and filters |
 | Franchisee Performance |
@@ -109,7 +114,8 @@ After handoff, customers edit the Word files directly. This repository is not re
 ## Adding new topics (before handoff)
 
 1. Create Markdown under `source/`
-2. Add the topic (title + file) to `books/user-guide.json` and/or `books/admin-guide.json`
+2. Add the topic (title + file) to the correct book manifest under `books/`
 3. Cross-link with Markdown link text that names the topic; avoid writing `shared/…md` path strings in prose
-4. Run `npm run build:all`
-5. Verify Contents and Navigation in the generated Word files
+4. Keep franchisee guide topics free of corporate-only scope comparisons
+5. Run `npm run build:all`
+6. Verify Contents and Navigation in the generated Word files
