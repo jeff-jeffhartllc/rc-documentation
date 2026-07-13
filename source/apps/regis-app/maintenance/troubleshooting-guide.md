@@ -22,7 +22,7 @@ Look up the symptom you see in Domo. Follow the recommended checks in order.
 | "Filtering…" never completes | Browser or query timeout | Refresh browser; check dataset size | [Display issues](#calculation-or-display-issues) |
 | Cannot see app | Missing group/role | Verify user access | [Access issues](#access-issues) |
 | Wrong totals | Filter combination | Reset filters; verify PY Comp / Active settings | [Display issues](#calculation-or-display-issues) |
-| Scorecard shows no data | Store Scorecard ETL failure | Check dataflow status | [Stale data](#stale-or-missing-data) |
+| Scorecard shows no data | Store Scorecard by Brand ETL failure | Check dataflow status | [Stale data](#stale-or-missing-data) |
 | Scheduled report missing | Distribute schedule inactive | Check Distribute settings | [Scheduled reports](#scheduled-report-issues) |
 
 ## Stale or missing data
@@ -38,7 +38,7 @@ Look up the symptom you see in Domo. Follow the recommended checks in order.
 1. Open **Data Center** → search for **Daily Sales Master 2**.
 2. Review **Last Updated** timestamp — should be within the last 24 hours.
 3. Check **Daily Sales ETL 2** dataflow last execution status (should be SUCCESS).
-4. If scorecard pages affected, check **Store Scorecard ETL** status.
+4. If scorecard pages affected, check **Store Scorecard by Brand ETL** status.
 5. Verify upstream sources (domo_regis.FactDailySales, AllineDailyLabor) have refreshed.
 
 ### Resolution

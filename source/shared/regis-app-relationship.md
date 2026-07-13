@@ -28,10 +28,10 @@ REGIS FRANCHISEE APP is **not a separate product**. It is a franchisee-facing vi
 Upstream sources (Zenoti, warehouse tables, Alline feeds)
     │
     ▼
-Magic ETL dataflows (Daily Sales ETL 2, Store Scorecard ETL, …)
+Magic ETL dataflows (Daily Sales ETL 2, Store Scorecard by Brand ETL, …)
     │
     ▼
-Shared datasets (Daily Sales Master 2, Store Scorecard Data, DimSalon, …)
+Shared datasets (Daily Sales Master 2, Store Scorecard Data_Brand Peers, DimSalon, …)
     │
     ├── REGIS APP (corporate, 7 pages, full org view)
     │       └── Role-based filters (Entity Type, Franchisee, Brand, …)
@@ -83,8 +83,7 @@ Both apps draw from the same underlying datasets. The primary dataset powering p
 | Dataset | Used by | Notes |
 | --- | --- | --- |
 | Daily Sales Master 2 | Both apps — primary card and filter source | Filter labels show "Source: Daily Sales Master 2" |
-| Store Scorecard Data | Store Performance Report Card, Store Performance Scorecard | Built by Store Scorecard ETL |
-| Store Scorecard Data_Brand Peers | Store Performance Scorecard (brand peer comparisons) | Built by Store Scorecard by Brand ETL |
+| Store Scorecard Data_Brand Peers | Store Performance Report Card, Store Performance Scorecard | Built by Store Scorecard by Brand ETL |
 | Daily Sales Indexed by Store 2 | Indexed lookups / performance cards | Built by Daily Sales Master Indexing 2 |
 | DimSalon | Salon dimension filters (Brand, Salon, Territory, DMA, …) | Upstream dimension table |
 | domo_regis.MonthlyMetrics | Scorecard monthly metrics | Warehouse-fed input to scorecard ETL |

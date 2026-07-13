@@ -32,11 +32,11 @@ https://regiscorp.domo.com/app-studio/2028360971/pages/1731862460
 
 ## Data source
 
-**Store Scorecard Data** (PDP-scoped to your salons).
+**Store Scorecard Data_Brand Peers** (PDP-scoped to your salons).
 
 For full metric definitions, see the corporate guide: [Store Performance Report Card (REGIS APP)](../../regis-app/daily-use/store-performance-report-card.md).
 
 ## Related topics
 
 - [Store Performance Scorecard](./store-performance-scorecard.md)
-- [Store Scorecard Data source](../../regis-app/data-sources/store-scorecard-data.md)
+- [Store Scorecard Data_Brand Peers source](../../regis-app/data-sources/store-scorecard-data.md)

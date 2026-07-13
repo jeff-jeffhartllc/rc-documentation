@@ -38,7 +38,6 @@ DimSalon ──────────┤
 domo_regis.FactDailySales ──┼──► Daily Sales ETL 2 ──► Daily Sales Master 2 ──► App cards / filters
 DimDate ───────────┤                                    │
 Alline Total Sales Forecast ┘                           ├──► Daily Sales Master Indexing 2
-                                                         ├──► Store Scorecard ETL
                                                          └──► Store Scorecard by Brand ETL
 ```
 

@@ -103,7 +103,7 @@ This territory-scoped policy supports corporate territory leaders, not franchise
 
 ## domo_regis.MonthlyMetrics (scorecard upstream input)
 
-Warehouse-fed monthly metrics dataset used as an input to **Store Scorecard ETL** and **Store Scorecard by Brand ETL**. PDP on this dataset uses the **same franchisee pattern** as Daily Sales Master 2.
+Warehouse-fed monthly metrics dataset used as an input to **Store Scorecard by Brand ETL**. PDP on this dataset uses the **same franchisee pattern** as Daily Sales Master 2.
 
 | Item | Value |
 | --- | --- |
@@ -124,7 +124,7 @@ Warehouse-fed monthly metrics dataset used as an input to **Store Scorecard ETL*
 | **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
-Scorecard app pages consume **Store Scorecard Data** (ETL output), not this dataset directly — but franchisee PDP on scorecard pages may depend on aligned policies across the scorecard lineage (MonthlyMetrics → ETL → Store Scorecard Data).
+Scorecard app pages consume **Store Scorecard Data_Brand Peers** (ETL output), not this dataset directly — but franchisee PDP on scorecard pages depends on aligned policies across the scorecard lineage (MonthlyMetrics → ETL → Store Scorecard Data_Brand Peers).
 
 ## domo_regis.FactDailySales (warehouse sales fact)
 
@@ -199,7 +199,7 @@ Traffic-based sales split dataset output from **Daily Sales ETL 2**. Not a prima
 
 ## Store Scorecard Data_Brand Peers (scorecard ETL output)
 
-Brand peer comparison dataset output from **Store Scorecard by Brand ETL**. Powers brand peer views on **Store Performance Scorecard** in both apps.
+Scorecard dataset output from **Store Scorecard by Brand ETL**. Powers **Store Performance Report Card** and **Store Performance Scorecard** in both apps (there is no separate “Store Scorecard Data” dataset).
 
 | Item | Value |
 | --- | --- |
@@ -242,16 +242,6 @@ Indexed store performance dataset output from **Daily Sales Master Indexing 2**.
 | --- | --- | --- | --- | --- |
 | **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
-
-## Store Scorecard Data (scorecard ETL output)
-
-Primary scorecard dataset for **Store Performance Report Card** and **Store Performance Scorecard**. PDP was confirmed to match **Store Scorecard Data_Brand Peers** (same **All Rows** + **Franchisee** policies, same groups and **Ownership** dynamic filter). A separate PDP tab capture was not required.
-
-| Item | Value |
-| --- | --- |
-| **Domo dataset name** | Store Scorecard Data |
-| **PDP status** | **Enabled** — same policy pattern as Brand Peers |
-| **Franchisee filter** | `FranchiseeNumber` **EQUALS** `Ownership` → **RestrictedDataAccess** |
 
 ## Datasets without PDP
 

@@ -50,7 +50,7 @@ After handoff, customers edit the Word files directly. This repository is not re
 | Shared dataset inventory |
 | Dataflow inventory |
 | Daily Sales Master 2 |
-| Store Scorecard Data |
+| Store Scorecard Data_Brand Peers |
 | DimSalon dataset |
 | Franchisee app shared datasets |
 

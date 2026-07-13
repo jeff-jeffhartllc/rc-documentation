@@ -35,4 +35,4 @@ For full detail, see [Store Performance Scorecard (REGIS APP)](../../regis-app/d
 ## Related topics
 
 - [Store Performance Report Card](./store-performance-report-card.md)
-- [Store Scorecard Data source](../../regis-app/data-sources/store-scorecard-data.md)
+- [Store Scorecard Data_Brand Peers source](../../regis-app/data-sources/store-scorecard-data.md)
