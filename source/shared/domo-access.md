@@ -16,9 +16,8 @@
 | Item | Value |
 | --- | --- |
 | Instance URL | https://regiscorp.domo.com |
-| Environment | Production (single instance documented) |
+| Environment | Production — this is the only Domo instance (no sandbox) |
 | Authentication | Domo native credentials (username and password) |
-| Sandbox | _TBD — confirm whether a separate sandbox instance exists_ |
 
 ## Signing in
 
