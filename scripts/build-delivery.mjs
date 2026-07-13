@@ -44,23 +44,12 @@ WHO SHOULD USE WHICH FILE
 HOW TO MAINTAIN AFTER HANDOFF
 -----------------------------
 
-These two Word files are the documentation. Edit them directly.
+These two Word files are the documentation. Edit them directly in Microsoft Word.
 
-1. Open Regis-User-Guide.docx or Regis-Admin-Guide.docx in Word.
-2. Edit text, tables, and screenshots as needed.
-3. Keep Heading 1 / Heading 2 styles for section and topic titles so the
-   Contents list and Navigation pane stay useful.
-4. After major heading changes: right-click the Contents list → Update Field
-   → Update entire table (if Word shows that option for the TOC).
-5. Save a dated backup (e.g. Regis-Admin-Guide-2026-08-01.docx) before
-   large rewrites.
+Detailed editing guidance (heading styles, updating Contents, backups, and
+optional addendum notes) is in the Admin Guide under:
 
-Optional: keep a separate "Regis local addendum.docx" for org-specific notes
-(ownership contacts, internal process) so updates to the main guides do not
-overwrite those notes if you later merge revisions.
-
-There is no HTML site and no repository to keep in sync. Ownership of these
-two files is complete once this package is accepted.
+  About this guide → Maintaining this documentation
 
 Generated: {{DATE}}
 `

@@ -32,7 +32,7 @@ How to export data from REGIS FRANCHISEE APP pages. Exports contain only your PD
 - Franchisee users typically have **Participant** role — export availability depends on role and card settings.
 - Do not share exported files containing salon data outside your organization without approval.
 
-## Related documents
+## Related topics
 
 - [Exports and sharing (REGIS APP reference)](../../regis-app/daily-use/exports-and-sharing.md)
 - [User roles and access](../maintenance/user-roles-and-access.md)

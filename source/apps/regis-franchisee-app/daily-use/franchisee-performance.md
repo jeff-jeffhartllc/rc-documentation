@@ -61,7 +61,7 @@ Same sections as the corporate performance pages:
 | Wrong salon count | Escalate to PDP / access owner |
 | Stale data | Contact support — likely a data refresh issue |
 
-## Related documents
+## Related topics
 
 - [Corporate Franchisee Performance (reference)](../../regis-app/daily-use/franchisee-performance.md)
 - [Navigation and filters](./navigation-and-filters.md)

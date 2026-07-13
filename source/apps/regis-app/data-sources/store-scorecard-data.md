@@ -1,40 +1,39 @@
-# Data Source Guide — Store Scorecard Data
+# Data Source Guide — Store Scorecard Data_Brand Peers
 
 <div class="cover-meta">
 
 **App(s):** REGIS APP, REGIS FRANCHISEE APP  
 **Document type:** Data source guide  
 **Audience:** Data owners, analysts  
-**Domo datasets:** Store Scorecard Data, Store Scorecard Data_Brand Peers  
-**Last updated:** 2026-07-10  
+**Domo dataset:** Store Scorecard Data_Brand Peers  
+**Dataset ID:** `41cb7308-2860-431e-92ca-7b63049b8ce9`  
+**Last updated:** 2026-07-13  
 **Author / owner:** _TBD — data owner_
 
 </div>
 
 ## Summary
 
-**Store Scorecard Data** and **Store Scorecard Data_Brand Peers** power the Store Performance Report Card and Store Performance Scorecard pages in both apps. They contain monthly store scores, SSS metrics, SPH, and brand peer comparisons.
+**Store Scorecard Data_Brand Peers** is the scorecard dataset used by the Store Performance Report Card and Store Performance Scorecard pages in both apps. It contains monthly store scores, SSS metrics, SPH, and brand peer comparisons.
+
+> **Naming note:** There is a single scorecard dataset — **Store Scorecard Data_Brand Peers**. There is no separate Domo dataset named “Store Scorecard Data.”
 
 ## Lineage
 
 ```
 Daily Sales Master 2 ──┐
-                        ├──► Store Scorecard ETL ──► Store Scorecard Data
-domo_regis.MonthlyMetrics ┘          (PDP enabled — see PDP policy inventory)
-
-Daily Sales Master 2 ──┐
                         ├──► Store Scorecard by Brand ETL ──► Store Scorecard Data_Brand Peers
-domo_regis.MonthlyMetrics ┘          (PDP enabled on inputs and ETL output — ID 41cb7308-2860-431e-92ca-7b63049b8ce9)
+domo_regis.MonthlyMetrics ┘          (PDP enabled — ID 41cb7308-2860-431e-92ca-7b63049b8ce9)
 ```
 
 ## Downstream usage
 
 | App | Page | Dataset |
 | --- | --- | --- |
-| REGIS APP | Store Performance Report Card (`686205723`) | Store Scorecard Data |
-| REGIS APP | Store Performance Scorecard (`1910351785`) | Store Scorecard Data + Brand Peers |
-| REGIS FRANCHISEE APP | Store Performance Report Card (`1731862460`) | Store Scorecard Data |
-| REGIS FRANCHISEE APP | Store Performance Scorecard (`1073407012`) | Store Scorecard Data + Brand Peers |
+| REGIS APP | Store Performance Report Card (`686205723`) | Store Scorecard Data_Brand Peers |
+| REGIS APP | Store Performance Scorecard (`1910351785`) | Store Scorecard Data_Brand Peers |
+| REGIS FRANCHISEE APP | Store Performance Report Card (`1731862460`) | Store Scorecard Data_Brand Peers |
+| REGIS FRANCHISEE APP | Store Performance Scorecard (`1073407012`) | Store Scorecard Data_Brand Peers |
 
 ## Key metrics on scorecard pages
 
@@ -47,17 +46,17 @@ domo_regis.MonthlyMetrics ┘          (PDP enabled on inputs and ETL output —
 
 ## PDP note
 
-**domo_regis.MonthlyMetrics** (upstream input), **Store Scorecard Data**, and **Store Scorecard Data_Brand Peers** (ETL outputs) all have PDP row filtering with the **Franchisee** policy (`FranchiseeNumber` = **Ownership** → RestrictedDataAccess). **Store Scorecard Data** uses the same policy pattern as Brand Peers (confirmed during PDP documentation). See [PDP policy inventory](../../shared/pdp-policy-inventory.md).
+**domo_regis.MonthlyMetrics** (upstream input) and **Store Scorecard Data_Brand Peers** (ETL output) have PDP row filtering with the **Franchisee** policy (`FranchiseeNumber` = **Ownership** → RestrictedDataAccess). See [PDP policy inventory](../../shared/pdp-policy-inventory.md).
 
 ## Failure handling
 
 | Failure mode | Response |
 | --- | --- |
-| Store Scorecard ETL fails | Re-run after Daily Sales Master 2 is current |
-| Scorecard cards blank | Check both Store Scorecard ETL and by Brand ETL status |
-| Peer comparison missing | Verify Store Scorecard by Brand ETL output |
+| Store Scorecard by Brand ETL fails | Re-run after Daily Sales Master 2 and MonthlyMetrics are current |
+| Scorecard cards blank | Check Store Scorecard by Brand ETL status and last run |
+| Peer comparison missing | Verify Store Scorecard Data_Brand Peers last updated timestamp |
 
-## Related documents
+## Related topics
 
 - [Store Performance Report Card (daily use)](../daily-use/store-performance-report-card.md)
 - [Dataflow inventory](./dataflow-inventory.md)

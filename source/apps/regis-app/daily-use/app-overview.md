@@ -68,13 +68,13 @@ REGIS APP has seven pages accessible from the left navigation:
 
 REGIS FRANCHISEE APP is a **4-page subset** of this application with PDP applied so franchisee users see only their stores. Four pages are shared by name and layout; three pages (Corporate Overview, Daily Sales Email Report, Daily Laddering Report) are corporate-only.
 
-When maintaining REGIS APP, consider downstream impact on the franchisee app. See `shared/regis-app-relationship.docx`.
+When maintaining REGIS APP, consider downstream impact on the franchisee app. See **REGIS APP and franchisee app relationship** in Regis-Admin-Guide.docx.
 
 ## Who should read this
 
 - **Corporate daily users** — start here, then open page-specific daily-use guides
-- **App owners and analysts** — also read `maintenance/` guides
-- **Data owners** — also read `data-sources/` guides
+- **App owners and analysts** — also use Admin Guide maintenance topics
+- **Data owners** — also use Admin Guide data platform topics
 
 ## Recommended reading order
 
@@ -83,8 +83,8 @@ When maintaining REGIS APP, consider downstream impact on the franchisee app. Se
 3. Page guide for your primary workflow (e.g., Corporate Overview)
 4. [Export and sharing procedures](./exports-and-sharing.md)
 
-## Related documents
+## Related topics
 
 - [REGIS app relationship (shared)](../../shared/regis-app-relationship.md)
 - [REGIS FRANCHISEE APP overview](../../regis-franchisee-app/daily-use/app-overview.md)
-- Full index: `library-catalog.docx`
+- Use **Contents** in this guide (and Regis-Admin-Guide.docx) to find related topics

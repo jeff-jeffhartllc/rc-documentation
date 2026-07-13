@@ -28,10 +28,10 @@ REGIS FRANCHISEE APP is **not a separate product**. It is a franchisee-facing vi
 Upstream sources (Zenoti, warehouse tables, Alline feeds)
     │
     ▼
-Magic ETL dataflows (Daily Sales ETL 2, Store Scorecard ETL, …)
+Magic ETL dataflows (Daily Sales ETL 2, Store Scorecard by Brand ETL, …)
     │
     ▼
-Shared datasets (Daily Sales Master 2, Store Scorecard Data, DimSalon, …)
+Shared datasets (Daily Sales Master 2, Store Scorecard Data_Brand Peers, DimSalon, …)
     │
     ├── REGIS APP (corporate, 7 pages, full org view)
     │       └── Role-based filters (Entity Type, Franchisee, Brand, …)
@@ -83,13 +83,12 @@ Both apps draw from the same underlying datasets. The primary dataset powering p
 | Dataset | Used by | Notes |
 | --- | --- | --- |
 | Daily Sales Master 2 | Both apps — primary card and filter source | Filter labels show "Source: Daily Sales Master 2" |
-| Store Scorecard Data | Store Performance Report Card, Store Performance Scorecard | Built by Store Scorecard ETL |
-| Store Scorecard Data_Brand Peers | Store Performance Scorecard (brand peer comparisons) | Built by Store Scorecard by Brand ETL |
+| Store Scorecard Data_Brand Peers | Store Performance Report Card, Store Performance Scorecard | Built by Store Scorecard by Brand ETL |
 | Daily Sales Indexed by Store 2 | Indexed lookups / performance cards | Built by Daily Sales Master Indexing 2 |
 | DimSalon | Salon dimension filters (Brand, Salon, Territory, DMA, …) | Upstream dimension table |
 | domo_regis.MonthlyMetrics | Scorecard monthly metrics | Warehouse-fed input to scorecard ETL |
 
-See `shared/dataset-inventory.md` for the full dataset and dataflow reference.
+See **Shared dataset inventory** in this guide for the full dataset and dataflow reference.
 
 ## PDP in practice
 
@@ -101,7 +100,7 @@ Personalized Data Permissions (PDP) restrict which rows each franchisee user can
 
 Corporate users opening REGIS APP are **not** subject to franchisee PDP rules; they use standard role permissions and page filters instead.
 
-See `shared/pdp-overview-and-testing.md` for configuration, testing, and troubleshooting detail.
+See **PDP overview and testing** in this guide for configuration, testing, and troubleshooting detail.
 
 ## Change management — impact on franchisee app
 
@@ -130,7 +129,7 @@ When changing REGIS APP, ask:
 | Dataflow logic change | Both apps reflect new data | Monitor refresh; validate metrics |
 | PDP rule change | Direct franchisee impact | Test all franchisee accounts |
 
-## Related documents
+## Related topics
 
 - [PDP overview and testing](./pdp-overview-and-testing.md)
 - [Shared dataset inventory](./dataset-inventory.md)

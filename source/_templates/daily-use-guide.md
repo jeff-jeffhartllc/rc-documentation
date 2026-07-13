@@ -56,7 +56,8 @@ Describe what this page or feature is for and when users should open it.
 | --- | --- | --- |
 | _Example_ | _Cause_ | _Fix or escalate_ |
 
-## Related documents
+## Related topics
 
-- [Link to related doc](../maintenance/example.md)
-- [Link to data source doc](../data-sources/example-dataset.md)
+- Cross-link related topics with Markdown using the **topic title** as link text
+- Do not write repository paths such as `` `shared/example.md` `` in prose
+- The Word build rewrites links to guide references (this guide / Regis-User-Guide.docx / Regis-Admin-Guide.docx)

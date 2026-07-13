@@ -16,8 +16,6 @@
 
 **Daily Sales Master 2** is the primary dataset powering filters and KPI cards on both REGIS APP and REGIS FRANCHISEE APP. Filter labels on app pages show "Source: Daily Sales Master 2". It contains daily salon-level sales, traffic, productivity, loyalty, and dimension attributes.
 
-> **Naming note:** Domo also has a separate legacy dataset named **Daily Sales Master** (ID `19ae8295-9dab-4277-963a-f9c7aab23f78`, owner Keela Davis). The apps use **Daily Sales Master 2**, not the legacy dataset.
-
 ## Source system
 
 | Item | Value |
@@ -38,7 +36,6 @@ DimSalon ──────────┤
 domo_regis.FactDailySales ──┼──► Daily Sales ETL 2 ──► Daily Sales Master 2 ──► App cards / filters
 DimDate ───────────┤                                    │
 Alline Total Sales Forecast ┘                           ├──► Daily Sales Master Indexing 2
-                                                         ├──► Store Scorecard ETL
                                                          └──► Store Scorecard by Brand ETL
 ```
 
@@ -60,8 +57,6 @@ Alline Total Sales Forecast ┘                           ├──► Daily Sal
 | Traffic metrics | Guest visit counts | Total, service-only, retail-only, combo |
 | Productive Hours | Stylist productive time | Used in SPH calculations |
 | Retention metrics | 90-day / 180-day retention rates | Loyalty section cards |
-
-> **Client action required:** Export the full column list from Data Center → Daily Sales Master 2 → Schema and append to this guide as a complete field dictionary.
 
 ## Personalized Data Permissions (PDP)
 
@@ -99,7 +94,7 @@ See [PDP policy inventory](../../shared/pdp-policy-inventory.md) for full detail
 | Upstream FactDailySales late | Dataset refreshes with yesterday's data | Wait for upstream; re-run ETL |
 | Field removed | Card errors; PDP may break | Restore field or update cards and PDP |
 
-## Related documents
+## Related topics
 
 - [Dataflow inventory](./dataflow-inventory.md)
 - [DimSalon dataset](./dimsalon-dataset.md)

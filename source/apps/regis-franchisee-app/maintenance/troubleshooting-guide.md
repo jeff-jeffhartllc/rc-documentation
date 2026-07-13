@@ -17,7 +17,7 @@
 | Blank cards | Data refresh failure or PDP issue | Check data then PDP | [Stale data](#stale-or-missing-data) |
 | No data at all | PDP not assigned | See PDP guide | [PDP issues](#pdp-issues) |
 | Wrong stores visible | PDP misconfiguration | Escalate immediately | [PDP issues](#pdp-issues) |
-| Scorecard empty | Store Scorecard ETL failure | Check dataflow | [Stale data](#stale-or-missing-data) |
+| Scorecard empty | Store Scorecard by Brand ETL failure | Check dataflow | [Stale data](#stale-or-missing-data) |
 | Cannot open app | Missing access | Contact administrator | [Access issues](#access-issues) |
 
 ## Stale or missing data
@@ -36,7 +36,7 @@ See the dedicated guide: [PDP troubleshooting](./pdp-troubleshooting.md).
 2. Confirm Participant role.
 3. Contact administrator to verify group and PDP assignment.
 
-## Related documents
+## Related topics
 
 - [PDP troubleshooting](./pdp-troubleshooting.md)
 - [Troubleshooting (REGIS APP)](../../regis-app/maintenance/troubleshooting-guide.md)

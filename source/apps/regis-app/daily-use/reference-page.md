@@ -32,7 +32,7 @@ The **Reference** page documents filter behavior, SST letter grade definitions, 
 
 > Review the live Reference page in Domo for the authoritative metric definitions and grade thresholds maintained by the app owner.
 
-## Related documents
+## Related topics
 
 - [Glossary](../../shared/glossary.md)
 - [Navigation and filters](./navigation-and-filters.md)

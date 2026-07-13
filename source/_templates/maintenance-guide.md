@@ -28,7 +28,7 @@ Explain what maintenance activity this guide covers and when it is needed.
 
 ## Before you change anything
 
-1. Confirm you are in the correct Domo instance (prod vs sandbox)
+1. Confirm you are in the production Domo instance (https://regiscorp.domo.com)
 2. Identify affected pages, cards, and downstream datasets
 3. Notify stakeholders if the change impacts published views or schedules
 4. Capture screenshots or export configs if rollback may be needed
@@ -50,7 +50,8 @@ Explain what maintenance activity this guide covers and when it is needed.
 
 Describe how to revert the change if validation fails.
 
-## Related documents
+## Related topics
 
-- [Daily use guide](../daily-use/example.md)
-- [Data source guide](../data-sources/example-dataset.md)
+- Cross-link related topics with Markdown using the **topic title** as link text
+- Do not write repository paths such as `` `shared/example.md` `` in prose
+- The Word build rewrites links to guide references (this guide / Regis-User-Guide.docx / Regis-Admin-Guide.docx)
