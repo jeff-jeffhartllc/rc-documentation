@@ -87,10 +87,12 @@ Use the **Admin Guide** data platform sections for dataflow, refresh, and lineag
 
 ## Document conventions
 
-- **Screenshots** are embedded in the Word guides
-- **Tables** summarize datasets, pages, and ownership
-- **Runbooks** provide step-by-step operational procedures
-- **Troubleshooting guides** map symptoms to likely causes and fixes
+Inside this guide you will find:
+
+- **Screenshots** of Domo pages and PDP settings
+- **Tables** that summarize datasets, pages, groups, and ownership
+- **Step-by-step procedures** for common operational tasks (for example, refresh failures and access / PDP issues)
+- **Troubleshooting sections** that map symptoms to likely causes and fixes
 
 ## Maintaining the guides after handoff
 
