@@ -61,8 +61,6 @@ Alline Total Sales Forecast ┘                           ├──► Daily Sal
 | Productive Hours | Stylist productive time | Used in SPH calculations |
 | Retention metrics | 90-day / 180-day retention rates | Loyalty section cards |
 
-> **Client action required:** Export the full column list from Data Center → Daily Sales Master 2 → Schema and append to this guide as a complete field dictionary.
-
 ## Personalized Data Permissions (PDP)
 
 PDP row filtering is **enabled** on this dataset. Franchisee users in REGIS FRANCHISEE APP are scoped by the **Franchisee** policy.
