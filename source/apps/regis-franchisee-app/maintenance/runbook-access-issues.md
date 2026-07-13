@@ -33,8 +33,8 @@ Restore correct PDP-scoped access for a franchisee user.
 | --- | --- | --- |
 | 1 | Create user in Domo Admin | User account active |
 | 2 | Assign Participant role | User can sign in |
-| 3 | Add to franchisee group | Group membership set |
-| 4 | Configure PDP policy for franchisee entity | Policy maps user to franchisee |
+| 3 | Set **Ownership** (and any other attributes required by dynamic group rules) | Attributes saved |
+| 4 | Confirm **RestrictedDataAccess** dynamic membership includes the user | Group membership set by rules |
 | 5 | User opens REGIS FRANCHISEE APP | Franchisee Performance loads with data |
 | 6 | Verify Salon filter shows only assigned salons | Correct salon list |
 | 7 | Compare Active Salon Count to expected | Counts match |

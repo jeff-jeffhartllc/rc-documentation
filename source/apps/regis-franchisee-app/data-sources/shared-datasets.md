@@ -12,7 +12,7 @@
 
 ## Summary
 
-REGIS FRANCHISEE APP uses the **same datasets** as REGIS APP. PDP filters rows at query time so franchisee users see only their stores. Access is controlled by **RestrictedDataAccess** group membership and the **Ownership** custom attribute — see [PDP overview](../../shared/pdp-overview-and-testing.md).
+REGIS FRANCHISEE APP uses the **same datasets** as REGIS APP. PDP filters rows at query time so franchisee users see only their stores. Access is controlled by **RestrictedDataAccess** membership (**dynamic group rules**) and the **Ownership** custom attribute — see [PDP overview](../../shared/pdp-overview-and-testing.md).
 
 ## Shared datasets
 

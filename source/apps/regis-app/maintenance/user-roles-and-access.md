@@ -34,13 +34,13 @@ These groups control row-level data access on PDP-enabled datasets. Group names 
 | **RestrictedDataAccess** | `950576281` | 15 | Franchisee users scoped by **Ownership** attribute |
 | **3c090c15-223e-4377-bf0f-60e2eec980b4** | `1197243980` | 3 | Internal / test full-access group (UUID name) |
 
-**Admin → Governance → Groups** is where membership is managed. Franchisee users belong in **RestrictedDataAccess**, not **AllDataAccess**.
+**AllDataAccess** and **RestrictedDataAccess** membership is governed by **dynamic group rules** (**Admin → Governance → Groups**). For routine provisioning, set the user attributes those rules evaluate; do not manually add or remove people. Franchisee users should end up in **RestrictedDataAccess**, not **AllDataAccess**.
 
 ## Granting access to REGIS APP
 
 1. Sign in as Admin or Privileged user.
-2. Go to **Admin** → **Governance** → **People** (or **Groups**).
-3. Add the user to **AllDataAccess** for full corporate row access on PDP datasets, or assign another appropriate group for their role.
+2. Go to **Admin** → **Governance** → **People**.
+3. Set the user attributes required by the **AllDataAccess** dynamic group rules so the user receives full corporate row access on PDP datasets (confirm membership under **Groups**).
 4. Assign Domo role: **Participant** for daily users, **Editor** for analysts who maintain cards.
 5. Verify the user can open: https://regiscorp.domo.com/app-studio/183500481/pages/925282956
 
@@ -52,7 +52,7 @@ These groups control row-level data access on PDP-enabled datasets. Group names 
 | Franchisee user | REGIS FRANCHISEE APP | **RestrictedDataAccess** | Separate app; **Ownership** attribute limits store scope |
 | Corporate user with franchisee oversight | Both apps | Case by case | May need both app shares |
 
-Do **not** grant franchisee users **AllDataAccess** or access to REGIS APP unless there is a specific business reason — franchisee scoping is enforced on REGIS FRANCHISEE APP via **RestrictedDataAccess** and **Ownership**.
+Do **not** place franchisee users in **AllDataAccess** or grant them REGIS APP unless there is a specific business reason — franchisee scoping is enforced on REGIS FRANCHISEE APP via **RestrictedDataAccess** (dynamic group membership) and **Ownership**.
 
 ## Validation checklist
 
@@ -60,7 +60,7 @@ Do **not** grant franchisee users **AllDataAccess** or access to REGIS APP unles
 - [ ] User sees expected pages in navigation (7 pages for corporate users)
 - [ ] User cannot edit cards (Participant) or can edit (Editor) as intended
 - [ ] Franchisee users are routed to REGIS FRANCHISEE APP, not REGIS APP
-- [ ] Franchisee users are in **RestrictedDataAccess** with **Ownership** set — not in **AllDataAccess**
+- [ ] Franchisee users are in **RestrictedDataAccess** (via dynamic rules) with **Ownership** set — not in **AllDataAccess**
 
 ## Related topics
 
