@@ -23,7 +23,7 @@ It is designed as a practical reference for daily use and for ongoing upkeep of 
 
 | Section | Location | Description |
 | --- | --- | --- |
-| Library catalog | `library-catalog.pdf` | Master index of all documents |
+| Library catalog | `library-catalog.docx` | Master index of all documents |
 | Shared documentation | `shared/` | Cross-app relationship, PDP, datasets, glossary, support |
 | REGIS APP | `apps/regis-app/` | 7 daily-use guides, 5 maintenance docs, 4 data-source guides |
 | REGIS FRANCHISEE APP | `apps/regis-franchisee-app/` | 6 daily-use guides, 5 maintenance docs, 1 data-source guide |
@@ -35,7 +35,7 @@ It is designed as a practical reference for daily use and for ongoing upkeep of 
 | REGIS APP | Corporate users | 7 | https://regiscorp.domo.com/app-studio/183500481/pages/925282956 |
 | REGIS FRANCHISEE APP | Franchisee users (PDP-limited) | 4 | https://regiscorp.domo.com/app-studio/2028360971/pages/1195391822 |
 
-REGIS FRANCHISEE APP reuses 4 pages from REGIS APP with PDP limiting each franchisee to their own stores. See `shared/regis-app-relationship.pdf`.
+REGIS FRANCHISEE APP reuses 4 pages from REGIS APP with PDP limiting each franchisee to their own stores. See `shared/regis-app-relationship.docx`.
 
 ## How to use this library
 
@@ -43,8 +43,8 @@ REGIS FRANCHISEE APP reuses 4 pages from REGIS APP with PDP limiting each franch
 
 Start with the **daily-use** guides for your app:
 
-- Corporate users → `apps/regis-app/daily-use/app-overview.pdf`
-- Franchisee users → `apps/regis-franchisee-app/daily-use/app-overview.pdf`
+- Corporate users → `apps/regis-app/daily-use/app-overview.docx`
+- Franchisee users → `apps/regis-franchisee-app/daily-use/app-overview.docx`
 
 ### For app owners and analysts
 
@@ -57,11 +57,11 @@ Use the **data-sources** guides and the shared dataset inventory for dataflow, r
 ## Recommended reading order
 
 1. This overview
-2. `library-catalog.pdf`
-3. `shared/regis-app-relationship.pdf`
+2. `library-catalog.docx`
+3. `shared/regis-app-relationship.docx`
 4. Your app's overview and daily-use guides
 5. Maintenance and data-source guides for your role
-6. `shared/pdp-overview-and-testing.pdf` and `shared/pdp-policy-inventory.pdf` (if you manage franchisee access)
+6. `shared/pdp-overview-and-testing.docx` and `shared/pdp-policy-inventory.docx` (if you manage franchisee access)
 
 ## Support model after handoff
 
@@ -92,8 +92,8 @@ The following items could not be fully verified during documentation and require
 
 ## Feedback and updates
 
-Update Markdown source files in this repository, then rebuild PDFs:
+Update Markdown source files in this repository, then rebuild documents:
 
 ```bash
-npm run pdf:build:clean
+npm run docx:build:clean
 ```

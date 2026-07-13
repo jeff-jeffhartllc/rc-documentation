@@ -2,7 +2,7 @@
 
 Client handoff documentation for **REGIS APP** and **REGIS FRANCHISEE APP** on regiscorp.domo.com, built for self-maintenance.
 
-This repository is the **authoring workspace** and **document library** for that handoff. Markdown lives under `source/`; generated PDFs are written to `dist/` and editable Word files to `dist-docx/`.
+This repository is the **authoring workspace** and **document library** for that handoff. Markdown lives under `source/`; generated Word documents are written to `dist/`.
 
 ## Purpose
 
@@ -12,7 +12,7 @@ Provide a complete, ready-to-use document library covering:
 - **Maintenance** — how to update, troubleshoot, and extend the apps
 - **Data sources** — lineage, refresh behavior, ownership, and change procedures
 
-Documents are authored in Markdown and exported as **PDFs** (client delivery) and **DOCX** (editing in Microsoft Word).
+Documents are authored in Markdown and exported as **DOCX** for distribution, use, and editing in Microsoft Word.
 
 ## Repository layout
 
@@ -30,12 +30,10 @@ source/
       daily-use/
       maintenance/
       data-sources/
-  _templates/                     # Copy these when creating new docs (not built to PDF)
+  _templates/                     # Copy these when creating new docs (not built to DOCX)
 
-dist/                             # Generated PDF library (mirrors source/ structure)
-dist-docx/                        # Generated Word documents (mirrors source/ structure)
-assets/                           # Images, logos, PDF styling
-scripts/build-pdfs.mjs            # Batch PDF builder
+dist/                             # Generated Word library (mirrors source/ structure)
+assets/                           # Images and logos
 scripts/build-docx.mjs            # Batch DOCX builder
 ```
 
@@ -43,29 +41,18 @@ scripts/build-docx.mjs            # Batch DOCX builder
 
 ```bash
 npm install
-npm run pdf:build
+npm run docx:build
 ```
 
-Generated PDFs appear under `dist/` with the same folder structure as `source/`.
-
-To build editable Word versions:
-
-```bash
-npm run docx:build:clean
-```
-
-Generated `.docx` files appear under `dist-docx/` with the same folder structure as `source/`.
+Generated `.docx` files appear under `dist/` with the same folder structure as `source/`.
 
 ### Commands
 
 | Command | Description |
 | --- | --- |
-| `npm run pdf:build` | Build all PDFs from `source/` into `dist/` |
-| `npm run pdf:build:clean` | Delete `dist/` and rebuild all PDFs |
-| `npm run pdf:watch` | Rebuild PDFs when markdown files change |
-| `npm run docx:build` | Build all DOCX files from `source/` into `dist-docx/` |
-| `npm run docx:build:clean` | Delete `dist-docx/` and rebuild all DOCX files |
-| `npm run build:all` | Rebuild PDFs and DOCX files |
+| `npm run docx:build` | Build all DOCX files from `source/` into `dist/` |
+| `npm run docx:build:clean` | Delete `dist/` and rebuild all DOCX files |
+| `npm run build:all` | Rebuild all DOCX files (clean build) |
 
 **Windows (PowerShell execution policy):** if `npm` is blocked, use `npm.cmd` instead (e.g. `npm.cmd run docx:build:clean`) or run commands from **Command Prompt**.
 
@@ -76,13 +63,13 @@ See [DOCUMENTATION_GUIDE.md](./DOCUMENTATION_GUIDE.md) for:
 - Required document types and coverage checklist
 - Naming conventions and folder rules
 - Template usage
-- PDF build workflow
+- DOCX build workflow
 
 ## Client delivery
 
-When the library is complete, deliver the contents of `dist/` (or a packaged zip of that folder) to the client. `library-catalog.pdf` is the recommended entry point.
+When the library is complete, deliver the contents of `dist/` (or a packaged zip of that folder) to the client. `library-catalog.docx` is the recommended entry point.
 
-Use `dist-docx/` when you need to edit documents in Microsoft Word. After editing, update the corresponding Markdown under `source/` so PDF and DOCX builds stay in sync.
+After editing documents in Microsoft Word, update the corresponding Markdown under `source/` so future builds stay in sync.
 
 ## Apps documented
 
