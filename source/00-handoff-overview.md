@@ -10,6 +10,17 @@
 
 </div>
 
+## Documentation package
+
+The client receives a **zip of `dist/delivery/`** (not this repository) containing:
+
+| Guide | HTML entry point | Word book |
+| --- | --- | --- |
+| **User Guide** | `user-guide/index.html` | `Regis-User-Guide.docx` |
+| **Admin Guide** | `admin-guide/index.html` | `Regis-Admin-Guide.docx` |
+
+See `README.txt` in the package for opening and editing instructions.
+
 ## Purpose of this library
 
 This document library supports Regis's transition to **self-maintenance** for two closely related Domo applications:
@@ -21,12 +32,10 @@ It is designed as a practical reference for daily use and for ongoing upkeep of 
 
 ## What is included
 
-| Section | Location | Description |
+| Guide | Audience | Contents |
 | --- | --- | --- |
-| Library catalog | `library-catalog.docx` | Master index of all documents |
-| Shared documentation | `shared/` | Cross-app relationship, PDP, datasets, glossary, support |
-| REGIS APP | `apps/regis-app/` | 7 daily-use guides, 5 maintenance docs, 4 data-source guides |
-| REGIS FRANCHISEE APP | `apps/regis-franchisee-app/` | 6 daily-use guides, 5 maintenance docs, 1 data-source guide |
+| **User Guide** | Daily users, analysts | REGIS APP and franchisee app daily-use topics, glossary, getting help |
+| **Admin Guide** | Admins, data owners, app owners | Handoff, PDP, datasets, dataflows, maintenance, runbooks; links to User Guide for daily use |
 
 ## App quick reference
 
@@ -35,33 +44,31 @@ It is designed as a practical reference for daily use and for ongoing upkeep of 
 | REGIS APP | Corporate users | 7 | https://regiscorp.domo.com/app-studio/183500481/pages/925282956 |
 | REGIS FRANCHISEE APP | Franchisee users (PDP-limited) | 4 | https://regiscorp.domo.com/app-studio/2028360971/pages/1195391822 |
 
-REGIS FRANCHISEE APP reuses 4 pages from REGIS APP with PDP limiting each franchisee to their own stores. See `shared/regis-app-relationship.docx`.
+REGIS FRANCHISEE APP reuses 4 pages from REGIS APP with PDP limiting each franchisee to their own stores. See the Admin Guide topic **REGIS APP and franchisee app relationship**.
 
 ## How to use this library
 
 ### For daily users
 
-Start with the **daily-use** guides for your app:
+Open the **User Guide** (`user-guide/index.html` or `Regis-User-Guide.docx`):
 
-- Corporate users → `apps/regis-app/daily-use/app-overview.docx`
-- Franchisee users → `apps/regis-franchisee-app/daily-use/app-overview.docx`
+- Corporate users → start with **App overview** (REGIS APP section)
+- Franchisee users → start with **App overview** (REGIS FRANCHISEE APP section)
 
 ### For app owners and analysts
 
-Use the **maintenance** guides for card edits, change checklists, and access management.
+Use the **Admin Guide** maintenance sections for card edits, change checklists, and access management.
 
 ### For data owners
 
-Use the **data-sources** guides and the shared dataset inventory for dataflow, refresh, and lineage information.
+Use the **Admin Guide** data platform sections for dataflow, refresh, and lineage information.
 
 ## Recommended reading order
 
-1. This overview
-2. `library-catalog.docx`
-3. `shared/regis-app-relationship.docx`
-4. Your app's overview and daily-use guides
-5. Maintenance and data-source guides for your role
-6. `shared/pdp-overview-and-testing.docx` and `shared/pdp-policy-inventory.docx` (if you manage franchisee access)
+1. This overview (Admin Guide)
+2. REGIS APP and franchisee app relationship
+3. Your role’s topics in the User Guide or Admin Guide
+4. PDP overview and policy inventory (if you manage franchisee access)
 
 ## Support model after handoff
 
@@ -89,8 +96,4 @@ The following item requires client completion before handoff is fully closed:
 
 ## Feedback and updates
 
-Update Markdown source files in this repository, then rebuild documents:
-
-```bash
-npm run docx:build:clean
-```
+Your documentation maintainer rebuilds the package from source and ships an updated zip. If you edit `Regis-User-Guide.docx` or `Regis-Admin-Guide.docx` locally, merge those changes when you receive a new package, or keep org-specific notes in a separate addendum document.

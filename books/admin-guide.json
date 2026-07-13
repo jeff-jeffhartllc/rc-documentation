@@ -1,0 +1,173 @@
+{
+  "id": "admin-guide",
+  "title": "REGIS Domo Admin Guide",
+  "subtitle": "Handoff, platform, data, PDP, and maintenance",
+  "docxFilename": "Regis-Admin-Guide.docx",
+  "sections": [
+    {
+      "title": "Getting started",
+      "topics": [
+        {
+          "slug": "introduction",
+          "title": "About this guide",
+          "file": "source/delivery/admin-guide-introduction.md"
+        },
+        {
+          "slug": "handoff-overview",
+          "title": "Client handoff overview",
+          "file": "source/00-handoff-overview.md"
+        }
+      ]
+    },
+    {
+      "title": "Platform and relationship",
+      "topics": [
+        {
+          "slug": "app-relationship",
+          "title": "REGIS APP and franchisee app relationship",
+          "file": "source/shared/regis-app-relationship.md"
+        },
+        {
+          "slug": "domo-access",
+          "title": "Domo instance access",
+          "file": "source/shared/domo-access.md"
+        },
+        {
+          "slug": "escalation-support",
+          "title": "Escalation and support model",
+          "file": "source/shared/escalation-and-support.md"
+        }
+      ]
+    },
+    {
+      "title": "Data platform",
+      "topics": [
+        {
+          "slug": "dataset-inventory",
+          "title": "Shared dataset inventory",
+          "file": "source/shared/dataset-inventory.md"
+        },
+        {
+          "slug": "dataflow-inventory",
+          "title": "Dataflow inventory",
+          "file": "source/apps/regis-app/data-sources/dataflow-inventory.md"
+        },
+        {
+          "slug": "daily-sales-master-2",
+          "title": "Daily Sales Master 2",
+          "file": "source/apps/regis-app/data-sources/daily-sales-master-2.md"
+        },
+        {
+          "slug": "store-scorecard-data",
+          "title": "Store Scorecard Data",
+          "file": "source/apps/regis-app/data-sources/store-scorecard-data.md"
+        },
+        {
+          "slug": "dimsalon",
+          "title": "DimSalon dataset",
+          "file": "source/apps/regis-app/data-sources/dimsalon-dataset.md"
+        },
+        {
+          "slug": "franchisee-shared-datasets",
+          "title": "Franchisee app shared datasets",
+          "file": "source/apps/regis-franchisee-app/data-sources/shared-datasets.md"
+        }
+      ]
+    },
+    {
+      "title": "PDP and access",
+      "topics": [
+        {
+          "slug": "pdp-overview",
+          "title": "PDP overview and testing",
+          "file": "source/shared/pdp-overview-and-testing.md"
+        },
+        {
+          "slug": "pdp-policy-inventory",
+          "title": "PDP policy inventory",
+          "file": "source/shared/pdp-policy-inventory.md"
+        },
+        {
+          "slug": "regis-app-user-roles",
+          "title": "REGIS APP — user roles and access",
+          "file": "source/apps/regis-app/maintenance/user-roles-and-access.md"
+        },
+        {
+          "slug": "franchisee-user-roles",
+          "title": "Franchisee app — user roles and access",
+          "file": "source/apps/regis-franchisee-app/maintenance/user-roles-and-access.md"
+        }
+      ]
+    },
+    {
+      "title": "Daily use (User Guide)",
+      "topics": [
+        {
+          "slug": "daily-use-pointer",
+          "title": "Daily use guides",
+          "file": "source/delivery/admin-daily-use-pointer.md"
+        }
+      ]
+    },
+    {
+      "title": "REGIS APP — Maintenance",
+      "topics": [
+        {
+          "slug": "regis-change-management",
+          "title": "Change management checklist",
+          "file": "source/apps/regis-app/maintenance/change-management-checklist.md"
+        },
+        {
+          "slug": "regis-beast-mode",
+          "title": "Beast Mode edits",
+          "file": "source/apps/regis-app/maintenance/beast-mode-edits.md"
+        },
+        {
+          "slug": "regis-troubleshooting",
+          "title": "Troubleshooting guide",
+          "file": "source/apps/regis-app/maintenance/troubleshooting-guide.md"
+        },
+        {
+          "slug": "regis-runbook-refresh",
+          "title": "Runbook — refresh failures",
+          "file": "source/apps/regis-app/maintenance/runbook-refresh-failures.md"
+        }
+      ]
+    },
+    {
+      "title": "REGIS FRANCHISEE APP — Maintenance",
+      "topics": [
+        {
+          "slug": "franchisee-change-checklist",
+          "title": "Change checklist",
+          "file": "source/apps/regis-franchisee-app/maintenance/change-checklist.md"
+        },
+        {
+          "slug": "franchisee-pdp-troubleshooting",
+          "title": "PDP troubleshooting",
+          "file": "source/apps/regis-franchisee-app/maintenance/pdp-troubleshooting.md"
+        },
+        {
+          "slug": "franchisee-troubleshooting",
+          "title": "Troubleshooting guide",
+          "file": "source/apps/regis-franchisee-app/maintenance/troubleshooting-guide.md"
+        },
+        {
+          "slug": "franchisee-runbook-access",
+          "title": "Runbook — access and PDP issues",
+          "file": "source/apps/regis-franchisee-app/maintenance/runbook-access-issues.md"
+        }
+      ]
+    },
+    {
+      "title": "Reference",
+      "topics": [
+        {
+          "slug": "glossary",
+          "title": "Glossary",
+          "file": "source/shared/glossary.md"
+        }
+      ]
+    }
+  ]
+}
