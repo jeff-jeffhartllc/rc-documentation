@@ -172,6 +172,29 @@ Service-type breakdown dataset output from **Daily Sales ETL 2**. Not a primary 
 | **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
+## DSM2 - Daily Sales By Traffic (ETL derivative)
+
+Traffic-based sales split dataset output from **Daily Sales ETL 2**. Not a primary REGIS app card source, but PDP is enabled with the standard franchisee pattern.
+
+| Item | Value |
+| --- | --- |
+| **Domo dataset name** | DSM2 - Daily Sales By Traffic |
+| **Dataset ID** | `b5bac1e5-bd22-47b9-b8de-a19bc0237de0` |
+| **Owner** | Jeff Hart |
+| **Scale** | 23 columns · 4,540,518 rows |
+| **Tags** | PDP |
+| **PDP status** | **Enabled** — Row Filtering ON |
+| **PDP URL** | https://regiscorp.domo.com/datasources/b5bac1e5-bd22-47b9-b8de-a19bc0237de0/details/rls |
+
+![DSM2 - Daily Sales By Traffic PDP row policies](../../assets/dsm2-daily-sales-by-traffic-pdp-policies.png)
+
+### Row policies (DSM2 - Daily Sales By Traffic)
+
+| Policy name | Type | Data access / filter | Groups & people | Notes |
+| --- | --- | --- | --- | --- |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
+
 ## Other datasets (PDP status TBD)
 
 Scorecard and dimension datasets below are used by app cards and filters. Their PDP settings were **not fully captured** in this session. An Admin should open each dataset's **PDP** tab and confirm whether row policies mirror Daily Sales Master 2 or are inherited through card filter linkage.

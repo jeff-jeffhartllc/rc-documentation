@@ -32,7 +32,7 @@ This document lists datasets shared between REGIS APP and REGIS FRANCHISEE APP, 
 | Daily Sales Master | Daily Sales ETL | Prior version; Daily Sales Master 2 is current primary |
 | Daily Sales Indexed by Store | Daily Sales Master Indexing | Prior version of indexed dataset |
 | Daily Sales Unpivoted Services 2 | Daily Sales ETL 2 | Service-type breakdowns; **PDP enabled** |
-| DSM2 - Daily Sales By Traffic | Daily Sales ETL 2 | Traffic-based sales splits |
+| DSM2 - Daily Sales By Traffic | Daily Sales ETL 2 | Traffic-based sales splits; **PDP enabled** |
 | Corp Employee Daily Sales Master | Corp Employees Daily Sales ETL | Corporate employee daily sales |
 | Sales by Store by Day | Sales by Store by Day ETL | Daily store-level sales |
 | Employee Retention | Sales by Store by Day ETL | Loyalty / retention metrics |
@@ -76,6 +76,7 @@ Captured from live Domo on 2026-07-13. See [PDP policy inventory](./pdp-policy-i
 | **domo_regis.MonthlyMetrics** | `f303a86a-67b5-49fa-8874-195eab30506c` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | **domo_regis.FactDailySales** | `5bdaf9aa-0950-432e-a9ce-eaa7cffb2796` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | **Daily Sales Unpivoted Services 2** | `e8d85e2e-6464-40d2-b4e4-a2f138de815d` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
+| **DSM2 - Daily Sales By Traffic** | `b5bac1e5-bd22-47b9-b8de-a19bc0237de0` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | Store Scorecard Data | _TBD_ | Not captured — verify | _TBD_ |
 | Store Scorecard Data_Brand Peers | _TBD_ | Not captured — verify | _TBD_ |
 | Daily Sales Indexed by Store 2 | _TBD_ | Not captured — verify | _TBD_ |
