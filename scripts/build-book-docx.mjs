@@ -50,8 +50,6 @@ async function buildBookDocx(manifest, fileIndex) {
     '',
     '- Use the **Contents** list below to jump to a topic (Ctrl+click / Cmd+click a link).',
     '- Or open **View → Navigation pane** in Microsoft Word to browse by heading.',
-    '- Edit this file directly in Word. Save a dated backup before major changes.',
-    '- This guide is self-contained. No repository, HTML site, or rebuild tools are required for day-to-day maintenance.',
     '',
     '[TOC]',
     '',
