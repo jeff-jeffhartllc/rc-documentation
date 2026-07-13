@@ -58,7 +58,7 @@
 
 | Abbreviation | Full name |
 | --- | --- |
-| DSM / DSM2 | Daily Sales Master / Daily Sales Master 2 |
+| DSM2 | Daily Sales Master 2 |
 | DimSalon | Salon dimension table |
 | FactDailySales | Fact table for daily sales transactions |
 

@@ -29,7 +29,7 @@ Regis franchisee scoping uses Domo **Personalized Data Permissions (PDP)** with 
          │                              │
          │                              └── Dynamic filter: dataset column EQUALS user attribute
          │
-         └── Determines WHICH policy applies (All Rows vs Franchisee vs Territory)
+         └── Determines WHICH policy applies (All Rows vs Franchisee)
 ```
 
 **Group membership** decides which row policy applies to a user. **Custom attributes** on the user profile supply the filter value for dynamic policies. Both must be correct for franchisee access to work.
@@ -39,11 +39,8 @@ Regis franchisee scoping uses Domo **Personalized Data Permissions (PDP)** with 
 | Attribute | Used by | PDP filter pattern | Audience |
 | --- | --- | --- | --- |
 | **Ownership** | **Franchisee** row policy on all franchisee-scoped datasets | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | Franchisee users in **RestrictedDataAccess** |
-| **Territory** | **TerritoryDataAccess** row policy on legacy Daily Sales Master only | `Alline_territory` **EQUALS** `Territory` (dynamic) | Territory leaders in **TerritoryDataAccess** |
 
 **Ownership** is the primary franchisee key. Each franchisee user's **Ownership** value must match the `FranchiseeNumber` column in governed datasets (for example Daily Sales Master 2). Values are set in **Admin → Governance → People** when the user is provisioned.
-
-**Territory** applies only to the legacy **Daily Sales Master** dataset, not to Daily Sales Master 2 or REGIS FRANCHISEE APP.
 
 ### Domo groups tied to PDP policies
 
@@ -51,7 +48,6 @@ Regis franchisee scoping uses Domo **Personalized Data Permissions (PDP)** with 
 | --- | --- | --- | --- | --- |
 | **AllDataAccess** | `2014419418` | 49 | **All Rows** (open) | Sees all rows on governed datasets |
 | **RestrictedDataAccess** | `950576281` | 15 | **Franchisee** (dynamic) | Sees rows where `FranchiseeNumber` = user's **Ownership** |
-| **TerritoryDataAccess** | `1547677730` | _not counted_ | **TerritoryDataAccess** on legacy DSM | Sees rows where `Alline_territory` = user's **Territory** |
 | **3c090c15-223e-4377-bf0f-60e2eec980b4** | `1197243980` | 3 | **All Rows** (open) | Internal / test full access (group name is a UUID) |
 
 All Admins and DataSet Owners also receive **All Rows** access via Domo's built-in open-policy rule.
@@ -66,8 +62,6 @@ Nearly every PDP-enabled dataset uses the same two franchisee policies:
 | --- | --- | --- | --- |
 | **All Rows** | Open (all data) | AllDataAccess, admins, UUID test group | None |
 | **Franchisee** | User (filtered) | RestrictedDataAccess | `FranchiseeNumber` = **Ownership** |
-
-Legacy **Daily Sales Master** adds **TerritoryDataAccess** (`Alline_territory` = **Territory**) for territory leaders.
 
 PDP is configured **per dataset** (Data → dataset → **PDP** → Row Policies → enable **Row Filtering**). The same group and attribute bindings are repeated on each governed dataset listed in [PDP policy inventory](./pdp-policy-inventory.md).
 
@@ -107,7 +101,6 @@ Corporate users in **REGIS APP** are governed by standard Domo roles (Admin, Pri
 | User type | App | Expected data scope |
 | --- | --- | --- |
 | Corporate analyst (AllDataAccess) | REGIS APP | All stores (subject to page filters and role) |
-| Territory leader (TerritoryDataAccess) | REGIS APP | Territory-scoped on legacy Daily Sales Master; confirm DSM2 access separately |
 | Franchisee operator (RestrictedDataAccess) | REGIS FRANCHISEE APP | Only salons where `FranchiseeNumber` matches user's **Ownership** attribute |
 | Franchisee with multiple brands | REGIS FRANCHISEE APP | All assigned salons across brands (if Ownership covers them) |
 | Unassigned franchisee user | REGIS FRANCHISEE APP | **No data** or empty cards |
@@ -117,7 +110,6 @@ Corporate users in **REGIS APP** are governed by standard Domo roles (Admin, Pri
 | Dataset | Dataset ID | PDP confirmed | Policy summary |
 | --- | --- | --- | --- |
 | **Daily Sales Master 2** | `8d851507-f995-4918-abc8-90032b2eff65` | **Yes** | **All Rows** (AllDataAccess + admins) · **Franchisee** (`FranchiseeNumber` = Ownership) |
-| Daily Sales Master (legacy) | `19ae8295-9dab-4277-963a-f9c7aab23f78` | Yes | **All Rows** · **TerritoryDataAccess** (`Alline_territory` = Territory) |
 | **domo_regis.MonthlyMetrics** | `f303a86a-67b5-49fa-8874-195eab30506c` | **Yes** | Same as DSM2: **All Rows** · **Franchisee** (`FranchiseeNumber` = Ownership) |
 | **domo_regis.FactDailySales** | `5bdaf9aa-0950-432e-a9ce-eaa7cffb2796` | **Yes** | Same as DSM2: **All Rows** · **Franchisee** (`FranchiseeNumber` = Ownership) |
 | **Daily Sales Unpivoted Services 2** | `e8d85e2e-6464-40d2-b4e4-a2f138de815d` | **Yes** | Same as DSM2 (ETL derivative; not primary app source) |
