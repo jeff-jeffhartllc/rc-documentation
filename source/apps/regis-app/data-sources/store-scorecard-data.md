@@ -20,11 +20,11 @@
 ```
 Daily Sales Master 2 ──┐
                         ├──► Store Scorecard ETL ──► Store Scorecard Data
-domo_regis.MonthlyMetrics ┘          (PDP enabled — FranchiseeNumber = Ownership)
+domo_regis.MonthlyMetrics ┘          (PDP enabled — see PDP policy inventory)
 
 Daily Sales Master 2 ──┐
                         ├──► Store Scorecard by Brand ETL ──► Store Scorecard Data_Brand Peers
-domo_regis.MonthlyMetrics ┘          (PDP enabled — FranchiseeNumber = Ownership)
+domo_regis.MonthlyMetrics ┘          (PDP enabled on inputs and ETL output — ID 41cb7308-2860-431e-92ca-7b63049b8ce9)
 ```
 
 ## Downstream usage
@@ -47,7 +47,7 @@ domo_regis.MonthlyMetrics ┘          (PDP enabled — FranchiseeNumber = Owner
 
 ## PDP note
 
-**domo_regis.MonthlyMetrics** (upstream input) has PDP row filtering enabled with the same **Franchisee** policy as Daily Sales Master 2 (`FranchiseeNumber` = **Ownership** → RestrictedDataAccess). PDP on **Store Scorecard Data** and **Store Scorecard Data_Brand Peers** (ETL outputs) was not captured in this documentation pass — verify in Data Center if franchisee scorecard scope looks incorrect.
+**domo_regis.MonthlyMetrics** (upstream input) and **Store Scorecard Data_Brand Peers** (ETL output, ID `41cb7308-2860-431e-92ca-7b63049b8ce9`) both have PDP row filtering with the **Franchisee** policy (`FranchiseeNumber` = **Ownership** → RestrictedDataAccess). PDP on **Store Scorecard Data** (primary scorecard dataset) was not captured in this pass — verify in Data Center if franchisee report card scope looks incorrect.
 
 ## Failure handling
 

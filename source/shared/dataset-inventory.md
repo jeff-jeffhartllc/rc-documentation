@@ -77,8 +77,8 @@ Captured from live Domo on 2026-07-13. See [PDP policy inventory](./pdp-policy-i
 | **domo_regis.FactDailySales** | `5bdaf9aa-0950-432e-a9ce-eaa7cffb2796` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | **Daily Sales Unpivoted Services 2** | `e8d85e2e-6464-40d2-b4e4-a2f138de815d` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | **DSM2 - Daily Sales By Traffic** | `b5bac1e5-bd22-47b9-b8de-a19bc0237de0` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
+| **Store Scorecard Data_Brand Peers** | `41cb7308-2860-431e-92ca-7b63049b8ce9` | **Yes** — Row Filtering ON | `FranchiseeNumber` = **Ownership** (RestrictedDataAccess) |
 | Store Scorecard Data | _TBD_ | Not captured — verify | _TBD_ |
-| Store Scorecard Data_Brand Peers | _TBD_ | Not captured — verify | _TBD_ |
 | Daily Sales Indexed by Store 2 | _TBD_ | Not captured — verify | _TBD_ |
 | DimSalon | _TBD_ | Not captured — verify | _TBD_ |
 

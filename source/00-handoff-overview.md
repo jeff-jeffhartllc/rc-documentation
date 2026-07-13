@@ -78,7 +78,7 @@ Use the **data-sources** guides and the shared dataset inventory for dataflow, r
 
 The following items could not be fully verified during documentation and require client completion:
 
-1. **Scorecard / dimension PDP** — Daily Sales Master 2, domo_regis.MonthlyMetrics, and domo_regis.FactDailySales PDP are documented. Store Scorecard Data, DimSalon, and related ETL outputs still need PDP tab verification.
+1. **Scorecard / dimension PDP** — Daily Sales Master 2, scorecard lineage inputs/outputs (including Store Scorecard Data_Brand Peers), and related warehouse datasets are documented. **Store Scorecard Data**, **DimSalon**, and **Daily Sales Indexed by Store 2** still need PDP tab verification.
 2. **Ownership contacts** — All owner/escalation fields marked _TBD_.
 3. **Refresh schedules** — Dataflows are documented with lineage; exact cron schedules need confirmation in Domo Dataflows.
 4. **Full field dictionary** — Key fields documented; complete schema export from Data Center recommended.
