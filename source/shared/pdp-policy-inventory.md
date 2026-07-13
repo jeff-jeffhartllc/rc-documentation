@@ -53,7 +53,7 @@ This is the dataset referenced by app filter labels ("Source: Daily Sales Master
 
 | Policy name | Type | Data access / filter | Groups & people | Notes |
 | --- | --- | --- | --- | --- |
-| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
 ### Franchisee policy detail
@@ -75,7 +75,6 @@ Domo resolves each user's **Ownership** attribute at login and filters rows wher
 | --- | --- | --- | --- |
 | **AllDataAccess** | `2014419418` | 49 | Full row access via **All Rows** policy |
 | **RestrictedDataAccess** | `950576281` | 15 | Franchisee-scoped access via **Franchisee** policy |
-| **3c090c15-223e-4377-bf0f-60e2eec980b4** | `1197243980` | 3 | Full row access via **All Rows** policy (internal / test group name is a UUID) |
 
 Test accounts visible in dataset sharing include **Jeff Franchisee** and **Jeff Territory** — useful for PDP validation.
 
@@ -121,7 +120,7 @@ Warehouse-fed monthly metrics dataset used as an input to **Store Scorecard ETL*
 
 | Policy name | Type | Data access / filter | Groups & people | Notes |
 | --- | --- | --- | --- | --- |
-| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
 Scorecard app pages consume **Store Scorecard Data** (ETL output), not this dataset directly — but franchisee PDP on scorecard pages may depend on aligned policies across the scorecard lineage (MonthlyMetrics → ETL → Store Scorecard Data).
@@ -146,7 +145,7 @@ Upstream warehouse fact table feeding **Daily Sales ETL 2** (and legacy Daily Sa
 
 | Policy name | Type | Data access / filter | Groups & people | Notes |
 | --- | --- | --- | --- | --- |
-| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
 This is the root sales fact in the Daily Sales lineage. If franchisee users can query this dataset directly (outside app cards), the same **Franchisee** policy applies.
@@ -171,7 +170,7 @@ Service-type breakdown dataset output from **Daily Sales ETL 2**. Not a primary 
 
 | Policy name | Type | Data access / filter | Groups & people | Notes |
 | --- | --- | --- | --- | --- |
-| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
 ## DSM2 - Daily Sales By Traffic (ETL derivative)
@@ -194,7 +193,7 @@ Traffic-based sales split dataset output from **Daily Sales ETL 2**. Not a prima
 
 | Policy name | Type | Data access / filter | Groups & people | Notes |
 | --- | --- | --- | --- | --- |
-| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
 ## Store Scorecard Data_Brand Peers (scorecard ETL output)
@@ -217,7 +216,7 @@ Brand peer comparison dataset output from **Store Scorecard by Brand ETL**. Powe
 
 | Policy name | Type | Data access / filter | Groups & people | Notes |
 | --- | --- | --- | --- | --- |
-| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
 ## Daily Sales Indexed by Store 2 (indexing ETL output)
@@ -240,7 +239,7 @@ Indexed store performance dataset output from **Daily Sales Master Indexing 2**.
 
 | Policy name | Type | Data access / filter | Groups & people | Notes |
 | --- | --- | --- | --- | --- |
-| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **3c090c15-223e-4377-bf0f-60e2eec980b4** (3 people); **AllDataAccess** (49 people) | For users that can access all salons without restriction |
+| **All Rows** | Open (all data) | All Data | All Admins and DataSet Owners; **AllDataAccess** (49 people) | For users that can access all salons without restriction |
 | **Franchisee** | User (filtered) | `FranchiseeNumber` **EQUALS** `Ownership` (dynamic) | **RestrictedDataAccess** (15 people) | Restricted users based on Ownership / franchisee association |
 
 ## Store Scorecard Data (scorecard ETL output)

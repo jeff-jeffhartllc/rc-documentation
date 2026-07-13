@@ -52,7 +52,6 @@ Regis franchisee scoping uses Domo **Personalized Data Permissions (PDP)** with 
 | **AllDataAccess** | `2014419418` | 49 | **All Rows** (open) | Sees all rows on governed datasets |
 | **RestrictedDataAccess** | `950576281` | 15 | **Franchisee** (dynamic) | Sees rows where `FranchiseeNumber` = user's **Ownership** |
 | **TerritoryDataAccess** | `1547677730` | _not counted_ | **TerritoryDataAccess** on legacy DSM | Sees rows where `Alline_territory` = user's **Territory** |
-| **3c090c15-223e-4377-bf0f-60e2eec980b4** | `1197243980` | 3 | **All Rows** (open) | Internal / test full access (group name is a UUID) |
 
 All Admins and DataSet Owners also receive **All Rows** access via Domo's built-in open-policy rule.
 
@@ -64,7 +63,7 @@ Nearly every PDP-enabled dataset uses the same two franchisee policies:
 
 | Policy name | Type | Groups | Filter |
 | --- | --- | --- | --- |
-| **All Rows** | Open (all data) | AllDataAccess, admins, UUID test group | None |
+| **All Rows** | Open (all data) | AllDataAccess, admins | None |
 | **Franchisee** | User (filtered) | RestrictedDataAccess | `FranchiseeNumber` = **Ownership** |
 
 Legacy **Daily Sales Master** adds **TerritoryDataAccess** (`Alline_territory` = **Territory**) for territory leaders.

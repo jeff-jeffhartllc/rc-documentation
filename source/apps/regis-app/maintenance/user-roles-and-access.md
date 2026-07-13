@@ -33,7 +33,6 @@ These groups control row-level data access on PDP-enabled datasets. Group names 
 | **AllDataAccess** | `2014419418` | 49 | Corporate users who see all salon rows via the **All Rows** PDP policy |
 | **RestrictedDataAccess** | `950576281` | 15 | Franchisee users scoped by **Ownership** attribute |
 | **TerritoryDataAccess** | `1547677730` | — | Territory leaders on legacy **Daily Sales Master** only |
-| **3c090c15-223e-4377-bf0f-60e2eec980b4** | `1197243980` | 3 | Internal / test full-access group (UUID name) |
 
 **Admin → Governance → Groups** is where membership is managed. Franchisee users belong in **RestrictedDataAccess**, not **AllDataAccess**.
 

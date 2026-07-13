@@ -69,7 +69,7 @@ PDP row filtering is **enabled** on this dataset. Franchisee users in REGIS FRAN
 
 | Policy | Filter | Groups |
 | --- | --- | --- |
-| **All Rows** | All data (open policy) | AllDataAccess (49 people); admins; 3c090c15-223e-4377-bf0f-60e2eec980b4 (3 people) |
+| **All Rows** | All data (open policy) | AllDataAccess (49 people); admins |
 | **Franchisee** | `FranchiseeNumber` EQUALS **Ownership** (dynamic user attribute) | RestrictedDataAccess (15 people) |
 
 Open PDP settings: **Data** → **Daily Sales Master 2** → **PDP** → **Row Policies**, or  
