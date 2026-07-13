@@ -5,8 +5,8 @@
 **Document type:** Handoff package overview  
 **Audience:** Client stakeholders and app owners  
 **Domo instance:** https://regiscorp.domo.com  
-**Status:** Complete — pending client ownership contacts and PDP admin validation  
-**Last updated:** 2026-07-10
+**Status:** Complete — pending client ownership contacts  
+**Last updated:** 2026-07-13
 
 </div>
 
@@ -23,7 +23,7 @@ It is designed as a practical reference for daily use and for ongoing upkeep of 
 
 | Section | Location | Description |
 | --- | --- | --- |
-| Library catalog | `library-catalog.pdf` | Master index of all documents |
+| Library catalog | `library-catalog.docx` | Master index of all documents |
 | Shared documentation | `shared/` | Cross-app relationship, PDP, datasets, glossary, support |
 | REGIS APP | `apps/regis-app/` | 7 daily-use guides, 5 maintenance docs, 4 data-source guides |
 | REGIS FRANCHISEE APP | `apps/regis-franchisee-app/` | 6 daily-use guides, 5 maintenance docs, 1 data-source guide |
@@ -35,7 +35,7 @@ It is designed as a practical reference for daily use and for ongoing upkeep of 
 | REGIS APP | Corporate users | 7 | https://regiscorp.domo.com/app-studio/183500481/pages/925282956 |
 | REGIS FRANCHISEE APP | Franchisee users (PDP-limited) | 4 | https://regiscorp.domo.com/app-studio/2028360971/pages/1195391822 |
 
-REGIS FRANCHISEE APP reuses 4 pages from REGIS APP with PDP limiting each franchisee to their own stores. See `shared/regis-app-relationship.pdf`.
+REGIS FRANCHISEE APP reuses 4 pages from REGIS APP with PDP limiting each franchisee to their own stores. See `shared/regis-app-relationship.docx`.
 
 ## How to use this library
 
@@ -43,8 +43,8 @@ REGIS FRANCHISEE APP reuses 4 pages from REGIS APP with PDP limiting each franch
 
 Start with the **daily-use** guides for your app:
 
-- Corporate users → `apps/regis-app/daily-use/app-overview.pdf`
-- Franchisee users → `apps/regis-franchisee-app/daily-use/app-overview.pdf`
+- Corporate users → `apps/regis-app/daily-use/app-overview.docx`
+- Franchisee users → `apps/regis-franchisee-app/daily-use/app-overview.docx`
 
 ### For app owners and analysts
 
@@ -57,11 +57,11 @@ Use the **data-sources** guides and the shared dataset inventory for dataflow, r
 ## Recommended reading order
 
 1. This overview
-2. `library-catalog.pdf`
-3. `shared/regis-app-relationship.pdf`
+2. `library-catalog.docx`
+3. `shared/regis-app-relationship.docx`
 4. Your app's overview and daily-use guides
 5. Maintenance and data-source guides for your role
-6. `shared/pdp-overview-and-testing.pdf` (if you manage franchisee access)
+6. `shared/pdp-overview-and-testing.docx` and `shared/pdp-policy-inventory.docx` (if you manage franchisee access)
 
 ## Support model after handoff
 
@@ -76,15 +76,9 @@ Use the **data-sources** guides and the shared dataset inventory for dataflow, r
 
 ## Known gaps requiring client input
 
-The following items could not be fully verified during documentation and require client completion:
+The following item requires client completion before handoff is fully closed:
 
-1. **PDP policy details** — PDP policy names, attribute mappings, and field-level rules were not captured during automated exploration (see `shared/pdp-overview-and-testing.md`). An Admin user should complete this section from Domo Admin / dataset PDP settings.
-2. **Ownership contacts** — All owner/escalation fields marked _TBD_.
-3. **Refresh schedules** — Dataflows are documented with lineage; exact cron schedules need confirmation in Domo Dataflows.
-4. **Full field dictionary** — Key fields documented; complete schema export from Data Center recommended.
-5. **Group names** — Franchisee and corporate access group names need to be filled in.
-6. **SSO provider details** — Authentication configuration to be documented by IT.
-7. **Scheduled report recipients** — Distribute schedules to be documented by app owner.
+1. **Ownership contacts** — All owner and escalation fields marked _TBD_ in the support model and individual documents (primary app owner, data owner, PDP / access owner, escalation contact, change approval process).
 
 ## Document conventions
 
@@ -95,8 +89,8 @@ The following items could not be fully verified during documentation and require
 
 ## Feedback and updates
 
-Update Markdown source files in this repository, then rebuild PDFs:
+Update Markdown source files in this repository, then rebuild documents:
 
 ```bash
-npm run pdf:build:clean
+npm run docx:build:clean
 ```

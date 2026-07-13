@@ -6,8 +6,9 @@
 **Document type:** Data source guide  
 **Audience:** Data owners, analysts  
 **Domo dataset:** Daily Sales Master 2  
-**Last updated:** 2026-07-10  
-**Author / owner:** _TBD — data owner_
+**Dataset ID:** `8d851507-f995-4918-abc8-90032b2eff65`  
+**Last updated:** 2026-07-13  
+**Author / owner:** Jeff Hart (dataset owner); _TBD — data owner contact_
 
 </div>
 
@@ -15,15 +16,19 @@
 
 **Daily Sales Master 2** is the primary dataset powering filters and KPI cards on both REGIS APP and REGIS FRANCHISEE APP. Filter labels on app pages show "Source: Daily Sales Master 2". It contains daily salon-level sales, traffic, productivity, loyalty, and dimension attributes.
 
+> **Naming note:** Domo also has a separate legacy dataset named **Daily Sales Master** (ID `19ae8295-9dab-4277-963a-f9c7aab23f78`, owner Keela Davis). The apps use **Daily Sales Master 2**, not the legacy dataset.
+
 ## Source system
 
 | Item | Value |
 | --- | --- |
 | Upstream system | Regis data warehouse (domo_regis schema) + Alline feeds |
 | Connection type | Magic ETL (Daily Sales ETL 2) |
-| Owner | _TBD — data owner_ |
-| Refresh schedule | _TBD — confirm in Domo Dataflows; typically daily after upstream loads_ |
-| Historical depth | _TBD — confirm with data owner_ |
+| Owner | Jeff Hart |
+| Dataset ID | `8d851507-f995-4918-abc8-90032b2eff65` |
+| Scale (2026-07-13) | 204 columns · 1,513,506 rows |
+| Refresh schedule | Triggered when **domo_regis.FactDailySales** updates → **Daily Sales ETL 2** runs (America/Chicago). See [Dataflow inventory](./dataflow-inventory.md). |
+| Historical depth | 1,513,506 rows as of 2026-07-13 |
 
 ## Lineage
 
@@ -57,6 +62,20 @@ Alline Total Sales Forecast ┘                           ├──► Daily Sal
 | Retention metrics | 90-day / 180-day retention rates | Loyalty section cards |
 
 > **Client action required:** Export the full column list from Data Center → Daily Sales Master 2 → Schema and append to this guide as a complete field dictionary.
+
+## Personalized Data Permissions (PDP)
+
+PDP row filtering is **enabled** on this dataset. Franchisee users in REGIS FRANCHISEE APP are scoped by the **Franchisee** policy.
+
+| Policy | Filter | Groups |
+| --- | --- | --- |
+| **All Rows** | All data (open policy) | AllDataAccess (49 people); admins; 3c090c15-223e-4377-bf0f-60e2eec980b4 (3 people) |
+| **Franchisee** | `FranchiseeNumber` EQUALS **Ownership** (dynamic user attribute) | RestrictedDataAccess (15 people) |
+
+Open PDP settings: **Data** → **Daily Sales Master 2** → **PDP** → **Row Policies**, or  
+https://regiscorp.domo.com/datasources/8d851507-f995-4918-abc8-90032b2eff65/details/rls
+
+See [PDP policy inventory](../../shared/pdp-policy-inventory.md) for full detail and change procedures.
 
 ## Downstream usage
 

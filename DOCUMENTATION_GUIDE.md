@@ -10,7 +10,7 @@ Produce a **complete client handoff library** so the client can:
 2. Maintain the apps and their data sources without vendor dependency
 3. Troubleshoot common issues and know when to escalate
 
-Deliverables are **PDF-first**. Author in Markdown under `source/`; run `npm run pdf:build` to generate PDFs in `dist/`.
+Deliverables are **DOCX**. Author in Markdown under `source/`; run `npm run docx:build` to generate Word documents in `dist/`.
 
 ## Two apps, one library
 
@@ -55,7 +55,7 @@ Copy from `source/_templates/` when creating new documents:
 | `runbook.md` | Step-by-step operational procedures |
 | `troubleshooting-guide.md` | Symptom → cause → fix reference |
 
-Templates are **not** exported to PDF. Remove template placeholder text before marking a document complete.
+Templates are **not** exported to DOCX. Remove template placeholder text before marking a document complete.
 
 ## Authoring rules
 
@@ -85,27 +85,27 @@ Before handoff, confirm the library includes at least:
 
 ### Shared / cross-app
 
-- [ ] Domo instance access and SSO notes
+- [ ] Domo instance access notes
 - [ ] Shared datasets between REGIS APP and REGIS FRANCHISEE APP
 - [ ] PDP rules, testing, and franchisee access troubleshooting
 - [ ] Naming conventions and environment notes (prod vs sandbox)
 - [ ] Escalation contacts and support boundaries
 - [ ] Glossary of business terms and calculated fields
 
-## Building PDFs
+## Building DOCX files
 
 ```bash
 npm install
-npm run pdf:build
+npm run docx:build
 ```
 
-While authoring:
+For a clean rebuild:
 
 ```bash
-npm run pdf:watch
+npm run docx:build:clean
 ```
 
-Review output under `dist/` before client delivery. Fix formatting issues in the Markdown or `assets/pdf-style.css`.
+Review output under `dist/` before client delivery. Fix formatting issues in the Markdown source.
 
 ## Suggested workflow for the exploration agent
 
@@ -114,7 +114,7 @@ Review output under `dist/` before client delivery. Fix formatting issues in the
 3. Create overview docs first, then daily-use, then maintenance, then data-sources
 4. Expand `source/shared/regis-app-relationship.md` with PDP and shared-dataset detail
 5. Update `library-catalog.md` and `00-handoff-overview.md`
-6. Run `npm run pdf:build:clean` and QA every PDF in `dist/`
+6. Run `npm run docx:build:clean` and QA every DOCX in `dist/`
 
 ## Quality bar
 

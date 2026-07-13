@@ -6,7 +6,7 @@ import { convertMarkdownToDocx } from '@mohtasham/md-to-docx'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
 const sourceDir = path.join(rootDir, 'source')
-const distDir = path.join(rootDir, 'dist-docx')
+const distDir = path.join(rootDir, 'dist')
 
 const args = new Set(process.argv.slice(2))
 const shouldClean = args.has('--clean')
@@ -107,7 +107,7 @@ async function buildAll() {
     console.log(`  ✓ ${output}`)
   }
 
-  console.log(`\nDone. ${built.length} DOCX file(s) written to dist-docx/`)
+  console.log(`\nDone. ${built.length} DOCX file(s) written to dist/`)
 }
 
 try {

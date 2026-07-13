@@ -1,6 +1,5 @@
 node_modules/
 dist/
-dist-docx/
 .DS_Store
 *.log
 .puppeteer/

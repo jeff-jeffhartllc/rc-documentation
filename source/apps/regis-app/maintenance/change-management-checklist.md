@@ -66,7 +66,7 @@ This guide defines the safe change process for editing pages, cards, and Beast M
 | New corporate-only page | No franchisee impact | None |
 | Filter default change on shared page | Both apps if same card | Test both apps |
 
-See `shared/regis-app-relationship.pdf` for the shared page mapping.
+See `shared/regis-app-relationship.docx` for the shared page mapping.
 
 ## Rollback
 

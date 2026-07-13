@@ -59,7 +59,7 @@ These REGIS APP pages are corporate-only:
 - The location map shows **Active Franchise Locations** (not "Active Regis Locations").
 - Page filters (Brand, Salon, DMA, etc.) work within your assigned stores.
 
-See `shared/pdp-overview-and-testing.pdf` for full PDP detail.
+See `shared/pdp-overview-and-testing.docx` for full PDP detail.
 
 ## Who should read this
 
